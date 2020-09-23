@@ -4,3 +4,6 @@
 - VS Code
 - git
 - Node and npm
+
+## Accounts
+- GitHub
