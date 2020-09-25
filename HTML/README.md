@@ -51,3 +51,12 @@ Learning Web Design Chapter 8: Table Markup
 **Assessment**  
 [Planetary data table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Structuring_planet_data)  
 Because it involves CSS, don't worry about completing Step 7: "Add a black border just around the column that contains all the planet name row headers."
+  
+  
+## Forms
+
+**Readings**  
+Learning Web Design Chapter 9: Forms
+
+**Assessment**  
+[Create user form](https://github.com/tupes/comit-react/blob/master/HTML/forms/forms-assessment.md)  
