@@ -29,3 +29,21 @@ Learning Web Design Chapter 6: Adding Links
 **Assessment**  
 [Marking up a letter](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter)  
 This mostly involves text elements, but since it also includes links I've put it here.
+
+
+## Images
+
+**Readings**  
+Learning Web Design Chapter 7: Adding Images
+- Don't worry about the "Adding SVG Images" section.
+- The "Responsive Image Markup" section is important for creating web applications that look good on mobile too, but don't worry about learning it for now.
+
+
+## Tables
+**Readings**  
+Learning Web Design Chapter 8: Table Markup
+- Again, the "Table Accessibility" section is important, but don't worry about learning it for now.
+
+**Assessment**  
+[Planetary data table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Structuring_planet_data)  
+Because it involves CSS, don't worry about completing Step 7: "Add a black border just around the column that contains all the planet name row headers."
