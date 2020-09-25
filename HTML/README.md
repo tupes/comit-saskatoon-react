@@ -33,6 +33,16 @@ Learning Web Design Chapter 6: Adding Links
 **Assessments**  
 - [Marking up a letter](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter)  (This mostly involves text elements, but since it also includes links I've put it here)
 - [Site navigation links](https://github.com/tupes/comit-react/blob/master/HTML/links/links-assessment.md)
+
+**Applications**  
+- Note-Passing Application
+  - Navigation Menu (Home, My Notes, Favorites, New)
+- Issue Tracking Application
+  - Navigation Menu (Home, Issue List, Report)
+- Email Client Application
+  - Navigation Menu (Inbox, Storage, Sent Messages, Deleted Messages, ...)
+- Code Evaluation Tool
+  - Navigation Menu (About, Users, User Status, Swagger, Log Out)
   
   
 ## Images
@@ -41,6 +51,15 @@ Learning Web Design Chapter 6: Adding Links
 Learning Web Design Chapter 7: Adding Images
 - Don't worry about the "Adding SVG Images" section.
 - The "Responsive Image Markup" section is important for creating web applications that look good on mobile too, but don't worry about learning it for now.
+
+**Applications**  
+- Note-Passing Application
+  - Logo in top-left corner
+  - User profile image
+- E-commerce Application
+  - Items images (not shown in example screenshot, but we can add them)
+- Mahjong Game
+  - Tile images
   
   
 ## Tables
@@ -51,6 +70,12 @@ Learning Web Design Chapter 8: Table Markup
 **Assessment**  
 [Planetary data table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Structuring_planet_data)  
 Because it involves CSS, don't worry about completing Step 7: "Add a black border just around the column that contains all the planet name row headers."
+
+**Applications**  
+- Issue Tracking Application
+  - table of issues
+- Email Client Application
+  - Inbox table of emails
   
   
 ## Forms
