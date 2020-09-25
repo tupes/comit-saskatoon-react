@@ -30,9 +30,9 @@ This is just about lists. The assessment in the "Links" section covers a lot of 
 **Readings**  
 Learning Web Design Chapter 6: Adding Links
 
-**Assessment**  
-[Marking up a letter](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter)  
-This mostly involves text elements, but since it also includes links I've put it here.
+**Assessments**  
+- [Marking up a letter](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter)  (This mostly involves text elements, but since it also includes links I've put it here)
+- [Site navigation links](https://github.com/tupes/comit-react/blob/master/HTML/links/links-assessment.md)
   
   
 ## Images
