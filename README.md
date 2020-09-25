@@ -21,5 +21,12 @@
 ## Accounts
 - GitHub
 
+## Topics
+- HTML
+- CSS
+- JavaScript
+- React
+- Node
+
 ## Readings
 Learning Web Design - Chapter 2: How the Web Works
