@@ -32,3 +32,5 @@
 Learning Web Design - Chapter 2: How the Web Works 
 
 Learning Web Design - Chapter 4: Intro to HTML
+
+The Definitive Guide to HTML5 - Chapter 8
