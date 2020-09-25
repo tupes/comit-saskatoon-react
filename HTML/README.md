@@ -20,3 +20,12 @@ Learning Web Design Chapter 5: Marking up Text
 - Don't worry too much about the "Organizing Page Content" section. These elements can often confuse people, and they're completely optional.
 - For the "Inline Element Roundup" section, don't worry about learning all of these elements. The important thing is to be aware of what kind of things are available.
 - The "Improving Accessibility with Aria" section is important, but don't worry about learning it for now.
+
+
+## Links
+**Readings**  
+Learning Web Design Chapter 6: Adding Links
+
+**Assessment**  
+[Marking up a letter](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Marking_up_a_letter)  
+This mostly involves text elements, but since it also includes links I've put it here.
