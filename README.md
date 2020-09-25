@@ -1,4 +1,4 @@
-# comit-saskatoon-react
+# ComIT React Course, Saskatoon 2020 
 
 ## Things to install
 - VS Code
@@ -22,15 +22,8 @@
 - GitHub
 
 ## Topics
-- HTML
+- [HTML](https://github.com/tupes/comit-saskatoon-react/tree/master/HTML)
 - CSS
 - JavaScript
 - React
 - Node
-
-## Readings
-Learning Web Design - Chapter 2: How the Web Works 
-
-Learning Web Design - Chapter 4: Intro to HTML
-
-Learning Web Design - Chapter 5: Text Formatting
