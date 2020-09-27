@@ -45,6 +45,6 @@ The most important skills to develop are problem-solving and self-learning. I'm 
   - How the web works (Client/Server, HTTP Request/Response)
   - HTML for structure, CSS for look and appearance, JavaScript for behaviour
   - Markdown-formatted files
-  - Cloning repos, staging changes and comitting those changes ,pulling from and pushing to github repos
+  - Cloning repos, staging changes and comitting those changes , pulling from and pushing to github repos
   - Creating branches and making pull requests[Merge Requests]
   - Understanding Merge Conflicts
