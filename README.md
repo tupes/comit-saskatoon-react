@@ -34,3 +34,5 @@ The most important skills to develop are problem-solving and self-learning. I'm 
 - JavaScript
 - React
 - Node
+
+Test message for Lori-Ann
