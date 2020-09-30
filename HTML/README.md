@@ -22,7 +22,7 @@ Learning Web Design Chapter 5: Marking up Text
 - The "Improving Accessibility with Aria" section is important, but don't worry about learning it for now.
 
 **Assessment**  
-[Hogwarts lists](https://github.com/tupes/comit-react/blob/master/HTML/lists/lists-assessment.md)  
+[Hogwarts lists](https://github.com/tupes/comit-saskatoon-react/blob/master/HTML/lists/lists-assessment.md)  
 This is just about lists. The assessment in the "Links" section covers a lot of the text elements.
   
   
