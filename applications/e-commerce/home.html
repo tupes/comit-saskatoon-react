@@ -5,35 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sport store</title>
+    <link rel="stylesheet" href="mystyle.css" />
   </head>
   <body>
     <div class="page-container">
       <header class="page-header">
-        <div class="page-header_ultilities">
-          <div class="header-quicklinks">
-            <ul>
-              <li><a href="#">All super sale today</a></li>
-              <li><a href="#">Free shipping now</a></li>
-              <li><a href="#">Sign up for SS_card</a></li>
-            </ul>
-          </div>
-          <div class="hear-account_menu">
-            <ul>
-              <li><a href="#">Sign up</a></li>
-              <li><a href="#">Sign in</a></li>
-            </ul>
+        <div class="page-header_utilities">
+          <div class="container">
+            <div class="header-quicklinks">
+              <ul class="quick-links_wrapper">
+                <li class="quick-links_item">
+                  <a class="qlink" href="#">All super sale today</a>
+                </li>
+                <li class="quick-links_item">
+                  <a class="qlink" href="#">Free shipping available</a>
+                </li>
+                <li class="quick-links_item">
+                  <a class="qlink" href="#">Register for SportStore Giftcard</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-signin">
+              <a class="signin" href="#">Sign In/Create Account</a>
+            </div>
           </div>
         </div>
 
-        <div class="page-header_container">
+        <div class="page-header_container container">
           <div class="page-header_logo">
-            <div class="header-logo">
-              <img class="print-only" height="36" width="106" src="/logo.jpg" />
-              <a href="#">SPORT STORE</a>
-            </div>
+            <img class="print-only" height="45" width="196" src="/logo.png" />
           </div>
           <div class="header-cart">
-            <h3>Your cart</h3>
+            <a href="#" class="header-cart_trigger">
+              <span class="header-cart_count">0</span>
+            </a>
           </div>
         </div>
       </header>
@@ -41,12 +46,11 @@
       <main class="page-content">
         <div class="page-content_aside">
           <aside class="aside-menu">
-            <h4>Select category:</h4>
-            <ul>
-              <li>All</li>
-              <li>Watersports</li>
-              <li>Soccer</li>
-              <li>Chess</li>
+            <ul class="ul-vertical_nb">
+              <li class="li-vertical_nb"><a class="active" href="#">All</a></li>
+              <li class="li-vertical_nb"><a href="#">Watersports</a></li>
+              <li class="li-vertical_nb"><a href="#">Soccer</a></li>
+              <li class="li-vertical_nb"><a href="#">Chess</a></li>
             </ul>
           </aside>
           <div class="aside-info">
@@ -59,29 +63,46 @@
         </div>
         <div class="page-content_center">
           <section>
-            <h3>About Us</h3>
-            <p>
-              Established in <strong>2015</strong>, our store has
-              <span class="promise">always</span> provided the best service and
-              prices available!
-            </p>
-            <p>
-              We strive to be the <em>best</em> option for your sporting needs!
-            </p>
+            <img class="paging_menu" src="/paging_menu.jpg" />
+          </section>
+          <section>
+            <table>
+              <tr>
+                <th>Sport Items</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>
+                  <head>
+                    Men's Terrex Agravic Flow Shoes
+                  </head>
+                </td>
+                <td>$45.55</td>
+              </tr>
+              <tr>
+                <td>FA19 Mercurial Skills Soccer Ball</td>
+                <td>$38.97</td>
+              </tr>
+              <tr>
+                <td>Diadora Squad Top Training Soccer Ball</td>
+                <td>$108.99</td>
+              </tr>
+              <tr>
+                <td>Rossignol Men's X-2 Nordic Boots</td>
+                <td>$83.97</td>
+              </tr>
+            </table>
           </section>
         </div>
       </main>
 
       <footer class="page-footer">
         <p>
-          Copyright by Sport Store 2020 - Design by Le Dung from ComIt@saskatoon
-        </p>
-        <p>
-          Contact us by email:
+          Copyright by Sport Store 2020 - Design by Le Dung from ComIt Saskatoon
+          2020 - Contact us by email:
           <a href="mailto:fake@example.com">ledung1974@gmail.com</a>
         </p>
       </footer>
     </div>
   </body>
 </html>
-
