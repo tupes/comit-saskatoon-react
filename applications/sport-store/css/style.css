@@ -1,0 +1,258 @@
+/* General style settings */
+html, body, header, main, footer {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+html, body, header, main, footer, aside, div {
+  display: block;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: rgb(179, 166, 166);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Page style settings */
+#page-container{
+  margin: 0px;
+  padding: 0px 0px;
+  border: none;
+  position: absolute;
+  width: 100%;
+}
+
+.page_margin_container {
+  margin: 0px;
+  padding: 0px 100px;
+  border: none;
+  position: relative;
+}
+
+/* Header style settings*/ 
+#page-header {
+   position: relative;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: #302330;
+   box-shadow: rgba(0, 0, 0, 0.25) 0 0 4px 2px;
+}
+
+#top-header{
+  position: relative;
+  min-height: 29px;
+  font-size: 13px;
+  background-color: #1a0f1a;
+} 
+
+.header_quicklinks {
+    float: left;
+    margin: 0;
+    padding: 0px;
+  }
+  .quick_links_wrapper {
+    float: left;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  .quick_links_item {
+    display: inline-block;
+    padding-right:80px;
+    padding-top: 5px;
+  }
+  .qlink {
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .header_signin {
+    float: right;
+    padding-right:0px;
+    padding-top: 5px;
+  }
+  .signin {
+    color: #fff;
+    cursor: pointer;
+  }
+  #page-header a:link {
+    text-decoration: none;
+  }
+  #page-header a:hover {
+    color: rgb(243, 210, 62);
+  }
+ 
+  #logo-header{
+    position: relative;
+    min-height: 62px;
+    background-color: #240f23;
+  }
+  .page_header_logo {
+    float: left;
+    margin: 0px;
+    padding: 5px 0px;
+    width: 85%;
+  }
+  
+  .header_cart {
+    position: relative;
+    float: right;
+    cursor: pointer;
+  }
+  
+  .header_cart_trigger {
+    background-image: url("/applications/sport-store/images/cart.png");
+    display: inline-block;
+    height: 45px;
+    width: 100px;
+    margin:0px;
+  }
+  .header_cart_count {
+    top: 46%;
+    right: 7%;
+    padding: 0px 5px;
+    font-size: 12px;
+    transform: translateY(-18px);
+    border-radius: 4px;
+    background: #e72020;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    border-style: solid;
+    border-width: 0;
+  }
+  
+/* Page Content Style settings */
+  #page-content {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    margin:0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .page_content_aside {
+    width: 20%;
+    float: left;
+    padding-left: 0px;
+  }
+  
+  .page_content_center {
+    float: right;
+    padding-right: 0px;
+    width: 75%;
+  }
+  
+  .ul_vertical_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: transparent;
+  }
+  
+  .li_vertical_menu {
+    margin: 5px 0px;
+    border-radius: 5px;
+    background-color: #454646;
+  }
+  .li_vertical_menu a {
+    display: block;
+    color: rgb(185, 182, 182);
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .li_vertical_menu a.active {
+    border-radius: 5px;
+    background-color: rgb(2, 47, 58);
+    color: white;
+  }
+  
+  .li_vertical_menu a:hover:not(.active) {
+    background-color: rgb(142, 160, 165);
+    color: white;
+  }
+  
+  .aside_news {
+    text-align: justify;
+  }
+
+  
+  .paging_menu {
+    width: 100%;
+  }
+    
+  #page-content table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #page-content td, th {
+    border: 1px solid rgb(2, 47, 58);;
+    text-align: left;
+    padding: 3px 8px;
+  }
+  
+  #page-content tr:nth-child(even) {
+    background-color: #e0ecfa;
+  }
+  
+  /*Footer style settings*/
+  #page-footer {
+    background: #323a45;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #8a9098;
+    text-align: center;
+  }
+  #page-footer a{
+    color: #5995e4;
+  }
+  
+
+  /* Header Search Style is still in the process of designing ....*/
+  .header_search{
+    float: right; 
+    position: relative;
+    width: 71%;
+    margin: 0px;
+    padding-top: 10px;
+  }
+
+  form.example input[type=text] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid grey;
+    float:left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  form.example button {
+    float: left;
+    width: 16%;
+    padding:6px 5px;
+    background: #01575a;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #35a1a5;
+  }
+  
+  
