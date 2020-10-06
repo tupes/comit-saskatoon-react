@@ -8,12 +8,12 @@
 
 <body>
     <h2>Create an account</h2>
-    <form action="http://localhost:80/form" method="POST">
+    <form action="http://localhost:80/form" method="POST" target="_blank">
         <p><label>Name
-                <input type="text" name="name" />
+                <input type="text" name="name" autofocus required />
             </label></p>
         <p><label>Email
-                <input type="email" name="email" />
+                <input type="email" name="email" disabled />
             </label></p>
         <p><label>Age
                 <input type="number" name="age" />
@@ -21,12 +21,36 @@
         <p><label>Date of Birth
                 <input type="date" name="dob" />
             </label></p>
+        <p><label>Password
+                <input type="password" name="password" readonly />
+            </label></p>
+        <p><label>Search
+                <input type="search" name="search" />
+            </label></p>
+
+
+        <h4>Email policy</h4>
+        <p><label>Account emails
+                <input type="checkbox" name="emails" value="account" />
+            </label></p>
+        <p><label>Newsletter emails
+                <input type="checkbox" name="emails" value="newsletter" />
+            </label></p>
+
+        <p>Do you agree to the terms of service?
+            <label>Yes
+                <input type="radio" name="tos" value="yes" />
+            </label>
+            <label>No
+                <input type="radio" name="tos" value="no" />
+            </label>
+        </p>
 
         <p>
             <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button">Do something special</button>
         </p>
-
-
     </form>
 </body>
 
