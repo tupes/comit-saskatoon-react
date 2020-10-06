@@ -23,3 +23,17 @@ Learning Web Design Chapter 16
 **Readings**  
 Learning Web Design Chapter 14: Thinking Inside the Box
 - Don't worry about the "Box Drop Shadows" section.
+
+
+## Colors and Backgrounds
+
+**Readings**  
+Learning Web Design Chapter 13: Colors and Backgrounds
+- Don't worry about the "Like a Rainbow (Gradients)" section.
+
+
+## Text
+
+**Readings**  
+Learning Web Design Chapter 12: Formatting Text
+- Don't worry about the "Text Shadow" section.
