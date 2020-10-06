@@ -1,7 +1,14 @@
 ## Introduction to CSS
 
 **Readings**  
-Learning Web Design Chapter 11: Introducing Cascading Style Sheets
+Learning Web Design  
+- Chapter 11: Introducing Cascading Style Sheets
+- Chapter 12
+  - A Few More Selector Types
+- Chapter 13
+  - Pseudo-Class Selectors
+  - Pseudo-Element Selectors
+  - Attribute Selectors
 
 
 ## CSS Grid
