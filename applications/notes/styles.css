@@ -1,0 +1,36 @@
+.container {
+    display: grid;
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.page-header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.logout {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+    justify-self: end;
+    align-self: center;
+}
+
+nav {
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
+    background-color: beige;
+}
+
+.note {
+    grid-row: 2 / -1;
+    grid-column: 2 / 3;
+    justify-self: center;
+    background-color: white;
+}
+
+aside {
+    grid-row: 2 / -1;
+    grid-column: 3 / 4;
+    background-color: green;
+}

@@ -3,80 +3,82 @@
 
 <head>
   <title>Sign in- Notedly</title>
+  <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <h1>Notedly</h1>
-    <a href="/">Logout</a><br>
-    <a href="#permalink-section">Permalink</a>
-  </header>
-  <hr />
-  <nav>
-    <ul>
-      <li>
-        <img src="/" />
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">My Notes</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">Favorites</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">New</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="container">
 
-  <main>
-    <section>
+    <h1 class="page-header">Notedly</h1>
+    <a class="logout" href="/">Logout</a><br>
+
+    <nav>
+      <ul>
+        <li>
+          <img src="/" />
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">My Notes</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">Favorites</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">New</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="note">
       <header>
         <address>
           <p>by test</p>
           <date>Nov 11th 2019</date>
         </address>
-        <aside>
-          <ul>
-            <li>
-              <a href="/">Remove Favorite</a>
-            </li>
-            <li>
-              <a href="/">Edit</a>
-            </li>
-            <li>
-              <a href="/">Delete Note</a>
-            </li>
-          </ul>
-        </aside>
       </header>
-      <hr />
+
+      <section>
+        <h1>Books to Read</h1>
+        <ul>
+          <li>There There by Tommy Orange</li>
+          <li>Let's Go(So We Can Get Back) by Jeff tweedy</li>
+          <li>
+            <a href="https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X" target="_blank">Hello
+              World:
+              Being Human in
+              the Age of Algorithms</a> by Hannah Fry
+          </li>
+          <li>Can't Stop Won't Stop by Jeff Chang</li>
+          <li>Less by Andrew Sean Greer</li>
+          <li>Educated by Tara Westover</li>
+          <li>Grit by Angela Duckworth</li>
+          <li>See you in the Cosmos by Jack Cheng</li>
+          <li>Just Kids by Patti Smith</li>
+          <li>Arbitrary Stupid Goal by Tamara Shopsin</li>
+        </ul>
+      </section>
+      <section id="permalink-section"><a href="/">Permalink</a></section>
     </section>
-    <section>
-      <h1>Books to Read</h1>
+
+    <aside>
       <ul>
-        <li>There There by Tommy Orange</li>
-        <li>Let's Go(So We Can Get Back) by Jeff tweedy</li>
         <li>
-          <a href="https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X" target="_blank">Hello World:
-            Being Human in
-            the Age of Algorithms</a> by Hannah Fry
+          <a href="/">Remove Favorite</a>
         </li>
-        <li>Can't Stop Won't Stop by Jeff Chang</li>
-        <li>Less by Andrew Sean Greer</li>
-        <li>Educated by Tara Westover</li>
-        <li>Grit by Angela Duckworth</li>
-        <li>See you in the Cosmos by Jack Cheng</li>
-        <li>Just Kids by Patti Smith</li>
-        <li>Arbitrary Stupid Goal by Tamara Shopsin</li>
+        <li>
+          <a href="/">Edit</a>
+        </li>
+        <li>
+          <a href="/">Delete Note</a>
+        </li>
       </ul>
-    </section>
-    <section id="permalink-section"><a href="/">Permalink</a></section>
-  </main>
+    </aside>
+
+  </div>
 </body>
 
 </html>
