@@ -18,6 +18,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -48,26 +49,26 @@ body {
 }
 
 #top-header{
-  position: relative;
+  display:flex;
+  justify-content: space-between;
   min-height: 29px;
   font-size: 13px;
   background-color: #1a0f1a;
 } 
 
 .header_quicklinks {
-    float: left;
     margin: 0;
     padding: 0px;
+    align-self: center;
   }
   .quick_links_wrapper {
-    float: left;
     margin: 0px;
     padding-left: 0px;
+    
   }
   .quick_links_item {
     display: inline-block;
     padding-right:80px;
-    padding-top: 5px;
   }
   .qlink {
     color: #fff;
@@ -75,9 +76,8 @@ body {
   }
   
   .header_signin {
-    float: right;
     padding-right:0px;
-    padding-top: 5px;
+    align-self: center;
   }
   .signin {
     color: #fff;
@@ -91,21 +91,57 @@ body {
   }
  
   #logo-header{
+    display:grid;
+    grid-template-columns: 25% 60% 15%; 
+    grid-template-rows:62px ;
     position: relative;
-    min-height: 62px;
     background-color: #240f23;
   }
   .page_header_logo {
-    float: left;
     margin: 0px;
     padding: 5px 0px;
-    width: 85%;
+    align-self: center;
   }
   
-  .header_cart {
-    position: relative;
-    float: right;
+  /* Header Search Style */
+  .header_search{
+    display:flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+  
+  .header_search_form{
+    align-self: center;
+  } 
+
+  .search_input {
+    font-size: 16px;
+    height: 32px;
+    border: 1px solid grey;
+    background: #f1f1f1;
+  }
+  
+  .search_button {
+    align-self: center;
+    float:right;
+    color: white;
+    padding:0px 0px;
+    background-color: #bfc2c2;
+    width: 36px;
+    height: 36px;
+    border: none;
     cursor: pointer;
+  }
+  
+  .header_search_form button:hover {
+    background: #35a1a5;
+  }
+
+  .header_cart {
+    justify-self: flex-end;
+    position: relative;
+    cursor: pointer;
+    align-self: center;
   }
   
   .header_cart_trigger {
@@ -221,38 +257,6 @@ body {
   }
   
 
-  /* Header Search Style is still in the process of designing ....*/
-  .header_search{
-    float: right; 
-    position: relative;
-    width: 71%;
-    margin: 0px;
-    padding-top: 10px;
-  }
-
-  form.example input[type=text] {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid grey;
-    float:left;
-    width: 80%;
-    background: #f1f1f1;
-  }
   
-  form.example button {
-    float: left;
-    width: 16%;
-    padding:6px 5px;
-    background: #01575a;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-  }
-  
-  form.example button:hover {
-    background: #35a1a5;
-  }
   
   
