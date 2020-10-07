@@ -3,66 +3,51 @@
 
 <head>
   <title>Sign in- Notedly</title>
+  <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <h1>Notedly</h1>
-    <a href="/">Logout</a><br>
-    <a href="#permalink-section">Permalink</a>
-  </header>
-  <hr />
-  <nav>
-    <ul>
-      <li>
-        <img src="/" />
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">My Notes</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">Favorites</a>
-      </li>
-      <li>
-        <img src="/" />
-        <a href="/">New</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="container">
 
-  <main>
-    <section>
+    <h1 class="page-header">Notedly</h1>
+    <a class="logout" href="/">Logout</a>
+
+    <nav>
+      <ul>
+        <li>
+          <img src="/" />
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">My Notes</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">Favorites</a>
+        </li>
+        <li>
+          <img src="/" />
+          <a href="/">New</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="note">
       <header>
         <address>
           <p>by test</p>
           <date>Nov 11th 2019</date>
         </address>
-        <aside>
-          <ul>
-            <li>
-              <a href="/">Remove Favorite</a>
-            </li>
-            <li>
-              <a href="/">Edit</a>
-            </li>
-            <li>
-              <a href="/">Delete Note</a>
-            </li>
-          </ul>
-        </aside>
       </header>
-      <hr />
-    </section>
-    <section>
+
       <h1>Books to Read</h1>
       <ul>
         <li>There There by Tommy Orange</li>
         <li>Let's Go(So We Can Get Back) by Jeff tweedy</li>
         <li>
-          <a href="https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X" target="_blank">Hello World:
+          <a href="https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X" target="_blank">Hello
+            World:
             Being Human in
             the Age of Algorithms</a> by Hannah Fry
         </li>
@@ -74,9 +59,23 @@
         <li>Just Kids by Patti Smith</li>
         <li>Arbitrary Stupid Goal by Tamara Shopsin</li>
       </ul>
+      <section id="permalink-section"><a href="/">Permalink</a></section>
     </section>
-    <section id="permalink-section"><a href="/">Permalink</a></section>
-  </main>
+
+    <aside class="note-actions">
+      <ul>
+        <li>
+          <a href="/">Remove Favorite</a>
+        </li>
+        <li>
+          <a href="/">Edit</a>
+        </li>
+        <li>
+          <a href="/">Delete Note</a>
+        </li>
+      </ul>
+    </aside>
+  </div>
 </body>
 
 </html>
