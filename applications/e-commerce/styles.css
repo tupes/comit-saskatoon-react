@@ -1,3 +1,7 @@
+li {
+    list-style-type: none;
+}
+
 .container {
     display: grid;
     grid-template-rows: 1fr 1fr 3fr 1fr;
@@ -21,9 +25,34 @@ aside {
     grid-column: 1 / 2;
 }
 
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .items {
     grid-row: 3 / 4;
     grid-column: 2 / -1;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.items-list > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.items-list > li > .item-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 footer {
