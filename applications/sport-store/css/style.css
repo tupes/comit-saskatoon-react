@@ -103,18 +103,32 @@ body {
     align-self: center;
   }
   
+  @media only screen and (max-width: 1024px) {
+    .logo_image {
+       width: 80%;
+    }
+    .search_image_button{
+       width: 80%;
+    }
+  }
+  
+  
   /* Header Search Style */
   .header_search{
-    display:flex;
-    flex-direction: row;
+    display:inline-block;
     margin: 0px;
+    box-sizing: border-box;
   }
   
   .header_search_form{
-    align-self: center;
+    padding-top: 12px;
+    margin:0px;
+    box-sizing: border-box;
   } 
 
   .search_input {
+    float: left;
+    width: 80%;
     font-size: 16px;
     height: 32px;
     border: 1px solid grey;
@@ -122,12 +136,11 @@ body {
   }
   
   .search_button {
-    align-self: center;
-    float:right;
+    float: left;
     color: white;
     padding:0px 0px;
     background-color: #bfc2c2;
-    width: 36px;
+    width: 8%;
     height: 36px;
     border: none;
     cursor: pointer;
