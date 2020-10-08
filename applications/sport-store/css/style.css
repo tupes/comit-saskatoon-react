@@ -227,23 +227,41 @@ body {
   .paging_menu {
     width: 100%;
   }
-    
-  #page-content table {
+  
+  /* Table style setting*/
+  .page_table{
+    overflow-y: auto;
+    height: 280px;
+  }
+  .page_table table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
   
-  #page-content td, th {
-    border: 1px solid rgb(2, 47, 58);;
+  .page_table td {
+    border-left: 1px solid rgb(2, 47, 58);
     text-align: left;
-    padding: 3px 8px;
+    padding: 0.5em 0.5em 0.5em 1em;
+    vertical-align: text-top;
+    text-indent: -0.5em;
   }
   
-  #page-content tr:nth-child(even) {
-    background-color: #e0ecfa;
+  .page_table thead th {
+    border-left: 1px solid rgb(2, 47, 58);
+    padding: 0.5em 0.5em;
+    vertical-align: bottom;
+    background-color: rgb(2, 116, 136);
+    color: #fff;
+    position: sticky;
+    top: 0;
   }
   
+  .page_table tr:nth-child(even) {
+    background-color: #e5ebf3;
+  }
+  
+
   /*Footer style settings*/
   #page-footer {
     background: #323a45;
