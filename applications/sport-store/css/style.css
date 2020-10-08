@@ -269,7 +269,8 @@ body {
   margin: 0px;
   padding:0px 2px; 
   font-size: 16px;
-   font-weight: bold;
+  font-weight: bold;
+  cursor: pointer;
  }
  .item_infor{
   margin: 0px;
@@ -309,6 +310,7 @@ body {
 .hover_text{
   transition-duration: 1s;
   width:30%;
+  cursor: pointer;
 }
 
 .header_cart{ 
