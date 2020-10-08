@@ -218,15 +218,10 @@ body {
     background-color: rgb(142, 160, 165);
     color: white;
   }
-  
   .aside_news {
     text-align: justify;
   }
 
-  
-  .paging_menu {
-    width: 100%;
-  }
   
   /* Table style setting*/
   .page_table{
@@ -249,7 +244,8 @@ body {
   
   .page_table thead th {
     border-left: 1px solid rgb(2, 47, 58);
-    padding: 0.5em 0.5em;
+    font-size: 18px;
+    padding:6px 6px;
     vertical-align: bottom;
     background-color: rgb(2, 116, 136);
     color: #fff;
@@ -257,10 +253,46 @@ body {
     top: 0;
   }
   
-  .page_table tr:nth-child(even) {
+ .page_table tr:nth-child(even) {
     background-color: #e5ebf3;
+ }
+ 
+ .page_table tr:hover {
+  background-color: rgb(250, 187, 127);
+ }
+ .column1{
+  width:90%
+ }
+ .column2{
+  width:10%
+}
+ .item_name{
+  margin: 0px;
+  padding:0px 2px; 
+  font-size: 16px;
+   font-weight: bold;
+ }
+ .item_infor{
+  margin: 0px;
+  padding:0px 2px;
+  font-size: 13px;
+  font-style:italic ;
+ }
+
+ .price_add{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
-  
+  .price_add div{
+   font-weight: bold; 
+  }
+  .price_add button {
+    width:90px;
+    color: cornsilk;
+    background-color: rgba(13, 109, 77, 0.972);
+    cursor: pointer;
+  }
 
   /*Footer style settings*/
   #page-footer {
@@ -273,8 +305,38 @@ body {
   #page-footer a{
     color: #5995e4;
   }
-  
+ 
 
+.hover_text{
+  transition-duration: 1s;
+  width:30%;
+}
+
+.header_cart{ 
+  position: relative;
+  display: block;  
+}
+
+.hover_text:hover{
+    letter-spacing: 5px;
+  }
   
+.header_cart .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 14px;
+    background-color: rgb(248, 248, 248);
+    color: rgb(31, 30, 30);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
   
+    /* Position the tooltip */
+    position: absolute;
+    top:45px;
+    right:5%;
+}
   
+  .header_cart:hover .tooltiptext {
+    visibility: visible;
+  }
