@@ -226,7 +226,7 @@ body {
   /* Table style setting*/
   .page_table{
     overflow-y: auto;
-    height: 280px;
+    height: 272px;
   }
   .page_table table {
     font-family: arial, sans-serif;
@@ -237,15 +237,14 @@ body {
   .page_table td {
     border-left: 1px solid rgb(2, 47, 58);
     text-align: left;
-    padding: 0.5em 0.5em 0.5em 1em;
+    padding: 6px 6px;
     vertical-align: text-top;
-    text-indent: -0.5em;
   }
   
   .page_table thead th {
     border-left: 1px solid rgb(2, 47, 58);
     font-size: 18px;
-    padding:6px 6px;
+    padding:8px 8px;
     vertical-align: bottom;
     background-color: rgb(2, 116, 136);
     color: #fff;
