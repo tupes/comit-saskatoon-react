@@ -1,6 +1,32 @@
 :root {
   --med-size: 1em;
   --small-size: calc(var(--med-size) / 2);
+
+  /* CSS in Depth */
+  --brand-green: #076448;
+  --dark-green: #099268;
+  --medium-green: #20c997;
+  --text-color: #212529;
+  --gray: #868e96;
+  --light-gray: #f1f3f5;
+  --extra-light-gray: #f8f9fa;
+  --white: #fff;
+
+  color: var(--text-color);
+
+  /* Bootstrap buttons*/
+  --primary-button-blue: #337ab7;
+  --success-button-green: #5cb85c;
+  --info-button-blue: #5bc0de;
+  --warning-button-yellow: #f0ad4e;
+  --danger-button-red: #d9534f;
+
+  /* Bootstrap background colors */
+  --primary-blue: #337ab7;
+  --success-green: #dff0d8;
+  --info-blue: #d9edf7;
+  --warning-yellow: #fcf8e3;
+  --danger-red: #f2dede;
 }
 
 body,
@@ -13,12 +39,25 @@ ul {
   padding: 0;
 }
 
+body {
+  background-color: var(--extra-light-gray);
+}
+
 li {
   list-style-type: none;
 }
 
 button {
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--medium-green);
+}
+
+a:hover {
+  color: var(--brand-green);
 }
 
 .container {
@@ -35,7 +74,8 @@ button {
 
 header {
   grid-area: header;
-  background-color: grey;
+  background-color: var(--text-color);
+  color: var(--white);
   padding: var(--med-size);
   display: flex;
   justify-content: space-between;
@@ -47,7 +87,7 @@ header {
 aside {
   grid-area: nav;
   padding: var(--med-size);
-  background-color: beige;
+  background-color: var(--info-blue);
 }
 
 .nav-links {
@@ -65,6 +105,11 @@ aside {
   width: 100%;
   min-height: 3em;
   border-radius: 0.4em;
+  background-color: var(--primary-button-blue);
+}
+
+.nav-links button a {
+  color: var(--white);
 }
 
 /* Items List */
@@ -89,23 +134,29 @@ aside {
   border: 1px solid lightgray;
   border-radius: 0.4em;
   padding: var(--small-size);
+  background-color: var(--light-gray);
 }
 
 .items-list > li > div {
   justify-self: end;
-  background-color: blue;
+  background-color: var(--info-button-blue);
+  color: var(--white);
   border-radius: 0.8em;
   padding: 0.3em 0.6em;
 }
 
 .items-list > li > button {
-  background-color: green;
+  background-color: var(--success-button-green);
+  color: var(--white);
   border-radius: 0.4em;
   padding: 0.3em 0.6em;
 }
 
+/* Footer */
+
 footer {
   grid-area: footer;
-  background-color: grey;
+  background-color: var(--text-color);
+  color: var(--white);
   padding: var(--med-size);
 }
