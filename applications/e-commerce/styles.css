@@ -1,6 +1,8 @@
 :root {
   --med-size: 1em;
   --small-size: calc(var(--med-size) / 2);
+  --tiny-size: calc(var(--small-size) / 2);
+  --large-size: calc(var(--med-size) * 2);
 
   /* CSS in Depth */
   --brand-green: #076448;
@@ -88,6 +90,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: var(--tiny-size) solid var(--white);
+}
+
+header button {
+  background-color: var(--primary-button-blue);
+  padding: var(--med-size) var(--large-size);
+  border-radius: 0.4em;
+}
+
+header a {
+  color: var(--white);
 }
 
 /* Nav Menu */
@@ -95,14 +108,14 @@ header {
 aside {
   grid-area: nav;
   padding: var(--med-size);
-  background-color: var(--info-blue);
+  background-color: var(--text-color);
 }
 
 .nav-links {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--small-size);
+  gap: var(--med-size);
 }
 
 .nav-links li {
@@ -157,7 +170,7 @@ aside {
   background-color: var(--success-button-green);
   color: var(--white);
   border-radius: 0.4em;
-  padding: 0.3em 0.6em;
+  padding: 0.5em 1em;
 }
 
 /* Footer */
