@@ -149,8 +149,12 @@ aside {
 .items-list > li {
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "image name price"
+    "image desc button";
   row-gap: var(--small-size);
+  column-gap: var(--small-size);
   justify-content: space-between;
   border: 1px solid lightgray;
   border-radius: 0.4em;
@@ -158,8 +162,16 @@ aside {
   background-color: var(--light-gray);
 }
 
+.items-list > li > img {
+  grid-area: image;
+  height: 80px;
+  width: 80px;
+}
+
 .items-list > li > div {
+  grid-area: price;
   justify-self: end;
+  align-self: center;
   background-color: var(--info-button-blue);
   color: var(--white);
   border-radius: 0.8em;
@@ -167,6 +179,7 @@ aside {
 }
 
 .items-list > li > button {
+  grid-area: button;
   background-color: var(--success-button-green);
   color: var(--white);
   border-radius: 0.4em;
