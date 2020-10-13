@@ -44,6 +44,8 @@ ul {
 body {
   background-color: var(--extra-light-gray);
   font-family: "Roboto", sans-serif;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 h1,
@@ -53,12 +55,21 @@ h4 {
   font-family: "Sansita", serif;
 }
 
+h1 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
 li {
   list-style-type: none;
 }
 
 button {
   cursor: pointer;
+  font-size: 1em;
 }
 
 a {
