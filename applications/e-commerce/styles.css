@@ -41,6 +41,14 @@ ul {
 
 body {
   background-color: var(--extra-light-gray);
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sansita", serif;
 }
 
 li {
