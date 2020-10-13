@@ -1,3 +1,7 @@
 footer {
   padding: var(--med-size);
 }
+
+footer a {
+  color: var(--medium-green);
+}
