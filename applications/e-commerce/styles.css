@@ -31,6 +31,8 @@
   --danger-red: #f2dede;
 }
 
+/* Global */
+
 body,
 h1,
 h2,
@@ -92,6 +94,8 @@ a:hover {
     "nav items"
     "footer footer";
 }
+
+/* Header */
 
 header {
   grid-area: header;
@@ -204,4 +208,5 @@ footer {
   background-color: var(--text-color);
   color: var(--white);
   padding: var(--med-size);
+  border-top: var(--tiny-size) solid var(--white);
 }
