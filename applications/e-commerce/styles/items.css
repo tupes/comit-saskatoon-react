@@ -1,0 +1,6 @@
+.items-list {
+  padding: var(--med-size);
+  display: flex;
+  flex-direction: column;
+  gap: var(--small-size);
+}

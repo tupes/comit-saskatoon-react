@@ -1,0 +1,11 @@
+.nav-links {
+  padding: var(--med-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--med-size);
+}
+
+.nav-links li {
+  width: 100%;
+}

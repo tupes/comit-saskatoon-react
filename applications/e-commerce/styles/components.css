@@ -1,0 +1,18 @@
+.button {
+  padding: var(--med-size) var(--large-size);
+  border-radius: var(--small-size);
+  color: var(--white);
+}
+
+.button--primary {
+  background-color: var(--primary-button-blue);
+}
+
+.button-stretched {
+  width: 100%;
+  min-height: 3em;
+}
+
+.button > a {
+  color: var(--white);
+}
