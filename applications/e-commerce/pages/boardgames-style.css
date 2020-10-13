@@ -1,0 +1,154 @@
+:root {
+    --med-size: 1em;
+    --small-size: calc(var(--med-size)/2);
+   
+   }
+   
+   body,
+   header,
+   section,
+   aside,
+   h1,
+   h2,
+   h3,
+   p,
+   ul {
+       margin: 0;
+       padding: 0;
+   
+   }
+   
+   li {
+       list-style-type: none;
+   
+   }
+   
+   button {
+       cursor: pointer;
+   
+   }
+   
+   .container {
+       max-width: 1100px;
+       margin: 0 auto;
+       display: grid;
+       grid-template-rows: auto auto 1fr auto;
+       grid-template-columns: 1fr 3fr;
+       grid-template-areas: 
+           "header header"
+           "menu menu"
+           "nav items"
+           "footer footer"
+       ;
+   
+   }
+   
+   header {
+       grid-area: header;
+       padding: var(--med-size);
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       border-bottom: solid;
+   
+   }
+   
+   
+   
+   .menu {
+       grid-area: menu;
+       padding: var(--med-size);
+       display: flex;
+       align-items: center;
+       border-bottom: solid;
+   
+   }
+   
+   .menu button {
+       width: auto;
+       min-width: 9em;
+       min-height: 2em;
+       border-radius: 0.9em;
+   
+   }
+   
+   aside {
+       grid-area: nav;    
+       padding: var(--med-size);
+   
+   }
+   
+   
+   .nav-links {
+       display: flex;
+       flex-direction: column;
+       gap: var(--med-size);
+       align-items: center;
+   
+   }
+   
+   .nav-links li {
+       width: 100%;
+   
+   }
+   
+   .nav-links button {
+       width: 100%;
+       min-height: 3em;
+       border-radius: 0.6em;
+   
+   }
+   
+   .items {
+       grid-area: items;
+       padding: var(--med-size);
+   
+   }
+   
+   .item-list {
+       display: flex;
+       flex-direction: column;
+       gap: var(--small-size);
+   
+   }
+   
+   .item-list > li {
+       display: grid;
+       grid-template-rows: auto;
+       grid-template-columns:  1fr auto;
+       row-gap: var(--small-size);
+       justify-content: space-between;
+       border-bottom: solid;
+       padding: var(--small-size);
+       border-color: tan;
+   
+   }
+   
+   .item-list > li > div {
+       justify-self: end;
+       align-self: center;
+       border-radius: 0.8em
+       padding: 0.3em 0.6em;
+   
+   }
+   
+   .item-list > li > p {
+       align-self: center;
+       justify-self: left;
+   
+   
+   }
+   
+   .item-list > li > button {
+       justify-self: end;
+       border-radius: .6em;
+   
+   
+   }
+   
+   footer {
+       grid-area: footer;
+       background-color: darkgoldenrod;
+       
+   
+   }
