@@ -2,6 +2,31 @@
   box-sizing: border-box;
   --med-size: 1em;
   --small-size: calc(var(--med-size) / 2);
+  --tiny-size: calc(var(--small-size) / 2);
+
+  /* CSS in Depth */
+  --brand-green: #076448;
+  --dark-green: #099268;
+  --medium-green: #20c997;
+  --black: #212529;
+  --gray: #868e96;
+  --light-gray: #f1f3f5;
+  --extra-light-gray: #f8f9fa;
+  --white: #fff;
+
+  /* Bootstrap buttons*/
+  --primary-button: #337ab7;
+  --success-button: #5cb85c;
+  --info-button: #5bc0de;
+  --warning-button: #f0ad4e;
+  --danger-button: #d9534f;
+
+  /* Bootstrap background colors */
+  --primary-background: #337ab7;
+  --success-background: #dff0d8;
+  --info-background: #d9edf7;
+  --warning-background: #fcf8e3;
+  --danger-background: #f2dede;
 }
 
 * {
@@ -16,6 +41,17 @@ p,
 ul {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sansita", serif;
 }
 
 li {
@@ -44,11 +80,23 @@ a {
 
 header {
   grid-area: header;
-  background-color: grey;
+  background-color: var(--black);
+  color: var(--white);
   padding: var(--med-size);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: var(--tiny-size) solid var(--white);
+}
+
+header button {
+  background-color: var(--primary-button);
+  padding: 1em 1.5em;
+  border-radius: 0.4em;
+}
+
+header a {
+  color: var(--white);
 }
 
 /* Nav Menu */
@@ -56,7 +104,7 @@ header {
 aside {
   grid-area: nav;
   padding: var(--med-size);
-  background-color: beige;
+  background-color: var(--black);
 }
 
 .nav-links {
@@ -74,6 +122,11 @@ aside {
   width: 100%;
   min-height: 3em;
   border-radius: 0.4em;
+  background-color: var(--primary-button);
+}
+
+.nav-links a {
+  color: var(--white);
 }
 
 /* Items List */
@@ -81,12 +134,14 @@ aside {
 .items {
   grid-area: items;
   padding: var(--med-size);
+  background-color: var(--light-gray);
 }
 
 .items-list {
   display: flex;
   flex-direction: column;
   gap: var(--small-size);
+  background-color: var(--light-gray);
 }
 
 .items-list > li {
@@ -102,19 +157,23 @@ aside {
 
 .items-list > li > div {
   justify-self: end;
-  background-color: blue;
+  background-color: var(--info-button);
+  color: var(--white);
   border-radius: 0.8em;
   padding: 0.3em 0.6em;
 }
 
 .items-list > li > button {
-  background-color: green;
+  background-color: var(--success-button);
+  color: var(--white);
   border-radius: 0.4em;
   padding: 0.3em 0.6em;
 }
 
 footer {
   grid-area: footer;
-  background-color: grey;
+  background-color: var(--black);
+  color: var(--white);
   padding: var(--med-size);
+  border-top: var(--tiny-size) solid var(--white);
 }
