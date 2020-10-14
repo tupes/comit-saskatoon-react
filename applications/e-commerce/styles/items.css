@@ -1,0 +1,56 @@
+.items {
+  padding-right: var(--med-size);
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--small-size);
+}
+
+.items-list > li {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "image name price"
+    "image desc button";
+  row-gap: var(--small-size);
+  column-gap: var(--small-size);
+  justify-content: space-between;
+
+  padding: var(--small-size);
+  border: 1px solid lightgray;
+  border-radius: var(--med-border-radius);
+
+  background-color: var(--light-gray);
+}
+
+.items-list > li > img {
+  grid-area: image;
+
+  height: 80px;
+  width: 80px;
+}
+
+.items-list > li > div {
+  grid-area: price;
+  justify-self: end;
+  align-self: center;
+
+  background-color: var(--info-button);
+  color: var(--white);
+
+  padding: var(--tiny-size) var(--small-size);
+  border-radius: var(--large-border-radius);
+}
+
+.items-list > li > button {
+  grid-area: button;
+
+  background-color: var(--success-button);
+  color: var(--white);
+
+  padding: var(--small-size) var(--med-size);
+  border-radius: var(--med-border-radius);
+}

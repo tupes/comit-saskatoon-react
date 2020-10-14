@@ -1,0 +1,30 @@
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--med-size);
+
+  background-color: var(--black);
+
+  padding-left: var(--med-size);
+}
+
+.nav-links li {
+  width: 100%;
+}
+
+.nav-links button {
+  background-color: var(--primary-button);
+
+  width: 100%;
+  min-height: var(--huge-size);
+  border-radius: var(--med-border-radius);
+}
+
+.nav-links a {
+  color: var(--white);
+}
+
+.nav-links a:hover {
+  font-weight: bold;
+}
