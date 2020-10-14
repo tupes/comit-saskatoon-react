@@ -3,6 +3,7 @@ html, body, header, main, footer {
   margin: 0px;
   padding: 0px;
   border: none;
+  line-height: 1.4;
 }
 
 html, body, header, main, footer, aside, div {
