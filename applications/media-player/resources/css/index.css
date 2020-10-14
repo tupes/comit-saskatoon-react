@@ -57,10 +57,13 @@ h2 {
 .gallery_item > img {
     grid-area: gallery_item;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    max-width: 100%;
+    height: auto;
 }
 
 .footer {
-    grid-area: footer;    
+    grid-area: footer; 
+    position: relative;   
     padding: 15px;
     background-color: red;   
     color: white;    
