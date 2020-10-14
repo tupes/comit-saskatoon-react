@@ -222,5 +222,25 @@
         </p>
       </footer>
     </div>
+    <div id="div-modal-container" class="full">
+      <div class="div_modal">
+        <div class="form-popup" id="myForm">
+          <form id="signin_form" class="form-container">
+            <h3>Sign In or Create Account</h3>
+        
+            <label for="username"><b>Username</b></label>
+            <input id="input-username" type="text" placeholder="Enter Username" name="username" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input id="input-password" type="password" placeholder="Enter Password" name="psw" required>
+        
+            <button type="button" onclick="submitLoginForm()">Login</button>
+            <button type="button" onclick="closeLoginForm()">Close</button>
+            <button type="submit">Create new account</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
