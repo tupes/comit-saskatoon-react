@@ -11,3 +11,10 @@ function SignIn() {
        return false;
     }
  }
+//Stop and Move the marquee
+ function pause() {
+    document.getElementById("marquee-news").stop();  
+ }
+ function move() {
+   document.getElementById("marquee-news").start();  
+}

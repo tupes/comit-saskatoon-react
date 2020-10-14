@@ -234,8 +234,11 @@ body {
   }
   .aside_news {
     text-align: justify;
+    font-size: 14px;
   }
-
+  .aside_news p {
+    padding-bottom: 8px;
+  }
   
   /* Table style setting*/
   .page_table{
