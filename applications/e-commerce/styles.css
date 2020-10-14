@@ -1,12 +1,14 @@
 :root {
+  box-sizing: border-box;
   --med-size: 1em;
   --small-size: calc(var(--med-size) / 2);
 }
 
+* {
+  box-sizing: inherit;
+}
+
 body,
-header,
-section,
-aside,
 h1,
 h2,
 h3,
@@ -24,15 +26,18 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
     "header header"
-    "about-us about-us"
     "nav items"
     "footer footer";
 }
@@ -44,12 +49,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.about-us {
-  grid-area: about-us;
-  background-color: green;
-  padding: var(--med-size);
 }
 
 /* Nav Menu */
