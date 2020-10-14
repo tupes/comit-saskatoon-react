@@ -10,8 +10,16 @@ html, body, header, main, footer, aside, div {
   display: block;
 }
 
-html {
-  min-height: 100%;
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.full{
+  height: 100%;
+  width: 100%;
+}
+:root{
+  --page-padding:10%;
 }
 
 body {
@@ -19,9 +27,9 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  box-sizing: border-box;
   position: relative;
 }
+* {box-sizing: border-box;}
 
 /* Page style settings */
 #page-container{
@@ -30,11 +38,12 @@ body {
   border: none;
   position: absolute;
   width: 100%;
+  z-index: 0;  
 }
 
 .page_margin_container {
   margin: 0px;
-  padding: 0px 100px;
+  padding: 0px var(--page-padding);
   border: none;
   position: relative;
 }
@@ -111,6 +120,12 @@ body {
     .search_image_button{
        width: 80%;
     }
+    .page_margin_container {
+       padding: 0px 2%;
+    }
+    .quick_links_item {
+      padding-right:8px;
+    }
   }
   
   
@@ -124,14 +139,13 @@ body {
   .header_search_form{
     padding-top: 12px;
     margin:0px;
-    box-sizing: border-box;
   } 
 
   .search_input {
     float: left;
     width: 80%;
     font-size: 16px;
-    height: 32px;
+    height: 36px;
     border: 1px solid grey;
     background: #f1f1f1;
   }
@@ -188,7 +202,7 @@ body {
     margin:0px;
     padding: 0px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   .page_content_aside {
     width: 20%;
@@ -243,7 +257,7 @@ body {
   /* Table style setting*/
   .page_table{
     overflow-y: auto;
-    height: 272px;
+    height: 317px;
   }
   .page_table table {
     font-family: arial, sans-serif;
@@ -358,3 +372,65 @@ body {
   .header_cart:hover .tooltiptext {
     visibility: visible;
   }
+
+  #div-modal-container{
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     background-color: rgb(148, 148, 148, 0.2);
+     z-index:1;
+     display: none;
+  }
+  
+  .div_modal{
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(3, 156, 149);
+    border-width: 2px;
+    box-shadow:12px 12px rgb(73, 73, 73, 0.7);
+    width: 300px;
+    margin: 100px auto;
+    justify-content: center;
+  }
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}  
+
+.form-container h3{
+  text-align: center;
+  font-size: 20px;
+}
+
+.form-container label{
+  text-align: left;
+  font-size: 16px;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: rgb(195, 194, 194);
+}
+
+
+.form-container button {
+  background-color: #034f62;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container button:hover {
+  opacity: 1;
+}
