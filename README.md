@@ -30,7 +30,8 @@ The most important skills to develop are problem-solving and self-learning. I'm 
 
 ## Topics
 - [HTML](https://github.com/tupes/comit-saskatoon-react/tree/master/HTML)
-- CSS
+- [CSS](https://github.com/tupes/comit-saskatoon-react/tree/master/CSS)
 - JavaScript
 - React
 - Node
+

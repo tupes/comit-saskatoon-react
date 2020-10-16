@@ -1,0 +1,40 @@
+.container{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    padding: 0;
+    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    background-color:whitesmoke;
+    gap: 40px;
+    align-items: center;
+}
+
+button{
+    cursor: pointer;    
+}
+
+table{
+    background-color: whitesmoke;
+}
+
+tr, th, td{
+    background-color:whitesmoke;
+    border: 1px solid lightgrey;
+}
+
+.filter{
+    background-color: whitesmoke;
+    height: 2em;
+    border-radius: 0.5em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
