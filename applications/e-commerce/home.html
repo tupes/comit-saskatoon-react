@@ -2,80 +2,88 @@
 <html>
   <head>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita:wght@800&display=swap"
       rel="stylesheet"
     />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
   </head>
 
   <body>
     <div class="container">
-      <header>
+      <header class="page-header">
         <h1>Sports Store</h1>
         <button><a href="pages/signup.html">Sign Up</a></button>
       </header>
 
-      <aside>
-        <ul class="nav-links">
-          <li>
-            <button><a href="pages/watersports.html">Watersports</a></button>
-          </li>
-          <li>
-            <button><a href="pages/soccer.html">Soccer</a></button>
-          </li>
-          <li>
-            <button><a href="pages/basketball.html">Basketball</a></button>
-          </li>
-          <li>
-            <button><a href="pages/hockey.html">Hockey</a></button>
-          </li>
-          <li>
-            <button><a href="pages/Boardgames.html">Boardgames</a></button>
-          </li>
-        </ul>
-      </aside>
+      <ul class="nav-links">
+        <li>
+          <button><a href="pages/watersports.html">Watersports</a></button>
+        </li>
+        <li>
+          <button><a href="pages/soccer.html">Soccer</a></button>
+        </li>
+        <li>
+          <button><a href="pages/basketball.html">Basketball</a></button>
+        </li>
+        <li>
+          <button><a href="pages/hockey.html">Hockey</a></button>
+        </li>
+        <li>
+          <button><a href="pages/Boardgames.html">Boardgames</a></button>
+        </li>
+      </ul>
 
       <section class="items">
         <ul class="items-list">
           <li>
-            <h3>Awesome Concrete Pizza</h3>
+            <img src="imgs/soccer/ball.png" alt="" />
+            <h3>Soccer ball</h3>
             <div>$44.00</div>
-            <p>Soccer: Vel corrupti laudantium</p>
+            <p>The best soccer ball ever!</p>
             <button>Add To Cart</button>
           </li>
           <li>
-            <h3>Awesome Concrete Table</h3>
+            <img src="imgs/watersports/tube.png" alt="" />
+            <h3>Tubing raft</h3>
             <div>$624.00</div>
-            <p>Watersports: Et nisi qui</p>
+            <p>Have some extreme fun being pulled in this raft!</p>
             <button>Add To Cart</button>
           </li>
           <li>
-            <h3>Awesome Cotton Bike</h3>
+            <img src="imgs/Boardgames/woodenSet.png" alt="" />
+            <h3>Chess board and pieces</h3>
             <div>$499.00</div>
-            <p>Chess: Sed est quasi</p>
+            <p>Hand-crafted from the finest Mahoganey wood</p>
             <button>Add To Cart</button>
           </li>
           <li>
-            <h3>Awesome Cotton Chicken</h3>
+            <img src="imgs/soccer/shirtCanada.png" alt="" />
+            <h3>Team Canada soccer jersey</h3>
             <div>$591.00</div>
-            <p>Soccer: Sunt conseqautor</p>
+            <p>
+              Display your national pride with this authentic Team Canada soccer
+              jersey!
+            </p>
             <button>Add To Cart</button>
           </li>
           <li>
-            <h3>Awesome Cotton Gloves</h3>
+            <img src="imgs/watersports/sunglass.png" alt="" />
+            <h3>Goggles</h3>
             <div>$396.00</div>
-            <p>Watersports: Impedit labore quarat</p>
+            <p>Top-of-the-line goggles for the most extreme of watersports!</p>
             <button>Add To Cart</button>
           </li>
         </ul>
       </section>
 
-      <footer>
-        <p>
-          Contact Us<br />
-          <a href="mailto:sportsstore@store.com">sportsstore@store.com</a><br />
-          <a href="tel:+01-780-555-5555">780-555-5555</a>
-        </p>
+      <footer class="page-footer">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>
+            <a href="mailto:sportsstore@store.com">sportsstore@store.com</a>
+          </li>
+          <li><a href="tel:+01-780-555-5555">780-555-5555</a></li>
+        </ul>
       </footer>
     </div>
   </body>
