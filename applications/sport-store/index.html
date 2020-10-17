@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sport Store</title>
     <link rel="stylesheet" href="/applications/sport-store/css/style.css" />
+    <script src = "/applications/sport-store/js/script.js" type = "text/javascript"> </script>
   </head>
   <body>
     <div id="page-container">
@@ -27,7 +28,7 @@
             </div>
             <div class="header_signin">
                       <img class="user_icon" alt="User Icon" src="/applications/sport-store/images/user.png"/> 
-                      <a class="signin" href="#">Sign In/Create Account</a>
+                      <a class="signin" onclick="SignIn()">Sign In/Create Account</a>
             </div>
         </div>
 
@@ -69,11 +70,31 @@
                 </aside>
                 <div class="aside_news">
                     <h3>Host news</h3>
-                    <p>
-                      <strong>COVID-19 in Sask</strong> 17 cases in Saskatoon area now
-                      connected to Brandt Industries.<br> 
-                      <a target="_blank" href="https://www.cbc.ca/news/canada/saskatchewan/covid-19-saskatchewan-september-21-1.5732916">See more detail ... </a> 
-                    </p>
+                    <marquee id="marquee-news" direction="up" scrollamount=5 height="140px">
+                      <hr>
+                      <p onmouseover="pause()" onmouseout="move();">
+                        <strong>Ontario reports</strong> more than 1,550 new COVID-19 cases in 2 days<br> 
+                        <a  target="_blank" 
+                            href="https://www.cbc.ca/news/canada/toronto/covid-19-coronavirus-ontario-october-13-update-1.5760043">See more detail ... 
+                        </a>
+                      </p>
+                      <hr>
+                      <p onmouseover="pause()" onmouseout="move();">
+                        <strong>COVID-19 in Sask</strong> 17 cases in Saskatoon area now connected to Brandt Industries.
+                        <br> 
+                        <a  target="_blank" 
+                            href="https://www.cbc.ca/news/canada/saskatchewan/covid-19-saskatchewan-september-21-1.5732916">See more detail ... 
+                        </a>
+                      </p>
+                      <hr>
+                      <p onmouseover="pause()" onmouseout="move();">
+                        <strong>Cristiano Ronaldo, Dustin Johnson</strong>test positive for COVID-19
+                        <br> 
+                        <a  target="_blank" 
+                            href="https://www.cbc.ca/sports/soccer/mls/soccer-star-cristiano-ronaldo-tests-positive-for-covid-19-1.5760095">See more detail ... 
+                        </a>
+                      </p>
+                    </marquee>
                 </div>
             </div>
   
@@ -200,6 +221,26 @@
           <a href="mailto:fake@example.com">ledung1974@gmail.com</a>
         </p>
       </footer>
+    </div>
+    <div id="div-modal-container" class="full">
+      <div class="div_modal">
+        <div class="form-popup" id="myForm">
+          <form id="signin_form" class="form-container">
+            <h3>Sign In or Create Account</h3>
+        
+            <label for="username"><b>Username</b></label>
+            <input id="input-username" type="text" placeholder="Enter Username" name="username" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input id="input-password" type="password" placeholder="Enter Password" name="psw" required>
+        
+            <button type="button" onclick="submitLoginForm()">Login</button>
+            <button type="button" onclick="closeLoginForm()">Close</button>
+            <button type="submit">Create new account</button>
+            
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
