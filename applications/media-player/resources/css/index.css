@@ -1,72 +1,115 @@
-* {
+/* Global styles */
+@charset "utf-8";
+
+*, *::before, *::after {
     box-sizing: border-box;
-    padding: 0;
+    list-style-type: none;
     margin: 0;
+    padding: 0;
 }
 
 body {
+    float: left;
     font-family: Verdana, sans-serif;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: fixed;    
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 60px;
-    background-color: red;       
-}
-
-.title {
-    flex-grow: 1;
-    font-size: 25px;
-}
-
-a {
-    padding: .5em;
-    color: white;
-    text-decoration: none;
-    font-weight: bolder;
+    font-size: 16px;
 }
 
 h2 {
-    text-align: left;
-    padding-top: 90px;
     padding-bottom: 10px;
+    padding-top: 90px;
+    text-align: left;
 }
 
+/* Navigation */
+.home-logo {
+    bottom: 18px;
+    margin-left: .5em;
+    position: absolute;
+    -webkit-filter: invert(100%);
+    width: 25px;     
+}
+
+.add-file-logo {
+    bottom: 18px;
+    font-weight: bolder;
+    margin-right: .5em;
+    position: left;
+    -webkit-filter: invert(100%);
+    width: 14px;    
+}
+
+.menu {
+    align-items: center;
+    background-color: #d11;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+}
+
+.homepage {
+    flex-grow: 1;
+    font-size: 18px;
+    padding-left: .5em;
+}
+
+
+.item {
+    padding-right: .5em;
+}
+
+.homepage a, .item a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;   
+}
+
+/* Main content */
 .gallery {
     display: grid;
-    place-items: center / center;    
-    place-content: center / center;    
-    grid-gap: 5px;
+    place-items: center / center;
+    place-content: center / center;
+    grid-gap: 15px;
     grid-template-areas:
-        "gallery_title gallery_title gallery_title" 
-        "gallery_item gallery_item gallery_item"
-        "footer footer footer"
+        "gallery_title gallery_title gallery_title"
+        "gallery gallery gallery"
 }
 
-.gallery_title {
+.gallery-title {
     grid-area: gallery_title;
     padding-left: 1rem;
 }
  
-.gallery_item > img {
-    grid-area: gallery_item;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    max-width: 100%;
-    height: auto;
+ul {
+    grid-area: gallery;
     padding: 20px;
 }
 
-.footer {
-    grid-area: footer; 
-    position: relative;   
-    padding: 15px;
-    background-color: red;   
-    color: white;    
+/* Footer */
+footer {
+    align-items: center;
+    background-color: #d11;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 100%;    
+}
+
+/* Media queries */
+@media all and (max-width: 780px) {
+   .gallery {
+       display: block;
+   }
+   .menu {
+       flex-direction: column;
+       height: auto;
+   }
+   .home-logo {    
+    bottom: 75px;
+    position: absolute;
+    -webkit-filter: invert(100%);
+    width: 20px;    
+   }
 }
