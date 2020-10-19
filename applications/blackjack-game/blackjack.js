@@ -1,24 +1,30 @@
-let hasAccount = false;
 
-if (hasAccount) {
- console.log('Welcome back!')
+const player = {
+    name: 'Mark',
+    money: 100.00,
+    cards: []
 }
 
-let money = 5;
+console.log(`Created player ${player.name}`);
 
-console.log('WHILE LOOPS');
-while (money > 0) {
-    console.log(money);
-    money -= 1;
+console.log('Dealing hand...');
+
+let card1 = {
+    rank: '9',
+    suit: 'h',
 }
 
-console.log('\n' + 'FOR LOOPS');
-for (let amount = 0; amount < 10; amount += 1) {
-    console.log(amount);
+player.cards.push(card1);
+
+let card2 = {
+    rank: '3',
+    suit: 'd',
 }
 
-let playerNames = ['Mark', 'John', 'Wendy'];
-console.log('\n' + 'FOR OF LOOPS');
-for (name of playerNames) {
-    console.log(name);
-}
+player.cards.push(card2)
+
+console.log(`Player's starting hand: ${player.cards[0].rank}${player.cards[0].suit} ${player.cards[1].rank}${player.cards[1].suit}`);
+
+let handValue = Number(player.cards[0].rank) + Number(player.cards[1].rank);
+
+console.log(`Hand total: ${handValue}`);
