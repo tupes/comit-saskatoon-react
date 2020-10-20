@@ -6,9 +6,10 @@ function dealCard(deck, hand) {
 	addCard(hand, card);
 }
 
-function dealHand(deck, hand) {
-	dealCard(deck, hand);
-	dealCard(deck, hand);
+function dealHand(deck, playerHand, dealerHand) {
+	dealCard(deck, playerHand);
+	dealCard(deck, dealerHand);
+	dealCard(deck, playerHand);
 }
 
 module.exports = {
