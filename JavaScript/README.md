@@ -44,6 +44,18 @@ Chapter: *Data types*
 - JSON methods, toJSON
   
   
+## Classes
+
+**Readings**  
+JavaScript Part 1: The JavaScript Language  
+Chapter: *Classes*
+- Class basic syntax
+- Class inheritance
+- Static properties and methods
+- Private and protected properties and methods
+- Class checking: "instanceof"
+  
+  
 ## Advanced Function Topics
 
 **Readings**  
