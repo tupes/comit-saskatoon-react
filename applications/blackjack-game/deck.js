@@ -1,14 +1,14 @@
 const shuffle = require('shuffle-array');
+
 const { displayCard } = require('./card.js');
 
-
-const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
-const suits = ['c', 'd', 'h', 's'];
+const RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+const SUITS = ['c', 'd', 'h', 's'];
 
 function createCards() {
 	const cards = [];
-	for (rank of ranks) {
-		for (suit of suits) {
+	for (rank of RANKS) {
+		for (suit of SUITS) {
 			const card = { rank, suit };
 			cards.push(card);
 		}

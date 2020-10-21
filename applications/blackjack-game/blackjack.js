@@ -1,62 +1,42 @@
-const prompt = require('prompt-sync')({ sigint: true });
-
-const { getHandTotal, displayHand } = require('./playerHand.js');
-const { createDeck, displayCards } = require('./deck.js');
-const { createPlayer } = require('./player.js');
-const { dealHand, dealCard, bustHand } = require('./dealer');
-
-function isValid(action) {
-	return action === 'h' || action === 's';
-}
-
-function playRound(deck, player, dealerHand) {
-	console.log('Dealing hand...');
-
-	dealHand(deck, player.hand, dealerHand);
-
-	console.log(`Dealer hand: ${displayHand(dealerHand)}`);
-	let dealerHandTotal = getHandTotal(dealerHand);
-	console.log(`Dealer hand total: ${dealerHandTotal}`);
-
-	let action = null;
-	while (true) {
-		console.log(`Player hand: ${displayHand(player.hand)}`);
-		let handTotal = getHandTotal(player.hand);
-		console.log(`Player hand total: ${handTotal}`);
-	
-		const action = prompt('Select an action ("h", "s"):');
-		console.log(action);
-		if (action === 's') {
-			break;
-		} else if (action === 'h') {
-			console.log('Hitting');
-			dealCard(deck, player.hand);
-			if (getHandTotal(player.hand) > 21) {
-				bustHand(player);
-				break;
-			}
-		}
-	}
-}
+const { createDeck } = require('./deck.js');
+const { createPlayer, playHand } = require('./player.js');
+const { dealHand, discardHand, playDealerHand, settleBets } = require('./dealer');
+const { displayPlayer, displayGameStart, displayGameEnd, displayRoundStart, displayHand,
+	getPlayRoundSelection } = require('./consoleUserInterface.js');
 
 function startGame() {
-	console.log('\n\n');
-	console.log('BLACKJACK GAME');
+	displayGameStart();
 
-	const player = createPlayer('John', 50.00);
-	console.log(`Created player ${player.name} with $${player.money}`);
-
-	const dealerHand = [];
+	const player = createPlayer('John', 100.00);
+	const dealer = createPlayer('Dealer');
 	const deck = createDeck();
 
+	displayPlayer(player);
+
 	while (true) {
-		const selection = prompt('Play a round? ');
+		const selection = getPlayRoundSelection();
 		if (selection === 'n') {
-			console.log('Thanks for giving us your money!');
 			break
 		}
-		playRound(deck, player, dealerHand);	
+		playRound(deck, player, dealer);	
 	}
+
+	displayGameEnd();
+}
+
+function playRound(deck, player, dealer) {
+	displayRoundStart();
+	
+	dealHand(deck, player.hand, dealer.hand);
+	displayHand(player);
+	displayHand(dealer);
+	
+	playHand(deck, player);
+	playDealerHand(deck, dealer);
+	settleBets(player, dealer);
+
+	discardHand(player);
+	discardHand(dealer);
 }
 
 startGame();

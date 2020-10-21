@@ -8,7 +8,7 @@ function getHandTotal(hand) {
 	return handValue;	
 }
 
-function displayHand(hand) {
+function getHandDisplay(hand) {
 	let handDisplay = '';
 	for (card of hand) {
 		handDisplay = handDisplay + ' ' + displayCard(card);
@@ -22,6 +22,6 @@ function addCard(hand, card) {
 
 module.exports = {
     getHandTotal,
-    displayHand,
+    getHandDisplay,
     addCard
 }

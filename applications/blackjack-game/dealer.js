@@ -12,12 +12,22 @@ function dealHand(deck, playerHand, dealerHand) {
 	dealCard(deck, playerHand);
 }
 
-function bustHand(player) {
+function playDealerHand(deck, dealer) {
+	console.log("Playing the dealer's hand...");
+}
+
+function settleBets(player, dealer) {
+	console.log("Settling the player's bets...");
+}
+
+function discardHand(player) {
 	player.hand = [];
 }
 
 module.exports = {
 	dealHand,
 	dealCard,
-	bustHand,
+	playDealerHand,
+	settleBets,
+	discardHand,
 }
