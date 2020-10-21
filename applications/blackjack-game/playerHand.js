@@ -1,4 +1,4 @@
-const { getCardValue } = require('./card.js');
+const { getCardValue, displayCard } = require('./card.js');
 
 function getHandTotal(hand) {
 	let handValue = 0;
@@ -9,8 +9,11 @@ function getHandTotal(hand) {
 }
 
 function displayHand(hand) {
-	let handDisplay = `${hand[0].rank}${hand[0].suit} ${hand[1].rank}${hand[1].suit}`;
-	console.log(`Player hand: ${handDisplay}`);	
+	let handDisplay = '';
+	for (card of hand) {
+		handDisplay = handDisplay + ' ' + displayCard(card);
+	}
+	return handDisplay;
 }
 
 function addCard(hand, card) {
