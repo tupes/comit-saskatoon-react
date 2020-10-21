@@ -1,38 +1,12 @@
-## JavaScript Fundamentals
+## [Introduction](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2001%20-%20Introduction.ipynb)
 
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
-Chapter: *JavaScript Fundamentals*
-- Code structure
-- Variables
-- Data types
-- Type conversions
-- Operators
-- Comparisons
-- Conditional operators
-- Logical operators
-- Loops: `while` and `for`
-- Functions
-- Function expressions and arrows
-- JavaScript specials
-  
-  
-## Data Types
+## [Types, Values, and Variables](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2002%20-%20Types%2C%20Values%2C%20and%20Variables.ipynb)
 
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
-Chapter: *Data types*
-- Methods of primitives
-- Numbers
-- Strings
-- Arrays
-- Array methods
-- Iterables
-- Object.keys, values, and entries
-- Destructuring assignment
-- Date and time
-- JSON methods, toJSON
-  
+## [Expressions and Operators](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2003%20-%20Expressions%20and%20Operators.ipynb)
+
+## [Conditionals](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2004%20-%20Conditionals.ipynb)
+
+## [Loops](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2005%20-%20Loops.ipynb)  
   
 ## Arrays
 ### Creating Arrays
@@ -103,73 +77,44 @@ string // => "Hello world"; we reassembled the original text
 
 
 
-## Objects
-### Introduction
+## [Objects](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2007%20-%20Objects.ipynb)
+  
+## [Functions](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2008%20-%20Functions.ipynb)
+  
+## [Modules in Node](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2009%20-%20Modules%20in%20Node.ipynb)
 
-### Creating Objects
+## [Classes](https://github.com/tupes/comit-saskatoon-react/blob/master/JavaScript/Lesson%2010%20-%20Classes.ipynb)
 
-### Reading and Writing Object Properties
+  
+  
+ 
+## JavaScript Part 1: The JavaScript Language  
+Chapter: *JavaScript Fundamentals*
+- Code structure
+- Variables
+- Data types
+- Type conversions
+- Operators
+- Comparisons
+- Conditional operators
+- Logical operators
+- Loops: `while` and `for`
+- Functions
+- Function expressions and arrows
+- JavaScript specials  
 
-### Deleting Properties
-
-### Testing Properties
-
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
 Chapter: *Objects: the basics*
 - Objects
 - Object methods, "this"
-- Constructor, operator "new"
-  
-  
-## Functions
-### Defining Functions
+- Constructor, operator "new"  
 
-### Calling (Invoking) Functions
-
-### Function Arguments and Parameters
-
-### Functions as Values
-  
-  
-## Modules in Node
-### Node Exports
-
-### Node Imports
-
-
-## Classes
-### Introduction
-
-### Static Methods
-
-### Getters and Setters
-
-### Public and Private Fields
-
-
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
 Chapter: *Classes*
 - Class basic syntax
 - Class inheritance
 - Static properties and methods
 - Private and protected properties and methods
-- Class checking: "instanceof"
-  
-  
-## JavaScript Standard Library
-### `setTimeout` and `setInterval`
+- Class checking: "instanceof"  
 
-### Dates and Times
-
-### JSON
-  
-  
-## Advanced Function Topics
-
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
 Chapter: *Advanced working with functions*
 - Rest parameters and the spread operator
 - Closure
