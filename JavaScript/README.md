@@ -17,6 +17,23 @@ Chapter: *JavaScript Fundamentals*
 - JavaScript specials
   
   
+## Data Types
+
+**Readings**  
+JavaScript Part 1: The JavaScript Language  
+Chapter: *Data types*
+- Methods of primitives
+- Numbers
+- Strings
+- Arrays
+- Array methods
+- Iterables
+- Object.keys, values, and entries
+- Destructuring assignment
+- Date and time
+- JSON methods, toJSON
+  
+  
 ## Arrays
 ### Creating Arrays
 By far the simplest way to create an array is with an array literal, which is simply a comma-separated list of array elements within square brackets. 
@@ -87,6 +104,15 @@ string // => "Hello world"; we reassembled the original text
 
 
 ## Objects
+### Introduction
+
+### Creating Objects
+
+### Reading and Writing Object Properties
+
+### Deleting Properties
+
+### Testing Properties
 
 **Readings**  
 JavaScript Part 1: The JavaScript Language  
@@ -96,24 +122,31 @@ Chapter: *Objects: the basics*
 - Constructor, operator "new"
   
   
-## Data Types
+## Functions
+### Defining Functions
 
-**Readings**  
-JavaScript Part 1: The JavaScript Language  
-Chapter: *Data types*
-- Methods of primitives
-- Numbers
-- Strings
-- Arrays
-- Array methods
-- Iterables
-- Object.keys, values, and entries
-- Destructuring assignment
-- Date and time
-- JSON methods, toJSON
+### Calling (Invoking) Functions
+
+### Function Arguments and Parameters
+
+### Functions as Values
   
   
+## Modules in Node
+### Node Exports
+
+### Node Imports
+
+
 ## Classes
+### Introduction
+
+### Static Methods
+
+### Getters and Setters
+
+### Public and Private Fields
+
 
 **Readings**  
 JavaScript Part 1: The JavaScript Language  
@@ -123,6 +156,14 @@ Chapter: *Classes*
 - Static properties and methods
 - Private and protected properties and methods
 - Class checking: "instanceof"
+  
+  
+## JavaScript Standard Library
+### `setTimeout` and `setInterval`
+
+### Dates and Times
+
+### JSON
   
   
 ## Advanced Function Topics
