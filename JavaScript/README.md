@@ -25,3 +25,20 @@ Chapter: *Objects: the basics*
 - Objects
 - Object methods, "this"
 - Constructor, operator "new"
+  
+  
+## Data Types
+
+**Readings**  
+JavaScript Part 1: The JavaScript Language  
+Chapter: *Data types*
+- Methods of primitives
+- Numbers
+- Strings
+- Arrays
+- Array methods
+- Iterables
+- Object.keys, values, and entries
+- Destructuring assignment
+- Date and time
+- JSON methods, toJSON
