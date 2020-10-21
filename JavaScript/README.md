@@ -42,3 +42,15 @@ Chapter: *Data types*
 - Destructuring assignment
 - Date and time
 - JSON methods, toJSON
+  
+  
+## Advanced Function Topics
+
+**Readings**  
+JavaScript Part 1: The JavaScript Language  
+Chapter: *Advanced working with functions*
+- Rest parameters and the spread operator
+- Closure
+- Scheduling: `setTimeout` and `setInterval`
+- Function binding
+- Arrow functions revisited
