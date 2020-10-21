@@ -1,5 +1,5 @@
 const { getHandTotal, displayHand } = require('./playerHand.js');
-const { createDeck } = require('./deck.js');
+const { createDeck, displayCards } = require('./deck.js');
 const { createPlayer } = require('./player.js');
 const { dealHand } = require('./dealer');
 
@@ -9,6 +9,7 @@ function startGame() {
 
 	const player = createPlayer('John', 50.00);
 	const deck = createDeck();
+	displayCards(deck);
 
 	console.log(`Created player ${player.name} with $${player.money}`);
 	console.log('Dealing hand...');

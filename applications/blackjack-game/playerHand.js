@@ -1,5 +1,11 @@
+const { getCardValue } = require('./card.js');
+
 function getHandTotal(hand) {
-	return Number(hand[0].rank) + Number(hand[1].rank);	
+	let handValue = 0;
+	for (card of hand) {
+		handValue += getCardValue(card);
+	}
+	return handValue;	
 }
 
 function displayHand(hand) {
