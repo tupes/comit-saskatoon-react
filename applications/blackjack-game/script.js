@@ -22,7 +22,7 @@ export function createDeck() {
             tD.setAttribute("id", column);
             let img = document.createElement("IMG");
             img.setAttribute("id",column+row);
-            img.setAttribute("src",`/images/${column}${row}.png`);
+            img.setAttribute("src",`./images/${column}${row}.png`);
             img.setAttribute("alt",`${column}${row}.png`);
             tD.appendChild(img);
             document.getElementById(row).appendChild(tD);
@@ -39,7 +39,7 @@ export function shuffleCards() {
             let card = cards.pop();
             let filename = card.rank+card.suit+'.png'
             let img = document.getElementById(column+row);
-            img.setAttribute("src",`/images/${filename}`);
+            img.setAttribute("src",`./images/${filename}`);
             img.setAttribute("alt",`${filename}`);
         }
     } 
