@@ -1,0 +1,17 @@
+img {
+    width: 80px;
+    height:120px;
+}
+
+#buttonCreateDeck{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+#buttonShuffleCards{
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 200px;
+    display: none;
+}
