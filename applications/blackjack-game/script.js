@@ -23,6 +23,7 @@ export function createDeck() {
             let tD = document.createElement("TD");
             tD.setAttribute("id", column);
             let img = document.createElement("IMG");
+            img.setAttribute("class","imageCard");
             img.setAttribute("id",column+row);
             img.setAttribute("src",`./images/${column}${row}.png`);
             img.setAttribute("alt",`${column}${row}.png`);
@@ -34,7 +35,31 @@ export function createDeck() {
 
 }
 
+let i = 1; //global variable
+let timer ={};//global variable
+function onTimer() {
+    const img = document.querySelectorAll(".imageCard");
+    if (i!== 0){ 
+        if (i <= 52) {
+            img[i-1].style.transform = "scale3d(1.2,1.2,1.2)";
+            if (i >= 2) {
+                img[i-2].style.transform = "scale3d(1,1,1)";
+            }
+            i += 1;
+        }
+        else{
+            clearInterval(timer);
+            img[51].style.transform = "scale3d(1,1,1)";
+            i=0;
+        }
+    } 
+}
 export function shuffleCards() {
+    let op = document.getElementById("optionShowHide");
+    if (op.checked===false){
+        i = 1;
+        timer = setInterval(onTimer, 25);//Create the timer
+    }
     let cards = createCards(); //create Cards
     shuffleArray(cards);
     for (let row of SUITS){
@@ -43,7 +68,7 @@ export function shuffleCards() {
             let filename = card.rank+card.suit+'.png'
             let img = document.getElementById(column+row);
             img.setAttribute("alt",`${filename}`);
-            let op = document.getElementById("optionShowHide");
+            
             if (op.checked===true){
                 img.setAttribute("src",`./images/${filename}`);
             } 
@@ -68,3 +93,5 @@ export function flipflopCard(thiscard) {
       } 
     
 }
+
+
