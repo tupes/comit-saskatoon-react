@@ -10,13 +10,13 @@ export function getItems() {
 				name: 'Tubing raft',
 				price: 624.00,
 				description: 'Have some extreme fun being pulled in this raft!',
-				image: "imgs/soccer/ball.png",
+				image: "imgs/watersports/tube.png",
 		},
 		{
 				name: 'Chess board and pieces',
 				price: 499.00,
 				description: 'finest wood',
-				image: "imgs/soccer/ball.png",
+				image: "imgs/boardgames/woodenSet.png",
 		},
 		{
 			name: 'Team Canada soccer jersey',
