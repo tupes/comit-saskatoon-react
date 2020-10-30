@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './styles/app.css';
+
 function App() {
     return (
         <div class="container">

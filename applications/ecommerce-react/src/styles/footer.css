@@ -1,0 +1,10 @@
+.page-footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: var(--med-size);
+  border-top: var(--tiny-size) solid var(--white);
+}
+
+.page-footer a {
+  color: var(--medium-green);
+}
