@@ -7,8 +7,6 @@
   pointer-events: none;
 }
 
-
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -52,112 +50,188 @@
 .App-header h2:hover{
     transition: 2s;
     letter-spacing: 0.5vmin;
-  }
+}
 
 .App_started {
-  min-height: 14vh;
-  width: 100vw;
-  flex-direction: row;
-  justify-content: flex-start;
-  font-size: calc(10px + 1vmin);
+  min-height: 15%;
+  width: 100%;
+  display: grid;
+  grid-template-columns:8% 12% 60% 5% 15%;
   color: white;
 }
 
 .App-logo-started {
-  height: 10vmin;
+  height: 10vh;
+  width: 100%;
 }
 
 .App_started h1 {
-  font-size: calc(5px + 2.4vmin);
+  font-size: calc(5px + 2.8vmin);
   margin:0px;
-  padding:0px 5px;
-}
-
-.hello {
-  font-size: calc(5px + 2vmin);
-  color:yellow;
-  margin:0px;
-  padding:0px 8px;
-  font-weight: bold;
+  padding-bottom:5px;
+  color: #f89c33;
 }
 
 .guide {
   font-size: calc(5px + 1.6vmin);
   color:white;
-  padding:0px 8px;
+  padding:0px;
   margin:0px;
   font-style: italic;
 }
 
+.guideImage{
+  width:auto;
+  height:13vh;
+  padding:5px 0px;
+  justify-self:flex-end;
+}
+
+.playerName {
+  font-size: calc(5px + 1.8vmin);
+  color:#f89c33;
+  margin:0px;
+  padding:0px;
+  font-weight: bold;
+}
+
+.divSignOut button{
+  color:white;
+  font-size: calc(10px + 1vmin);
+  border-radius: 10px;
+  height: calc(12px + 3vmin);
+  padding:3px 20px;
+  background-color: #02576d;
+  cursor: pointer;
+}
+.divSignOut button:hover{
+  background-color: #02aad4;
+}
+
 #inputName{
   font-size: calc(10px + 1vmin);
-  height: calc(20px + 1vmin);
-  width: 40vmin;
+  height: calc(10px + 3vh);
+  width: 18vw;
 }
 .startButton{
   color:white;
-  font-size: calc(10px + 1vmin);
-  height: calc(27px + 1vmin);
-  background-color: #a72801;
+  font-size: calc(8px + 1vmin);
+  height: calc(10px + 4vh);
+  padding:5px 20px;
+  background-color: #992604;
   cursor: pointer;
 }
 
 .startButton:hover{
-  background-color: #f44900;
-}
-
-.guideImage{
-  width:6.5vw;
-  height:12vh;
+  background-color: #fd530a;
 }
 
 .divDeck{
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-  min-width: 100vw;
-  min-height: 80vh;
-  padding: 2vh 0 0 1vw;
+  display:grid;
+  grid-template-columns:85% 15%;
+  min-width: 100%;
+  padding:0px;
+  margin: 0px;
 }
-
 
 .gridDeck {
   display: grid;
-  grid-template-columns: repeat(13, 6vw);
-  grid-gap: 5px;
-  grid-template-rows: 18vh 18vh 18vh 18vh;
-  min-height: 80vh;
-  min-width: 84vw;
+  grid-template-columns:repeat(13, 7.3%);
+  grid-template-rows: repeat(4, 23%);
+  grid-gap:5px;
+  padding:8px 0px 5px 8px;
+  margin: 0px;
+  
 }
 
 .divSidebar{
   display: grid;
-  grid-template-rows: 25vh 10vh 60vh;
-  justify-items: center;
-  grid-gap: 0.2vmin;
-  min-height: 80vh;
-  min-width: 10vw;
+  min-width: 100%;
 }
 
 .imageCard {
-  width: 5.5vw;
-  height:17vh;
+  width:95%;
+  height:98%;
   cursor: pointer;
-  transform: scale3d(1,1,1);
+  padding:0px;
+  margin:0px;
+  justify-self: center;
+}
+.imageGoodJob{
+  width:95%;
+  height:98%;
+  cursor:default;
 }
 
 .imageCard:hover {
-  transform: scale3d(1.1,1.1,1.1);
+  transform: scale3d(1.03,1.03,1.03);
   transition: 0.5s;
   border-radius: 5px;
   box-shadow: 2px 2px #838282ce;
   padding: 0px 0px;
 }
 
+.divTopScore{
+  display: flex;
+  flex-direction: column;
+}
+
 #clockGame{
   font-size: 8vmin;
 }
+#gameOver{
+  font-size: 8vmin;
+  color: #dd1a0c;
+}
+.divGameover> p {
+  font-size: 3.5vmin;
+  color: #dd1a0c;
+}
+
+#gameFinish{
+  font-size: 8vmin;
+  color: #e94d04;
+}
+.divFinish > p {
+  font-size: 3.5vmin;
+  color:#e94d04;
+}
+.divClock > p {
+  font-size: 3.5vmin;
+  color: black;
+}
 
 .topscore{
-  font-size: 6vmin;
+  font-size: 5vmin;
 }
+
+
+#buttonRestartGame{
+  color:white;
+  font-size: calc(10px + 1vmin);
+  height: calc(27px + 1vmin);
+  background-color: #01363f;
+  cursor: pointer;
+  border-radius: 5px;
+  border:none;
+  padding: 8px 16px;
+}
+
+#buttonRestartGame:hover{
+  background-color: #09607a;
+}
+
+footer{
+  position: fixed;
+  bottom:0px; 
+  height:5%;
+  width: 100%;
+  background-color: #01343b;
+  color: aliceblue;
+}
+footer > p {
+  margin: 0px;
+  padding:5px;
+  align-content: center;
+}
+

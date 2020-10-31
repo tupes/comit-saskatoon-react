@@ -42,15 +42,16 @@ class StartMemo extends Component {
                     <div>    
                         <h1>Memo Game by ReactJS</h1>
                         <h2> - ComIT ReactJS 2020- </h2>
-                        <form>
+                        <form action="">
                             <input id="inputName" type="text" required
-                                title="Click and type your name less than 16 characters"
+                                title="Click and type your name less than 25 characters"
                                 onChange={this.onInputNameChange} 
                                 placeholder="Your name hear ..."
-                                maxlength="16" 
+                                maxLength="25" 
                             />
-                            <button className="startButton" type="submit"
-                                onClick={this.onStartClick}>Start game now !
+                            <button onClick={this.onStartClick}
+                                className="startButton" type="submit">
+                                Start game 
                             </button>
                         </form>
                     </div>
@@ -62,12 +63,17 @@ class StartMemo extends Component {
                 <div>
                     <header className="App-header App_started">
                         <img src={logo} className="App-logo App-logo-started" alt="logo" />
-                        <h1>Welcome to Memo Game ! </h1>
-                        <p className="hello">Hello {this.state.name} ! </p>
-                        <p className="guide">Click any card to start and try your best to memorize the position of these pair of cards like this </p>
+                        <h1>Memo Game</h1>
+                        <p className="guide">Click any card to start!. Try your best to memorize the positions of these pair on the deck - likes this pair </p>
                         <img className="guideImage" src="../images/pairofcard.png" alt="pairofcard"/>
+                        <div className="divSignOut">
+                            <p className="playerName">{this.state.name}</p>
+                            <button type="button" onClick={() => window.location.reload(false)}>Sign Out</button>
+                        </div>
+                        
                     </header>
                     <MainMemo />
+                    <footer><p>Copyright by ComIT 2020</p></footer>
                 </div>
             )
         }    
@@ -76,6 +82,8 @@ class StartMemo extends Component {
 }
 
 export default StartMemo;
+
+
 
 
 
