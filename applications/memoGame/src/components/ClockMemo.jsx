@@ -29,17 +29,21 @@ class ClockMemo extends Component {
         if (window.$isTimerStart){
                 this.setState({count: this.state.count+1});
                 //You have just flipped a correct card 
-                if (window.$isPairCards){
+                if (window.$isPairCards && !window.$isOnEventDeckChange){
                     if (this.state.delay1===0){soundGame("Correct card")} 
                     this.setState({delay1: this.state.delay1+1});
-                    if (this.state.delay1===1){removeCardFromDeck()}
+                    if (this.state.delay1===1){
+                        window.$isOnEventDeckChange = true;//Disable mouse click when flip-back
+                        removeCardFromDeck()
+                    }
                 }else{this.setState({delay1: 0});}
                 
                 //You have just flipped a wrong card
-                if (window.$isFlipBackPairCards){
+                if (window.$isFlipBackPairCards && !window.$isOnEventDeckChange){
                     if (this.state.delay2===0){soundGame("Wrong card")}
                     this.setState({delay2: this.state.delay2+1});
                     if (this.state.delay2===2){
+                        window.$isOnEventDeckChange = true;//Disable mouse click when flip-back
                         flipBackPairCards();
                         soundGame("Flip a card");
                     }

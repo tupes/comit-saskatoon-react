@@ -22,7 +22,7 @@ export function createCards() {
 		}
 	}
 	//return shuffleArray(cards);
-	return cards; //Do not shuffle --> debug prcess
+	return cards;
 }
 
 export function removeCardFromDeck(){
