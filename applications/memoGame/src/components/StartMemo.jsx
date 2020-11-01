@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import MainMemo from '../components/MainMemo';
+import MainMemo from '../components/MainMemo.jsx';
+import {soundGame} from '../js/sound';
 
 class StartMemo extends Component { 
     constructor(props) {
@@ -20,8 +21,7 @@ class StartMemo extends Component {
     onStartClick = () => {
         if (this.state.name !==""){
             this.setState({isStarted:true});
-        }
-        else{
+        }else{
             //to setCustomValidity message of <input ... required> 
             document.getElementById("inputName").setCustomValidity("You have to enter a name to start Memo Game");
         }
@@ -32,7 +32,10 @@ class StartMemo extends Component {
         document.getElementById("inputName").setCustomValidity("");
     } 
     
-           
+    onSignOutClick = () => {
+        soundGame("Sign out");
+        setTimeout(function(){window.location.reload(false)},1800);
+    }      
     
     render() {
         if (!this.state.isStarted) {
@@ -68,7 +71,7 @@ class StartMemo extends Component {
                         <img className="guideImage" src="../images/pairofcard.png" alt="pairofcard"/>
                         <div className="divSignOut">
                             <p className="playerName">{this.state.name}</p>
-                            <button type="button" onClick={() => window.location.reload(false)}>Sign Out</button>
+                            <button type="button" onClick={this.onSignOutClick}>Sign Out</button>
                         </div>
                         
                     </header>

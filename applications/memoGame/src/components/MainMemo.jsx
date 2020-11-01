@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DeckMemo from "../components/DeckMemo";
-import SidebarMemo from "../components/SidebarMemo";
+import DeckMemo from "../components/DeckMemo.jsx";
+import SidebarMemo from "../components/SidebarMemo.jsx";
 
 
 class MainMemo extends Component {

@@ -1,5 +1,5 @@
-import ClockMemo from "../components/ClockMemo.js"
-import TopScoreMemo from "../components/TopScoreMemo.js"
+import ClockMemo from "../components/ClockMemo.jsx"
+import TopScoreMemo from "../components/TopScoreMemo.jsx"
 
 function SidebarMemo({func}) {
     return(

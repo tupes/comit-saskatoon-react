@@ -1,5 +1,5 @@
 import './App.css';
-import StartMemo from './components/StartMemo';
+import StartMemo from './components/StartMemo.jsx';
 
 function App() {
   return (

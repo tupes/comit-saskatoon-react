@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {createCards, sound} from "./cards.js";
+import {createCards} from "../js/cards.js";
+import {soundGame} from "../js/sound.js";
 
 class DivImageCard extends Component { 
     constructor(props) {
@@ -23,8 +24,7 @@ class DivImageCard extends Component {
                 //Solution for asychronoun setState --> re-render each component
                 window.$flippedCards.push(this.props.cardName);
                 window.$thisSetStates.push(this);
-                let cardSound = new sound("../sounds/flipcard.mp3"); 
-	            cardSound.play();
+                soundGame("Flip a card");
                 if (window.$flippedCards.length===2){
                     //Check the pair of flipped cards 
                     let card1 = window.$flippedCards[0];
@@ -51,7 +51,7 @@ class DivImageCard extends Component {
                      }
                  )
             );
-            //alert("New shuffle")
+            
             if (this.props.cardNumber>=51){
                 //the last card on the deck has been re-shuffled 
                 window.$isNewShuffle=false; 
@@ -106,10 +106,9 @@ class DivImageCard extends Component {
     }        
 }
 
-
-
 function DeckMemo() {
     let cards = createCards();
+    soundGame("Shuffle cards");
     return(
             <div className="gridDeck">
                 {cards.map((element,i) => (

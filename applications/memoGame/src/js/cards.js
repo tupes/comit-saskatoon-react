@@ -3,8 +3,6 @@ const SUITS = ['C', 'D', 'H', 'S'];
 
 
 function shuffleArray(array){
-	let cardSound = new sound("../sounds/shufflecards.mp3"); 
-	cardSound.play();
 	for (let i = array.length - 1; i > 0; i--) {  
 		// Generate random number  
 		let j = Math.floor(Math.random() * (i + 1)); 
@@ -15,21 +13,6 @@ function shuffleArray(array){
 	return array; 
 }
 
-export function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }    
-}
-
 export function createCards() {
 	const cards = [];
 	for (let rank of RANKS) {
@@ -38,7 +21,8 @@ export function createCards() {
 			cards.push(card);
 		}
 	}
-	return shuffleArray(cards);
+	//return shuffleArray(cards);
+	return cards; //Do not shuffle --> debug prcess
 }
 
 export function removeCardFromDeck(){
@@ -52,8 +36,6 @@ export function removeCardFromDeck(){
 } 
 
 export function flipBackPairCards(){
-	let cardSound = new sound("../sounds/flipcard.mp3"); 
-	cardSound.play();
 	let this1 = window.$thisSetStates.pop();
 	let this2 = window.$thisSetStates.pop();
 	this1.setState((state) => ({isShowed: false}));

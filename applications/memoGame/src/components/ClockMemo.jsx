@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {removeCardFromDeck, flipBackPairCards, sound} from "./cards.js";
+import {removeCardFromDeck, flipBackPairCards} from "../js/cards.js";
+import {soundGame} from '../js/sound.js';
 
 class ClockMemo extends Component { 
     constructor(props) {
@@ -29,32 +30,28 @@ class ClockMemo extends Component {
                 this.setState({count: this.state.count+1});
                 //You have just flipped a correct card 
                 if (window.$isPairCards){
-                    if (this.state.delay1===0){
-                        let cardSound = new sound("../sounds/correctcard.mp3"); 
-                        cardSound.play();
-                    } 
+                    if (this.state.delay1===0){soundGame("Correct card")} 
                     this.setState({delay1: this.state.delay1+1});
                     if (this.state.delay1===1){removeCardFromDeck()}
                 }else{this.setState({delay1: 0});}
                 
                 //You have just flipped a wrong card
                 if (window.$isFlipBackPairCards){
-                    if (this.state.delay2===0){
-                        let cardSound = new sound("../sounds/wrongcard.mp3"); 
-                        cardSound.play();
-                    }    
+                    if (this.state.delay2===0){soundGame("Wrong card")}
                     this.setState({delay2: this.state.delay2+1});
-                    if (this.state.delay2===2){flipBackPairCards()}
+                    if (this.state.delay2===2){
+                        flipBackPairCards();
+                        soundGame("Flip a card");
+                    }
                 }else{this.setState({delay2: 0});}
                 
-                //You have just finished all cards on the deck 
+                //You have just finished all cards on the deck - Well done 
                 if (window.$numberCardsOnDeck===0){
-                    let cardSound = new sound("../sounds/finish.mp3"); 
-                    cardSound.play();
+                    soundGame("Well done");
                     window.$isTimerStart = false;
                     window.$isGameFinish = true;
                     this.setState({count:0});
-                    //alert(window.$isGameFinish);
+                    
                     //then, process saving score and adding to Top Score ....
                 
                 }
@@ -74,8 +71,7 @@ class ClockMemo extends Component {
         window.$yourScore = stringClock;
         if (stringClock===window.$timeLimit){
             //Gameover ....
-            let cardSound = new sound("../sounds/gameover.mp3"); 
-            cardSound.play();
+            soundGame("Game over");
             window.$isTimerStart = false;
             window.$isGameOver = true;
             this.setState({count:0});
