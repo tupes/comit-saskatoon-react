@@ -111,13 +111,13 @@
 #inputName{
   font-size: calc(10px + 1vmin);
   height: calc(10px + 3vh);
-  width: 18vw;
+  width: 20vw;
 }
 .startButton{
   color:white;
-  font-size: calc(8px + 1vmin);
-  height: calc(10px + 4vh);
-  padding:5px 20px;
+  font-size: calc(10px + 1vmin);
+  height: calc(10px + 4.2vh);
+  padding:0px 20px;
   background-color: #992604;
   cursor: pointer;
 }

@@ -32,7 +32,7 @@ export function removeCardFromDeck(){
 	this2.setState((state) => ({isOnDeck: false}));
 	window.$isPairCards = false;
 	window.$flippedCards = [];
-	window.$numberCardsOnDeck -=2;
+	window.$numberCardsOnDeck -=2;//2 cards are out of the deck 
 } 
 
 export function flipBackPairCards(){

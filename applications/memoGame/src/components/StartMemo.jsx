@@ -21,7 +21,9 @@ class StartMemo extends Component {
     onStartClick = () => {
         if (this.state.name !==""){
             this.setState({isStarted:true});
-        }else{
+            window.$isOnEventDeckChange = true;//Disable mouse click when shuffle cards
+        }
+        else{
             //to setCustomValidity message of <input ... required> 
             document.getElementById("inputName").setCustomValidity("You have to enter a name to start Memo Game");
         }

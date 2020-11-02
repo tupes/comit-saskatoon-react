@@ -1,86 +1,63 @@
 import React, { Component } from 'react';
-import {removeCardFromDeck, flipBackPairCards} from "../js/cards.js";
-import {soundGame} from '../js/sound.js';
+import { soundGame } from '../js/sound';
 
 class ClockMemo extends Component { 
     constructor(props) {
         super(props);
         this.state = {
             count:0,
-            delay1:0,
-            delay2:0
         };
     }
 
     componentDidMount() {
-        this.timerID = setInterval(
-          () => this.tick(),
+        this.timerInSecond = setInterval(
+          () => this.processInSecond(),
           1000
         );
     }
     
     componentWillUnmount() {
-        clearInterval(this.timerID);
+        clearInterval(this.processInSecond);
         window.$isTimerStart = false;
     }
 
-    tick() {
-        //Have just started Game Memo
+    processInSecond() {
+        //When the first card has just been clicked -> isTimerStart:true
         if (window.$isTimerStart){
-                this.setState({count: this.state.count+1});
-                //You have just flipped a correct card 
-                if (window.$isPairCards && !window.$isOnEventDeckChange){
-                    if (this.state.delay1===0){soundGame("Correct card")} 
-                    this.setState({delay1: this.state.delay1+1});
-                    if (this.state.delay1===1){
-                        window.$isOnEventDeckChange = true;//Disable mouse click when flip-back
-                        removeCardFromDeck()
-                    }
-                }else{this.setState({delay1: 0});}
-                
-                //You have just flipped a wrong card
-                if (window.$isFlipBackPairCards && !window.$isOnEventDeckChange){
-                    if (this.state.delay2===0){soundGame("Wrong card")}
-                    this.setState({delay2: this.state.delay2+1});
-                    if (this.state.delay2===2){
-                        window.$isOnEventDeckChange = true;//Disable mouse click when flip-back
-                        flipBackPairCards();
-                        soundGame("Flip a card");
-                    }
-                }else{this.setState({delay2: 0});}
-                
-                //You have just finished all cards on the deck - Well done 
-                if (window.$numberCardsOnDeck===0){
-                    soundGame("Well done");
-                    window.$isTimerStart = false;
-                    window.$isGameFinish = true;
-                    this.setState({count:0});
-                    
-                    //then, process saving score and adding to Top Score ....
-                
+                if(!window.$isGameFinish && !window.$isGameOver){    
+                    //clock still run when NOT Game Finish and Not Game Over
+                    this.setState({count: this.state.count+1});
+                    window.$yourCount = this.state.count; //Game-time is updated and saved
                 }
-        }else{if(!window.$isGameFinish){ //When finished all cards on the deck
-                this.setState({count: 0});
-            } 
         }
+        else{   //setState change to make the last update ClockMemo
+                this.setState({count: 0}); 
+        } 
+    }
+
+    countToClock (count){
+        //count in (second) convert to minutes:seconds format  
+        let minutes = parseInt(count / 60, 10);//to integer in Decimal
+        let seconds = parseInt(count % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;//add "0" before (0..9) 
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        return minutes + ":" + seconds;
     }
 
     displayClock(){
-        //count in second 
-        let minutes = parseInt(this.state.count / 60, 10);//to integer in Decimal
-        let seconds = parseInt(this.state.count % 60, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;//add "0" before (0..9) 
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        let stringClock = minutes + ":" + seconds;
-        window.$yourScore = stringClock;
-        if (stringClock===window.$timeLimit){
-            //Gameover ....
-            soundGame("Game over");
-            window.$isTimerStart = false;
-            window.$isGameOver = true;
-            this.setState({count:0});
+        if (this.state.count===0){
+            return "00:00"
+        }else
+        {
+            let stringClock = this.countToClock(this.state.count) 
+            if (stringClock===window.$timeLimit){
+                //Gameover ....
+                window.$isTimerStart = false;// and this.state.count will be set back to 0
+                window.$isGameOver = true;
+                soundGame("Game over");
+            }
+            return stringClock;
         }
-        return stringClock;
     }
 
     render() {
@@ -96,7 +73,9 @@ class ClockMemo extends Component {
                     return (
                         <div className="divFinish">
                             <p>WELL DONE!</p>
-                            <span id="gameFinish">{window.$yourScore}</span>
+                            <span id="gameFinish">
+                                {this.countToClock(window.$yourCount)}
+                            </span>
                         </div> 
                     );
                  
