@@ -7,14 +7,13 @@ export function eventsProcess() {
         
         //If you have just flipped a correct card 
         if (window.$isPairCards && !window.$isOnEventDeckChange){
-                soundGame("Correct card");
+                setTimeout(function(){soundGame("Correct card")},500);
                 window.$isOnEventDeckChange = true;//Disable mouse click when remove cards
                 setTimeout(function(){
                     removeCardFromDeck();
-                    //window.$isOnEventDeckChange = false;//Re-Enable mouse click 
                     //If you have just finished all cards on the deck - Well done 
                     if (window.$numberCardsOnDeck===0){
-                        soundGame("Well done");
+                        setTimeout(function(){soundGame("Well done")},500);
                         window.$isTimerStart = false;
                         window.$isGameFinish = true;
                    //then, process saving score and adding to Top Score ....
@@ -25,10 +24,10 @@ export function eventsProcess() {
         {   //If you have just flipped a wrong card
             if (window.$isFlipBackPairCards && !window.$isOnEventDeckChange){
                 window.$isOnEventDeckChange = true;//Disable mouse click when flip-back cards
-                soundGame("Wrong card");
+                setTimeout(function(){soundGame("Wrong card")},500);
                 setTimeout(function(){
                     flipBackPairCards();
-                    //window.$isOnEventDeckChange = false;//Re-Enable mouse click 
+                    soundGame("Flip a card");
                 },2000);
             }
         }
