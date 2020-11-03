@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Header from './Header';
 import ItemCategories from './ItemCategories';
@@ -8,15 +8,15 @@ import Footer from './Footer';
 import { getItems } from '../data';
 
 export default function App() {
+
 	const sportItems = getItems();
-	const isLoggedIn = true;
 
 	return (
-			<div className="container">
-				<Header isLoggedIn={isLoggedIn} pageTitle={"Sports Store!"} />
-				<ItemCategories />
-				<ItemsList items={sportItems} buttonText={"Add to Cart!"} exampleText={'Hi Surpreet'} />
-				<Footer />
-			</div>
+		<div className="container">
+			<Header pageTitle={"Sports Store!"} />
+			<ItemCategories />
+			<ItemsList items={sportItems} buttonText={"Add to Cart!"} />
+			<Footer />
+		</div>
 	);
 }
