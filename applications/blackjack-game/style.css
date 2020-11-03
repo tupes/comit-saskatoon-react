@@ -1,12 +1,25 @@
 img {
     width: 80px;
     height:120px;
+    cursor: pointer;
+    transform: scale3d(1,1,1);
+    padding: 3px 3px;
 }
+
+img:hover {
+    transform: scale3d(1.1,1.1,1.1);
+    transition: 0.5s;
+    border-radius: 5px;
+    box-shadow: 2px 2px #96959560;
+    padding: 0px 0px;
+}
+
 
 #buttonCreateDeck{
     font-size: 14px;
     padding: 5px 10px;
     width: 200px;
+    cursor: pointer;
 }
 
 #buttonShuffleCards{
@@ -14,4 +27,17 @@ img {
     padding: 5px 10px;
     width: 200px;
     display: none;
+    cursor: pointer;
+}
+
+#optionShowHide{
+    display: none; 
+    width: 16px;
+    height:16px;
+    margin:0px;
+}
+
+#labelShowHide{
+    display: none; 
+    font-size: 20px;
 }

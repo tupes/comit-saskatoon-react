@@ -4,9 +4,10 @@
     <title>Blackjack with HTML-CSS-JavaScript</title>
     <link rel="stylesheet" href="./style.css"/>
     <script type="module">
-        import {createDeck, shuffleCards} from "./script.js";
+        import {createDeck, shuffleCards, flipflopCard} from "./script.js";
         window.createDeck = createDeck;
         window.shuffleCards = shuffleCards;
+        window.flipflopCard = flipflopCard;
     </script>
 </head> 
 <body>
@@ -18,6 +19,8 @@
             <div class="divAction">
                 <button id="buttonCreateDeck"   type="button" onclick="createDeck()">Create Deck</button>
                 <button id="buttonShuffleCards" type="button" onclick="shuffleCards()">Shuffle Cards</button>
+                <input id="optionShowHide" type="checkbox" unchecked>
+                <label id="labelShowHide">Shuffle and show all cards</label> 
             </div>
             <div id="divTable" class="divCards">
                 <p id="deckStatus">Deck is now empty !</p>
