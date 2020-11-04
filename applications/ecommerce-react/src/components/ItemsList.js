@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function ItemsList(props) {	
-	const { items, buttonText } = props;
+	const { items } = props;
 
 	return (
     <section className="items">
@@ -12,7 +12,9 @@ export default function ItemsList(props) {
             <h3>{item.name}</h3>
             <div>${item.price}</div>
             <p>{item.description}</p>
-            <button className="item">{buttonText}</button>
+            <button className="item" onClick={() => props.handleAddToCartClick(item)}>
+              Add to Cart
+            </button>
           </li>          
         )
         )}
