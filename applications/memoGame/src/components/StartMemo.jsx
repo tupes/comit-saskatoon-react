@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import MainMemo from '../components/MainMemo.jsx';
 import {soundGame} from '../js/sound';
 
+
 class StartMemo extends Component { 
     constructor(props) {
         super(props);
@@ -21,6 +22,7 @@ class StartMemo extends Component {
     onStartClick = () => {
         if (this.state.name !==""){
             this.setState({isStarted:true});
+            window.$yourName = this.state.name;
             window.$isOnEventDeckChange = true;//Disable mouse click when shuffle cards
         }
         else{

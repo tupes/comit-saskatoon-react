@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { soundGame } from '../js/sound';
+import { scoreToClock } from '../js/score';
 
 class ClockMemo extends Component { 
     constructor(props) {
@@ -35,21 +36,12 @@ class ClockMemo extends Component {
         } 
     }
 
-    countToClock (count){
-        //count in (second) convert to minutes:seconds format  
-        let minutes = parseInt(count / 60, 10);//to integer in Decimal
-        let seconds = parseInt(count % 60, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;//add "0" before (0..9) 
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        return minutes + ":" + seconds;
-    }
-
     displayClock(){
         if (this.state.count===0){
             return "00:00"
         }else
         {
-            let stringClock = this.countToClock(this.state.count) 
+            let stringClock = scoreToClock(this.state.count) 
             if (stringClock===window.$timeLimit){
                 //Gameover ....
                 window.$isTimerStart = false;// and this.state.count will be set back to 0
@@ -74,7 +66,7 @@ class ClockMemo extends Component {
                         <div className="divFinish">
                             <p>WELL DONE!</p>
                             <span id="gameFinish">
-                                {this.countToClock(window.$yourCount)}
+                                {scoreToClock(window.$yourCount)}
                             </span>
                         </div> 
                     );
