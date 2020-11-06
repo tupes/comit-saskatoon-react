@@ -1,23 +1,26 @@
-import React from 'react'
+import React from "react";
 
-export default function ItemCategories() {
+export default function ItemCategories(props) {
+  const categories = [
+    "all",
+    "watersports",
+    "soccer",
+    "basketball",
+    "hockey",
+    "boardgames",
+  ];
+
   return (
     <ul className="nav-links">
-      <li>
-        <button><a href="pages/watersports.html">Watersports</a></button>
-      </li>
-      <li>
-        <button><a href="pages/soccer.html">Soccer</a></button>
-      </li>
-      <li>
-        <button><a href="pages/basketball.html">Basketball</a></button>
-      </li>
-      <li>
-        <button><a href="pages/hockey.html">Hockey</a></button>
-      </li>
-      <li>
-        <button><a href="pages/Boardgames.html">Boardgames</a></button>
-      </li>
+      {categories.map((category) => {
+        return (
+          <li>
+            <button onClick={() => props.handleSelectCategory(category)}>
+              {category}
+            </button>
+          </li>
+        );
+      })}
     </ul>
-  )
+  );
 }
