@@ -23,7 +23,7 @@ class MainMemo extends Component {
     }
 
 
-    restartGame= () =>{
+    restartGame = () =>{
         this.setState((state) => ({isRestart: !(state.isRestart)}));
         //revert isRestart to change state of MainMemo component --> update
         //Reset global variables
@@ -32,7 +32,7 @@ class MainMemo extends Component {
         window.$isGameFinish = false;//When all cards on the deck are flipperd
         window.$isGameOver = false;//Over limit time
         window.$flippedCards = [];
-        window.$numberCardsOnDeck = 52;//Can assign 6 in debug process
+        window.$numberCardsOnDeck = 6;//52 but can assign 6 in the debug process
         window.$isPairCards = false;
         window.$isFlipBackPairCards = false;
         window.$thisSetStates=[];

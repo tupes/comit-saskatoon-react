@@ -171,9 +171,23 @@
   padding: 0px 0px;
 }
 
-.divTopScore{
+.divTopScores{
   display: flex;
   flex-direction: column;
+  align-items:  center;
+}
+
+.updateFirebaseButton{
+  color:white;
+  font-size: calc(8px + 1vmin);
+  width: 80%;
+  height: calc(20px + 1vmin);
+  background-color: #fa8e00;
+  cursor: pointer;
+  border-radius: 5px;
+  border:none;
+  padding: 1px 2px;
+  margin: 0px;
 }
 
 #clockGame{
@@ -201,8 +215,32 @@
   color: black;
 }
 
+.divTopScores{
+  display: flex;
+  flex-direction: column;
+}
+
+.divTopScores h4 {
+  font-size: 3.5vmin;
+  color:#e94d04;
+  padding: 5px 0px;
+  margin: 0px;
+}
+.divUserTopScore{
+  margin: 0px;
+  padding: 0px 0px;
+}
+
 .topscore{
-  font-size: 5vmin;
+  font-size: 3vmin;
+  padding-bottom: 10px;
+  margin: 0px;
+  color:#e94d04;
+}
+.topname{
+  font-size:calc(5px + 1.8vmin);
+  padding: 5px;
+  margin: 0px;
 }
 
 

@@ -1,5 +1,5 @@
 import ClockMemo from "../components/ClockMemo.jsx"
-import TopScoreMemo from "../components/TopScoreMemo.jsx"
+import TopScoresMemo from "../components/TopScoresMemo.jsx"
 
 function SidebarMemo({func}) {
     return(
@@ -8,7 +8,7 @@ function SidebarMemo({func}) {
            <div>
                <button id="buttonRestartGame" onClick={func} type="button">Restart Game</button>
             </div> 
-            <TopScoreMemo />
+            <TopScoresMemo />
         </div>
     )
     
