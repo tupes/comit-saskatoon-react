@@ -1,6 +1,7 @@
 export function getItems() {
   return [
     {
+      id: 1,
       name: "Soccer ball",
       price: 44.0,
       description: "The best soccer ball ever!",
@@ -8,6 +9,7 @@ export function getItems() {
       category: "soccer",
     },
     {
+      id: 2,
       name: "Tubing raft",
       price: 624.0,
       description: "Have some extreme fun being pulled in this raft!",
@@ -15,6 +17,7 @@ export function getItems() {
       category: "watersports",
     },
     {
+      id: 3,
       name: "Chess board and pieces",
       price: 499.0,
       description: "finest wood",
@@ -22,6 +25,7 @@ export function getItems() {
       category: "boardgames",
     },
     {
+      id: 4,
       name: "Team Canada soccer jersey",
       price: 591.0,
       description:
@@ -30,6 +34,7 @@ export function getItems() {
       category: "soccer",
     },
     {
+      id: 5,
       name: "Goggles",
       price: 396.0,
       description:
@@ -38,4 +43,8 @@ export function getItems() {
       category: "watersports",
     },
   ];
+}
+
+export function getItemFields() {
+  return ["name", "price", "category"];
 }

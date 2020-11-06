@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { orderBy } from "lodash";
 
 import Header from "./Header";
 import ItemCategories from "./ItemCategories";
 import ItemsList from "./ItemsList";
 import Footer from "./Footer";
 
-import { getItems } from "../data";
+import { getItems, getItemFields } from "../data";
 
 export default function App() {
   const [user, setUser] = useState({
@@ -14,8 +15,10 @@ export default function App() {
   });
   const [count, setCount] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedSortField, setSelectedSortField] = useState("id");
 
   const sportItems = getItems();
+  const itemFields = getItemFields();
 
   const handleLoginClick = () => {
     const newCount = count + 1;
@@ -36,6 +39,18 @@ export default function App() {
     setSelectedCategory(category);
   };
 
+  const handleSelectSortField = (field) => {
+    console.log(field);
+    setSelectedSortField(field);
+  };
+
+  const getItemsToDisplay = () => {
+    const filteredItems = sportItems.filter(
+      (item) => selectedCategory === "all" || item.category === selectedCategory
+    );
+    return orderBy(filteredItems, selectedSortField, "asc");
+  };
+
   return (
     <div className="container">
       <Header
@@ -45,7 +60,7 @@ export default function App() {
       />
       <ItemCategories handleSelectCategory={handleSelectCategory} />
       <ItemsList
-        items={sportItems.filter((item) => item.category === selectedCategory)}
+        items={getItemsToDisplay()}
         handleAddToCartClick={handleAddToCartClick}
       />
       <Footer />
