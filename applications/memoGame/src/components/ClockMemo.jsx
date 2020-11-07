@@ -18,7 +18,7 @@ class ClockMemo extends Component {
     }
     
     componentWillUnmount() {
-        clearInterval(this.processInSecond);
+        clearInterval(this.timerInSecond);
         window.$isTimerStart = false;
     }
 
@@ -71,7 +71,7 @@ class ClockMemo extends Component {
                         </div> 
                     );
                  
-                }else{
+                }else{ //When the player is playing --> the clock runs
                     return (
                         <div className="divClock">
                             <p>Your time</p>

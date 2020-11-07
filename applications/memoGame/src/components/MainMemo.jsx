@@ -45,7 +45,7 @@ class MainMemo extends Component {
         return(
             <div className="divDeck">
                 <DeckMemo />
-                <SidebarMemo func={this.restartGame}/>
+                <SidebarMemo function={this.restartGame}/>
             </div>
         )
     }

@@ -15,8 +15,12 @@ function updateTopScoresOnFirebase() {
 
 export default function TopScoresMemo() {
     const [isUpdated, setIsUpdated] = useState(false);
-    window.$isUpdateTopScore = setIsUpdated;//Save this "setIsUpdated" to call from outside
-    if (isUpdated){setIsUpdated(false)};
+        
+    //Assign this function to call it from eventsProcess.js
+    window.$forceUpdateTopScores = () => {
+        setIsUpdated(!isUpdated)
+    }
+
     return(
         <div className="divTopScores">
             <h4>Top scores</h4>

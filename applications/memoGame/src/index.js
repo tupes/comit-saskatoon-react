@@ -14,7 +14,7 @@ window.$yourName ="";//Name of the player
 window.$yourCount = 0;//in seceonds
 window.$topScores =[]; 
 window.$numberCardsOnDeck = 6;//52 but can assign 6 in the debug process
-window.$isUpdateTopScore = {};
+window.$forceUpdateTopScores = {};//Use to call function inside TopScoresMemo to force re-rendering  
 window.$flippedCards = [];
 readFromDatabase(1,3,window.$topScores, window.$fbDatabase);
 window.$isPairCards = false;

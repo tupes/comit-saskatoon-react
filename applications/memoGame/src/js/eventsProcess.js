@@ -1,5 +1,6 @@
 import {removeCardFromDeck, flipBackPairCards} from "../js/cards.js";
 import {soundGame} from '../js/sound.js';
+import { updateTopScores } from '../js/score';
 
 export function eventsProcess() {
     //Have just started Game Memo
@@ -16,20 +17,10 @@ export function eventsProcess() {
                         setTimeout(function(){soundGame("Well done")},500);
                         window.$isTimerStart = false;
                         window.$isGameFinish = true;
-                        //then, process saving score and adding to Top Score
-                        let last = window.$topScores.length-1;
-                        if (window.$yourCount < window.$topScores[last].score){
-                            //Update top scores process
-                            let newUserScore = {
-                                name:window.$yourName,
-                                score:window.$yourCount
-                            }
-                            //Replace the last userInfor in TopScores
-                            window.$topScores.splice(last,1,newUserScore);
-                            //Re-sort
-                            window.$topScores.sort ((a, b) => a.score - b.score);
-                            window.$isUpdateTopScore(true);//setState for TopScoresMemo to re-render 
-                        }
+                        //update TopScores
+                        updateTopScores(window.$yourName,window.$yourCount,window.$topScores);
+                        //Call function inside TopScoresMemo to force re-rendering
+                        window.$forceUpdateTopScores();                              
                     }
                 },1000);
         }
