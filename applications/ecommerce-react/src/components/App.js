@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { orderBy } from "lodash";
 
 import Header from "./Header";
@@ -6,9 +6,11 @@ import ItemCategories from "./ItemCategories";
 import ItemsList from "./ItemsList";
 import Footer from "./Footer";
 
-import { getItems, getItemFields } from "../data";
+import { getItems } from "../data/firebase";
+import { getItemFields } from "../data";
 
 export default function App() {
+  const [items, setItems] = useState([]);
   const [user, setUser] = useState({
     isLoggedIn: false,
     cart: [],
@@ -17,7 +19,14 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSortField, setSelectedSortField] = useState("id");
 
-  const sportItems = getItems();
+  useEffect(() => {
+    const fetchItems = async () => {
+      const items = await getItems();
+      setItems(items);
+    };
+    fetchItems();
+  }, []);
+
   const itemFields = getItemFields();
 
   const handleLoginClick = () => {
@@ -45,7 +54,7 @@ export default function App() {
   };
 
   const getItemsToDisplay = () => {
-    const filteredItems = sportItems.filter(
+    const filteredItems = items.filter(
       (item) => selectedCategory === "all" || item.category === selectedCategory
     );
     return orderBy(filteredItems, selectedSortField, "asc");
