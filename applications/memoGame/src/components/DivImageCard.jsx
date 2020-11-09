@@ -44,13 +44,20 @@ class DivImageCard extends Component {
                         const suitsCheck = card1[1]+card2[1];
                         const suitPairs =["DH", "HD", "CS", "SC"];
                         if (suitPairs.includes(suitsCheck)){
-                            window.$isPairCards = true;
+                            window.$isCorrectCards = true;
                         }else{window.$isFlipBackPairCards = true;
                         }
                     }else{window.$isFlipBackPairCards = true}
                 }
             }
         }
+      }
+      else{//Accept click on the next-card during a pair of previous cards on processing
+            if (!window.$isNextCard){    
+                window.$thisSetStatesNextCard = this;// Keep the handle the next-clicked card
+                window.$nextCardName = this.props.cardName;
+                window.$isNextCard = true;
+            }
       } 
     }    
 
@@ -114,7 +121,6 @@ class DivImageCard extends Component {
                                         className="imageCard" 
                                         src={scr}
                                         alt={this.props.cardName}
-                                        onClick={this.flipCard}
                                 /> 
                             </div>
                         )

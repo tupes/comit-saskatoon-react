@@ -5,16 +5,23 @@ import { updateTopScores } from '../js/score';
 export function eventsProcess() {
     //Have just started Game Memo
     if (window.$isTimerStart){
-        
-        //If you have just flipped a correct card 
-        if (window.$isPairCards && !window.$isOnEventDeckChange){
-                setTimeout(function(){soundGame("Correct card")},500);
-                window.$isOnEventDeckChange = true;//Disable mouse click when remove cards
-                setTimeout(function(){
-                    removeCardFromDeck();
+        if (!window.$isOnEventDeckChange){
+            //If you have just flipped a correct card 
+            if (window.$isCorrectCards) {
+                    window.$isOnEventDeckChange = true;//Disable mouse click when remove cards
+                    window.$delayCount = 1;
+            }
+            else
+            {   //If you have just flipped a wrong card
+                if (window.$isFlipBackPairCards){
+                    window.$isOnEventDeckChange = true;//Disable mouse click when flip-back cards
+                    window.$delayCount = 1;
+               
+                }
+                else{
                     //If you have just finished all cards on the deck - Well done 
                     if (window.$numberCardsOnDeck===0){
-                        setTimeout(function(){soundGame("Well done")},500);
+                        soundGame("Well done");
                         window.$isTimerStart = false;
                         window.$isGameFinish = true;
                         //update TopScores
@@ -22,19 +29,36 @@ export function eventsProcess() {
                         //Call function inside TopScoresMemo to force re-rendering
                         window.$forceUpdateTopScores();                              
                     }
-                },1000);
-        }
-        else
-        {   //If you have just flipped a wrong card
-            if (window.$isFlipBackPairCards && !window.$isOnEventDeckChange){
-                window.$isOnEventDeckChange = true;//Disable mouse click when flip-back cards
-                setTimeout(function(){soundGame("Wrong card")},500);
-                setTimeout(function(){
-                    flipBackPairCards();
-                    soundGame("Flip a card");
-                },2000);
+
+                }
             }
-        }
+
+
+
+        }else{
+            if (window.$isNextCard || window.$delayCount === 200 || window.$delayCount === 500 ){
+                if (window.$isCorrectCards){
+                    window.$delayCount = 0;
+                    removeCardFromDeck();
+                }else{
+                    if (window.$delayCount === 200) { window.$delayCount = 201} //By pass 200 --> 500
+                    else{
+                        if (window.$isFlipBackPairCards){
+                            window.$delayCount = 0;
+                            flipBackPairCards();
+                            window.$delayCount = 0;
+                            soundGame("Flip a card");
+                        }
+                    } 
+                }
+            }else{
+                window.$delayCount += 1;
+                if (window.$delayCount ===50){
+                    if (window.$isCorrectCards) {soundGame("Correct card");}
+                    if (window.$isFlipBackPairCards){soundGame("Wrong card");}
+                }
+            }
+
+        }    
     }
-    
 }

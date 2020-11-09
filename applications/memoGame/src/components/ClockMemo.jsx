@@ -52,10 +52,10 @@ class ClockMemo extends Component {
         }
     }
 
-    render() {
+    render() {//Conditional Rendering - Game Over - Game Finished - Clock Running
         if (window.$isGameOver){
             return (
-                <div className="divGameover">
+                <div className="divGameOver">
                     <p>GAME OVER !</p>
                     <span id="gameOver">{window.$timeLimit}</span>
                 </div>     
