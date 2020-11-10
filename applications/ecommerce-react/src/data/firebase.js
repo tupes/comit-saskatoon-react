@@ -22,5 +22,6 @@ export async function getItems() {
     const item = itemSnapshot.val();
     items.push(item);
   });
+  console.log(items);
   return items;
 }
