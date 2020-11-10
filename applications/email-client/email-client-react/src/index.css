@@ -80,7 +80,7 @@ label {
   transform: translateY(-1.34375em) scale(0.75);
 }
 
-.material-icons {
+.icon {
   border-radius: 50%;
   background-color: grey;
   padding: 8px;
@@ -90,4 +90,17 @@ label {
 
 h1 {
   text-align: center;
+}
+
+.header_buttons {
+  display: flex;
+}
+button {
+  display: flex;
+  background-color: blue;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
+  gap: 10px;
+  padding: 10px;
 }
