@@ -7,33 +7,47 @@ import ItemCategories from "./ItemCategories";
 import ItemsList from "./ItemsList";
 import Footer from "./Footer";
 
-import { getItems, getItemFields } from "../data";
+const SERVER_URL = "http://localhost:3000";
 
 export default function App() {
   const [items, setItems] = useState([]);
+  const [itemFields, setItemFields] = useState([]);
+  const [itemCategories, setItemCategories] = useState([]);
+
   const [user, setUser] = useState({
     isLoggedIn: false,
     cart: [],
   });
-  const [count, setCount] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSortField, setSelectedSortField] = useState("id");
 
   useEffect(() => {
     const getItems = async () => {
-      const items = await axios.get("http://localhost:3000/items");
-      console.log(items.data);
+      const response = await axios.get(`${SERVER_URL}/items`);
+      setItems(response.data);
     };
+    const getItemFields = async () => {
+      const response = await axios.get(`${SERVER_URL}/itemFields`);
+      setItemFields(response.data);
+    };
+    const getItemCategories = async () => {
+      const response = await axios.get(`${SERVER_URL}/itemCategories`);
+      setItemCategories(response.data);
+    };
+
     getItems();
+    getItemFields();
+    getItemCategories();
   }, []);
 
-  const itemFields = getItemFields();
-
-  const handleLoginClick = () => {
-    const newCount = count + 1;
-    setCount(newCount);
-    console.log(`The current click count is ${newCount}`);
-    setUser({ ...user, isLoggedIn: !user.isLoggedIn }); // just a quicker way of doing the logic below
+  const handleLoginClick = async () => {
+    const updatedUser = { ...user, isLoggedIn: !user.isLoggedIn };
+    const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
+    if (response.status < 400) {
+      setUser(updatedUser);
+    } else {
+      console.log(response);
+    }
   };
 
   const handleAddToCartClick = (item) => {
@@ -62,12 +76,11 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header
-        isLoggedIn={user.isLoggedIn}
-        count={count}
-        handleClick={handleLoginClick}
+      <Header isLoggedIn={user.isLoggedIn} handleClick={handleLoginClick} />
+      <ItemCategories
+        categories={itemCategories}
+        handleSelectCategory={handleSelectCategory}
       />
-      <ItemCategories handleSelectCategory={handleSelectCategory} />
       <ItemsList
         items={getItemsToDisplay()}
         handleAddToCartClick={handleAddToCartClick}
