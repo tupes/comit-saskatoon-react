@@ -38,7 +38,7 @@ class StartMemo extends Component {
     
     onSignOutClick = () => {
         soundGame("Sign out");
-        setTimeout(function(){window.location.reload(false)},1800);
+        setTimeout(function(){window.location.reload(false)},1600);
     }      
     
     render() {
