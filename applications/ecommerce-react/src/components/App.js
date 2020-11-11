@@ -50,14 +50,22 @@ export default function App() {
   }, [items, selectedCategory, selectedSortField]);
 
   const handleLoginPageClick = () => {
-    setCurrentPage("login");
+    if (currentPage === "items") {
+      setCurrentPage("login");
+    } else {
+      setCurrentPage("items");
+    }
   };
 
-  const handleLoginClick = async () => {
+  const handleSubmitLogin = async (event, data) => {
+    console.log(data.email);
+    console.log(data.password);
+    event.preventDefault();
     const updatedUser = { ...user, isLoggedIn: !user.isLoggedIn };
     const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
     if (response.status < 400) {
       setUser(updatedUser);
+      setCurrentPage("items");
     } else {
       console.log(response);
     }
@@ -87,13 +95,21 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header isLoggedIn={user.isLoggedIn} handleClick={handleLoginPageClick} />
-      <Items
-        categories={itemCategories}
-        handleSelectCategory={handleSelectCategory}
-        items={itemsToDisplay}
-        handleAddToCartClick={handleAddToCartClick}
+      <Header
+        currentPage={currentPage}
+        isLoggedIn={user.isLoggedIn}
+        handleClick={handleLoginPageClick}
       />
+      {currentPage === "items" ? (
+        <Items
+          categories={itemCategories}
+          handleSelectCategory={handleSelectCategory}
+          items={itemsToDisplay}
+          handleAddToCartClick={handleAddToCartClick}
+        />
+      ) : (
+        <Login handleSubmit={handleSubmitLogin} />
+      )}
       <Footer />
     </div>
   );
