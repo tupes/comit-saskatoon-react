@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { orderBy } from "lodash";
 import axios from "axios";
 
+import Login from "./Login";
 import Header from "./Header";
-import ItemCategories from "./ItemCategories";
-import ItemsList from "./ItemsList";
+import Items from "./Items";
 import Footer from "./Footer";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "http://localhost:3001";
 
 export default function App() {
   const [items, setItems] = useState([]);
@@ -20,6 +20,7 @@ export default function App() {
   });
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSortField, setSelectedSortField] = useState("id");
+  const [currentPage, setCurrentPage] = useState("items");
 
   useEffect(() => {
     const getItems = async () => {
@@ -40,6 +41,18 @@ export default function App() {
     getItemCategories();
   }, []);
 
+  const itemsToDisplay = useMemo(() => {
+    console.log("Getting items to display");
+    const filteredItems = items.filter(
+      (item) => selectedCategory === "all" || item.category === selectedCategory
+    );
+    return orderBy(filteredItems, selectedSortField, "asc");
+  }, [items, selectedCategory, selectedSortField]);
+
+  const handleLoginPageClick = () => {
+    setCurrentPage("login");
+  };
+
   const handleLoginClick = async () => {
     const updatedUser = { ...user, isLoggedIn: !user.isLoggedIn };
     const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
@@ -50,10 +63,15 @@ export default function App() {
     }
   };
 
-  const handleAddToCartClick = (item) => {
-    console.log(item);
+  const handleAddToCartClick = async (item) => {
     const updatedCart = [...user.cart, item];
-    setUser({ ...user, cart: updatedCart });
+    const updatedUser = { ...user, cart: updatedCart };
+    const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
+    if (response.status < 400) {
+      setUser(updatedUser);
+    } else {
+      console.log(response);
+    }
     console.log(user.cart);
   };
 
@@ -67,22 +85,13 @@ export default function App() {
     setSelectedSortField(field);
   };
 
-  const getItemsToDisplay = () => {
-    const filteredItems = items.filter(
-      (item) => selectedCategory === "all" || item.category === selectedCategory
-    );
-    return orderBy(filteredItems, selectedSortField, "asc");
-  };
-
   return (
     <div className="container">
-      <Header isLoggedIn={user.isLoggedIn} handleClick={handleLoginClick} />
-      <ItemCategories
+      <Header isLoggedIn={user.isLoggedIn} handleClick={handleLoginPageClick} />
+      <Items
         categories={itemCategories}
         handleSelectCategory={handleSelectCategory}
-      />
-      <ItemsList
-        items={getItemsToDisplay()}
+        items={itemsToDisplay}
         handleAddToCartClick={handleAddToCartClick}
       />
       <Footer />
