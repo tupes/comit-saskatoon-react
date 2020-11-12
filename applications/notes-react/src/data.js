@@ -15,7 +15,7 @@ export function getNote() {
         "Arbitrary Stupid Goal by Tamara Shopsin",
                     ],
         author_id: 1,
-        date: 1,
+        date: "Nov 11th 2020",
       },
     ];
      

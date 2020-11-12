@@ -10,9 +10,9 @@ export default function Nav(props) {
             {navitems.map((item) => (
               <li key={item.name}>
               <span aria-hidden="true" role="img">
-                    {(currentPage=== "signup" &&item.icon==='➕')?'':item.icon}
+                    {((currentPage=== "signup" || currentPage==="login" )&&item.icon==='➕')?'':item.icon}
                   </span>
-                <button>{(currentPage=== "signup" && item.name==='New')?'':item.name}</button>
+                <button onClick={() => props.handleNavItemClick(item.name)}>{((currentPage=== "signup" || currentPage==="login" ) && item.name==='New')?'':item.name}</button>
               </li>          
             )
             )} 

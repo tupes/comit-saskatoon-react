@@ -6,7 +6,7 @@ export default function Note(props) {
         <section class="note">
       <header>
         <address>
-          <p>by {author.name}</p>
+          <p>by {author}</p>
           <date>{note.date}</date>
         </address>
       </header>
@@ -33,7 +33,7 @@ export default function Note(props) {
         </li> */}
         
       </ul>
-      <section id="permalink-section"><a href="">Permalink</a></section>
+      <section id="permalink-section"><button>Permalink</button></section>
     </section>
     )
 }

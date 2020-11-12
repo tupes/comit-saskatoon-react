@@ -5,13 +5,13 @@ export default function Aside() {
       <aside className="note-actions">
         <ul>
           <li>
-            <a href="">Remove Favorite</a>
+            <button>Remove Favorite</button>
           </li>
           <li>
-            <a href="">Edit</a>
+            <button>Edit</button>
           </li>
           <li>
-            <a href="">Delete Note</a>
+            <button>Delete Note</button>
           </li>
         </ul>
       </aside>

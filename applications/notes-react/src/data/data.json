@@ -1,0 +1,75 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "name": "Books to Read",
+      "note_items": [
+        "There There by Tommy Orange",
+        "Let's Go(So We Can Get Back) by Jeff tweedy",
+        "Hello World: Being Human in the Age of Algorithms by Hannah Fry",
+        "Can't Stop Won't Stop by Jeff Chang",
+        "Less by Andrew Sean Greer",
+        "Educated by Tara Westover",
+        "Grit by Angela Duckworth",
+        "See you in the Cosmos by Jack Cheng",
+        "Just Kids by Patti Smith",
+        "Arbitrary Stupid Goal by Tamara Shopsin"
+      ],
+      "author_id": 1,
+      "date": "Nov 11th 2019"
+    },
+    {
+      "id": 2,
+      "name": "React Books",
+      "note_items": [
+        "Learning React by Alex Banks & Eve Porcello",
+        "Pure React by Dave Ceddia"
+      ],
+      "author_id": 2,
+      "date": "Nov 12th 2020"
+    },
+    {
+      "id": 3,
+      "name": "Winter Essentials",
+      "note_items": [
+        "Coat",
+        "Beanie/Earmuffs",
+        "Snow Boots",
+        "Snow Blower",
+        "Winter Tires"
+      ],
+      "author_id": 1,
+      "date": "Nov 11th 2020"
+    }
+  ],
+  "authors": [
+    {
+      "isLoggedIn": true,
+      "userName": "test",
+      "id": 1
+    },
+    {
+      "isLoggedIn": true,
+      "userName": "Surpreet",
+      "id": 2
+    }
+  ],
+  "navitems": [
+    {
+      "icon": "🏠",
+      "name": "Home"
+    },
+    {
+      "icon": "📓",
+      "name": "My Notes"
+    },
+    {
+      "icon": "🌟",
+      "name": "Favorites"
+    },
+    {
+      "icon": "➕",
+      "name": "New"
+    }
+  ]
+}

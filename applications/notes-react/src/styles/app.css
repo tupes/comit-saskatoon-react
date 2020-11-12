@@ -55,9 +55,12 @@ nav {
 li {
   list-style-type: none;
 }
-.note-actions li a {
+.note-actions li button {
   color: rgb(7, 134, 219);
   font-weight: bold;
+  background-color: white;
+  border: 0px;
+  text-decoration: underline;
 }
 .note li {
   list-style-type: initial;
@@ -78,10 +81,13 @@ button:focus {
   color: #0077cc;
 }
 
-#permalink-section a {
+#permalink-section button {
   color: rgb(7, 134, 219);
   font-family: sans-serif;
   font-weight: bold;
+  background-color: white;
+  border: 0px;
+  text-decoration: underline;
 }
 
 /*Style for Sign-Up form*/
