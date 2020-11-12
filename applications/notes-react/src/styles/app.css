@@ -1,0 +1,117 @@
+body {
+  margin: 0em;
+  padding: 0em;
+  font-family: sans-serif;
+}
+.container {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+.page-header {
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
+  display: flex;
+  align-items: center;
+}
+.page-header img {
+  padding: 1%;
+}
+.page-header h1 {
+  margin-left: 0.1em;
+}
+.page-header a {
+  color: rgb(7, 134, 219);
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+nav {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  background-color: rgb(244, 243, 239);
+  margin: 0em;
+  border-top: 0.3em rgb(235, 235, 235) solid;
+}
+
+.note {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  padding-left: 1em;
+  background-color: white;
+  margin: 0em;
+  border-top: 0.3em rgb(235, 235, 235) solid;
+}
+
+.note-actions {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  background-color: white;
+  border-top: 0.3em rgb(235, 235, 235) solid;
+}
+li {
+  list-style-type: none;
+}
+.note-actions li a {
+  color: rgb(7, 134, 219);
+  font-weight: bold;
+}
+.note li {
+  list-style-type: initial;
+}
+nav li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+  border: ipx solid green;
+}
+nav li a:visited {
+  color: #333;
+}
+nav li a:hover,
+a:focus {
+  color: #0077cc;
+}
+
+#permalink-section a {
+  color: rgb(7, 134, 219);
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/*Style for Sign-Up form*/
+
+.form {
+  border: 1px solid #f5f4f0;
+  max-width: 500px;
+  padding: 1em;
+  margin: 0 auto;
+}
+.form label,
+input {
+  display: block;
+  line-height: 2em;
+}
+
+.form input {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.form button {
+  display: block;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #0077cc;
+  cursor: pointer;
+}
+.form button:hover {
+  opacity: 0.8;
+}
+.form button:active {
+  background-color: #005fa3;
+}
