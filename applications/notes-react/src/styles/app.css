@@ -20,10 +20,13 @@ body {
 .page-header h1 {
   margin-left: 0.1em;
 }
-.page-header a {
+.page-header button {
   color: rgb(7, 134, 219);
   margin-left: auto;
   margin-right: 1em;
+  text-decoration: underline;
+  border: solid 5px white;
+  background-color: white;
 }
 
 nav {
@@ -59,18 +62,19 @@ li {
 .note li {
   list-style-type: initial;
 }
-nav li a {
+nav li button {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
   color: #333;
-  border: ipx solid green;
+  background-color: rgb(244, 243, 239);
+  border: 0px solid green;
 }
-nav li a:visited {
+nav li button:visited {
   color: #333;
 }
-nav li a:hover,
-a:focus {
+nav li button:hover,
+button:focus {
   color: #0077cc;
 }
 

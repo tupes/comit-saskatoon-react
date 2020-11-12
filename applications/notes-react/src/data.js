@@ -27,7 +27,27 @@ export function getNote() {
         {
             id: 1,
             name: "test",
+            isLoggedIn: true,
           },
     ];
   }
-  
+  export function getNavItems() {
+    return [
+        {
+            icon: '🏠',
+            name: "Home",
+          },
+          {
+            icon: '📓',
+            name: "My Notes",
+          },
+          {
+            icon: '🌟',
+            name: "Favorites",
+          },
+          {
+            icon: '➕',
+            name: "New",
+          },
+    ];
+  }
