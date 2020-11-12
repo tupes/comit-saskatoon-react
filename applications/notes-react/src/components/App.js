@@ -10,7 +10,7 @@ import { getNavItems } from '../data';
 import Signup from "./Signup";
 import Login from "./Login";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "http://localhost:4000";
 
 export default function App() {
 
@@ -28,12 +28,13 @@ export default function App() {
 
     const [selectedNavItem, setSelectedNavItem] = useState("home");
     
-    const handleLoginClick = () => {
+    const handleLoginClick = async() => {
         
         if (currentPage === "signup") {
             setCurrentPage("login");
           } else {
             setCurrentPage("signup");
+            const response = await axios.put(`${SERVER_URL}/authors/1`, {isLoggedIn: false,userName:user});
           }
       };
       

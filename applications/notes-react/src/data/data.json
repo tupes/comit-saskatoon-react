@@ -44,7 +44,7 @@
   ],
   "authors": [
     {
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "userName": "test",
       "id": 1
     },
