@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import { orderBy } from "lodash";
 import axios from "axios";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
 import Login from "./Login";
 import Header from "./Header";
 import Items from "./Items";
 import Footer from "./Footer";
+import { ItemsContext } from "./ItemsProvider";
 
 const SERVER_URL = "http://localhost:3001";
 
 export default function App() {
-  const [items, setItems] = useState([]);
+  const history = useHistory();
+  const { setItems, setItemCategories } = useContext(ItemsContext);
   const [itemFields, setItemFields] = useState([]);
-  const [itemCategories, setItemCategories] = useState([]);
 
   const [user, setUser] = useState({
     isLoggedIn: false,
     cart: [],
   });
-  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSortField, setSelectedSortField] = useState("id");
-  const [currentPage, setCurrentPage] = useState("items");
 
   useEffect(() => {
     const getItems = async () => {
@@ -41,22 +41,6 @@ export default function App() {
     getItemCategories();
   }, []);
 
-  const itemsToDisplay = useMemo(() => {
-    console.log("Getting items to display");
-    const filteredItems = items.filter(
-      (item) => selectedCategory === "all" || item.category === selectedCategory
-    );
-    return orderBy(filteredItems, selectedSortField, "asc");
-  }, [items, selectedCategory, selectedSortField]);
-
-  const handleLoginPageClick = () => {
-    if (currentPage === "items") {
-      setCurrentPage("login");
-    } else {
-      setCurrentPage("items");
-    }
-  };
-
   const handleSubmitLogin = async (event, data) => {
     console.log(data.email);
     console.log(data.password);
@@ -65,7 +49,7 @@ export default function App() {
     const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
     if (response.status < 400) {
       setUser(updatedUser);
-      setCurrentPage("items");
+      history.push("/");
     } else {
       console.log(response);
     }
@@ -83,11 +67,6 @@ export default function App() {
     console.log(user.cart);
   };
 
-  const handleSelectCategory = (category) => {
-    console.log(category);
-    setSelectedCategory(category);
-  };
-
   const handleSelectSortField = (field) => {
     console.log(field);
     setSelectedSortField(field);
@@ -95,21 +74,19 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header
-        currentPage={currentPage}
-        isLoggedIn={user.isLoggedIn}
-        handleClick={handleLoginPageClick}
-      />
-      {currentPage === "items" ? (
-        <Items
-          categories={itemCategories}
-          handleSelectCategory={handleSelectCategory}
-          items={itemsToDisplay}
-          handleAddToCartClick={handleAddToCartClick}
-        />
-      ) : (
-        <Login handleSubmit={handleSubmitLogin} />
-      )}
+      <Header isLoggedIn={user.isLoggedIn}>
+        <h2>Showing children</h2>
+      </Header>
+
+      <Switch>
+        <Route path="/items" render={() => <Items />}></Route>
+        <Route
+          path="/login"
+          render={() => <Login handleSubmit={handleSubmitLogin}></Login>}
+        ></Route>
+        <Redirect to="/items" />
+      </Switch>
+
       <Footer />
     </div>
   );

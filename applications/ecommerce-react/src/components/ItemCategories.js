@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ItemsContext } from "./ItemsProvider";
 
-export default function ItemCategories(props) {
+export default function ItemCategories() {
+  const { itemCategories, handleSelectCategory } = useContext(ItemsContext);
+
   return (
     <ul className="nav-links">
-      {props.categories.map((category, i) => {
+      {itemCategories.map((category, i) => {
         return (
           <li key={i}>
-            <button onClick={() => props.handleSelectCategory(category)}>
+            <button onClick={() => handleSelectCategory(category)}>
               {category}
             </button>
           </li>

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { ItemsContext } from "./ItemsProvider";
 
-export default function ItemsList(props) {	
-	const { items } = props;
+export default function ItemsList() {
+  const { items, handleAddToCartClick } = useContext(ItemsContext);
 
-	return (
+  return (
     <section className="items">
       <ul className="items-list">
         {items.map((item) => (
@@ -12,13 +13,12 @@ export default function ItemsList(props) {
             <h3>{item.name}</h3>
             <div>${item.price}</div>
             <p>{item.description}</p>
-            <button className="item" onClick={() => props.handleAddToCartClick(item)}>
+            <button className="item" onClick={() => handleAddToCartClick(item)}>
               Add to Cart
             </button>
-          </li>          
-        )
-        )}
+          </li>
+        ))}
       </ul>
     </section>
-    )
+  );
 }
