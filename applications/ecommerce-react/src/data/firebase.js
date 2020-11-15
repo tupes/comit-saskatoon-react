@@ -15,24 +15,24 @@ const fire = firebase.initializeApp(config);
 const auth = fire.auth();
 const db = fire.database();
 
-export function createUserWithEmailAndPassword(email, password) {
-  auth.createUserWithEmailAndPassword(email, password);
+export async function createUserWithEmailAndPassword(email, password) {
+  await auth.createUserWithEmailAndPassword(email, password);
 }
 
-export function signInWithEmailAndPassword(email, password) {
-  auth.signInWithEmailAndPassword(email, password);
+export async function signInWithEmailAndPassword(email, password) {
+  await auth.signInWithEmailAndPassword(email, password);
 }
 
-export function signOut() {
-  auth.signOut();
+export async function signOut() {
+  await auth.signOut();
 }
 
-export function sendPasswordResetEmail(email) {
-  auth.sendPasswordResetEmail(email);
+export async function sendPasswordResetEmail(email) {
+  await auth.sendPasswordResetEmail(email);
 }
 
-export function updatePassword(password) {
-  auth.currentUser.updatePassword(password);
+export async function updatePassword(password) {
+  await auth.currentUser.updatePassword(password);
 }
 
 export async function getItems() {

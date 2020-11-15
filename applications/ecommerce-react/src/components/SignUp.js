@@ -2,13 +2,14 @@ import React, { useState } from "react";
 
 export default function Login(props) {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
 
   return (
     <>
       <div></div>
       <div>
-        <h2>Login to your account</h2>
+        <h2>Create an account</h2>
         <form action="">
           <p>
             <label>
@@ -27,20 +28,34 @@ export default function Login(props) {
             <label>
               Password
               <input
-                value={password}
+                value={password1}
                 type="password"
                 name="password"
                 autofocus
                 required
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => setPassword1(event.target.value)}
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              Confirm Password
+              <input
+                value={password2}
+                type="password"
+                name="password"
+                autofocus
+                required
+                onChange={(event) => setPassword2(event.target.value)}
               />
             </label>
           </p>
 
           <p>
             <button
-              onClick={(event) => props.handleSubmit(event, email, password)}
+              onClick={(event) => props.handleSubmit(event, email, password1)}
               type="submit"
+              disabled={password1 !== password2}
             >
               Submit
             </button>

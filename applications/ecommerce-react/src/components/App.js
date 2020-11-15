@@ -3,11 +3,18 @@ import { orderBy } from "lodash";
 import axios from "axios";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
+import SignUp from "./SignUp";
 import Login from "./Login";
 import Header from "./Header";
 import Items from "./Items";
 import Footer from "./Footer";
 import { ItemsContext } from "./ItemsProvider";
+
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "../data/firebase";
 
 const SERVER_URL = "http://localhost:3001";
 
@@ -15,6 +22,7 @@ export default function App() {
   const history = useHistory();
   const { setItems, setItemCategories } = useContext(ItemsContext);
   const [itemFields, setItemFields] = useState([]);
+  const [currentError, setCurrentError] = useState(null);
 
   const [user, setUser] = useState({
     isLoggedIn: false,
@@ -39,19 +47,35 @@ export default function App() {
     getItems();
     getItemFields();
     getItemCategories();
+
+    return () => {
+      signOut();
+    };
   }, []);
 
-  const handleSubmitLogin = async (event, data) => {
-    console.log(data.email);
-    console.log(data.password);
+  const handleSubmitLogin = async (event, email, password) => {
     event.preventDefault();
-    const updatedUser = { ...user, isLoggedIn: !user.isLoggedIn };
-    const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
-    if (response.status < 400) {
-      setUser(updatedUser);
+    try {
+      const authUser = await signInWithEmailAndPassword(email, password);
+      console.log(authUser);
+      setUser({ ...user, isLoggedIn: true, ...authUser });
+      setCurrentError(null);
       history.push("/");
-    } else {
-      console.log(response);
+    } catch (error) {
+      setCurrentError(error);
+    }
+  };
+
+  const handleSubmitSignUp = async (event, email, password) => {
+    event.preventDefault();
+    try {
+      const authUser = await createUserWithEmailAndPassword(email, password);
+      console.log(authUser);
+      setUser({ ...user, isLoggedIn: true, ...authUser });
+      setCurrentError(null);
+      history.push("/");
+    } catch (error) {
+      setCurrentError(error);
     }
   };
 
@@ -82,7 +106,21 @@ export default function App() {
         <Route path="/items" render={() => <Items />}></Route>
         <Route
           path="/login"
-          render={() => <Login handleSubmit={handleSubmitLogin}></Login>}
+          render={() => (
+            <Login
+              error={currentError}
+              handleSubmit={handleSubmitLogin}
+            ></Login>
+          )}
+        ></Route>
+        <Route
+          path="/signup"
+          render={() => (
+            <SignUp
+              error={currentError}
+              handleSubmit={handleSubmitSignUp}
+            ></SignUp>
+          )}
         ></Route>
         <Redirect to="/items" />
       </Switch>
