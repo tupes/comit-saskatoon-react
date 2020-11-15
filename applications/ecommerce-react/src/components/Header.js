@@ -1,13 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header(props) {
-	return (
-		<header className="page-header">
-			<h1>Sports Store</h1>
-			<div>
-				<button onClick={props.handleClick}>{props.isLoggedIn ? 'Log out' : 'Log in'}</button>
-				<span>{props.count}</span>
-			</div>
-		</header>
-	);
+  const location = useLocation();
+  console.log(location.pathname);
+  return (
+    <header className="page-header">
+      <Link to="/">
+        <h1>Sports Store</h1>
+      </Link>
+      {location.pathname !== "/login" ? <Link to="/login">Log in</Link> : null}
+      {props.children}
+    </header>
+  );
 }

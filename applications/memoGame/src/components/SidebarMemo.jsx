@@ -1,12 +1,12 @@
 import ClockMemo from "../components/ClockMemo.jsx"
 import TopScoresMemo from "../components/TopScoresMemo.jsx"
 
-function SidebarMemo({func}) {
+function SidebarMemo(props) {
     return(
         <div className="divSidebar">
            <ClockMemo /> 
            <div>
-               <button id="buttonRestartGame" onClick={func} type="button">Restart Game</button>
+               <button id="buttonRestartGame" onClick={props.function} type="button">Restart Game</button>
             </div> 
             <TopScoresMemo />
         </div>

@@ -22,7 +22,6 @@ class MainMemo extends Component {
         clearInterval(this.timerEventProcess);
     }
 
-
     restartGame = () =>{
         this.setState((state) => ({isRestart: !(state.isRestart)}));
         //revert isRestart to change state of MainMemo component --> update
@@ -32,8 +31,8 @@ class MainMemo extends Component {
         window.$isGameFinish = false;//When all cards on the deck are flipperd
         window.$isGameOver = false;//Over limit time
         window.$flippedCards = [];
-        window.$numberCardsOnDeck = 6;//52 but can assign 6 in the debug process
-        window.$isPairCards = false;
+        window.$numberCardsOnDeck = 52;//52 but can assign 6 in the debug process
+        window.$isCorrectCards = false;
         window.$isFlipBackPairCards = false;
         window.$thisSetStates=[];
         window.$yourCount = 0;
@@ -45,7 +44,7 @@ class MainMemo extends Component {
         return(
             <div className="divDeck">
                 <DeckMemo />
-                <SidebarMemo func={this.restartGame}/>
+                <SidebarMemo function={this.restartGame}/>
             </div>
         )
     }

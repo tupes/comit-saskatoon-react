@@ -18,7 +18,7 @@ class ClockMemo extends Component {
     }
     
     componentWillUnmount() {
-        clearInterval(this.processInSecond);
+        clearInterval(this.timerInSecond);
         window.$isTimerStart = false;
     }
 
@@ -52,10 +52,10 @@ class ClockMemo extends Component {
         }
     }
 
-    render() {
+    render() {//Conditional Rendering - Game Over - Game Finished - Clock Running
         if (window.$isGameOver){
             return (
-                <div className="divGameover">
+                <div className="divGameOver">
                     <p>GAME OVER !</p>
                     <span id="gameOver">{window.$timeLimit}</span>
                 </div>     
@@ -71,7 +71,7 @@ class ClockMemo extends Component {
                         </div> 
                     );
                  
-                }else{
+                }else{ //When the player is playing --> the clock runs
                     return (
                         <div className="divClock">
                             <p>Your time</p>

@@ -22,7 +22,7 @@ export function createCards() {
 		}
 	}
 	//return shuffleArray(cards);
-	return cards;
+	return cards; //Using for debug 
 }
 
 export function removeCardFromDeck(){
@@ -30,9 +30,15 @@ export function removeCardFromDeck(){
 	let this2 = window.$thisSetStates.pop();
 	this1.setState((state) => ({isOnDeck: false}));
 	this2.setState((state) => ({isOnDeck: false}));
-	window.$isPairCards = false;
+	window.$isCorrectCards = false;
 	window.$flippedCards = [];
-	window.$numberCardsOnDeck -=2;//2 cards are out of the deck 
+	window.$numberCardsOnDeck -=2;//2 cards are out of the deck
+	if (window.$isNextCard){//Also flip the next-clicked card
+		window.$thisSetStatesNextCard.setState((state) => ({isShowed: true}));
+		window.$thisSetStates.push(window.$thisSetStatesNextCard);//the next-clicked card --> the first clicked card
+		window.$flippedCards.push(window.$nextCardName);//the next-clicked card --> the first clicked card
+		window.$isNextCard = false;
+	} 
 } 
 
 export function flipBackPairCards(){
@@ -40,7 +46,13 @@ export function flipBackPairCards(){
 	let this2 = window.$thisSetStates.pop();
 	this1.setState((state) => ({isShowed: false}));
 	this2.setState((state) => ({isShowed: false}));
-	window.$isPairCards = false;
+	window.$isCorrectCards = false;
 	window.$isFlipBackPairCards = false;
 	window.$flippedCards = [];
+	if (window.$isNextCard){//Also flip the next-clicked card
+		window.$thisSetStatesNextCard.setState((state) => ({isShowed: true}));
+		window.$thisSetStates.push(window.$thisSetStatesNextCard);//the next-clicked card --> the first clicked card
+		window.$flippedCards.push(window.$nextCardName);//the next-clicked card --> the first clicked card
+		window.$isNextCard = false;
+	}
 } 
