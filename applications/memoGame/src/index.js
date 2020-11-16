@@ -21,6 +21,7 @@ window.$forceUpdateTopScores = {};//Use to call function inside TopScoresMemo to
 window.$flippedCards = [];
 readFromDatabase(1,3,window.$topScores,'/topscores/', window.$fbDatabase);
 readFromDatabase(1,3,window.$topScoresEasy,'/topscoreseasy/', window.$fbDatabase);
+window.$isTopScoresChanged = false;
 window.$isCorrectCard = false;
 window.$isFlipBackPairCards = false;
 window.$thisSetStates=[];//Keep handle 2 components for 2 flipped cards

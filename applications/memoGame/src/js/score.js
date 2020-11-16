@@ -17,6 +17,7 @@ export function updateTopScores (playerName,playerScore,playerClicks,topScores){
         if (foundPlayerIndex===-1){
             //New player will add to TopScores and replace the last player in TopScores
             topScores.splice(last,1,{name:playerName, score:playerScore, clicks:playerClicks});
+            window.$isTopScoresChanged = true;//Enable Update to Firebase Button
         }else{
             //Player is already in TopScores --> replace score and clicks only if they are better
             if  (playerScore < topScores[foundPlayerIndex].score ||
@@ -24,6 +25,7 @@ export function updateTopScores (playerName,playerScore,playerClicks,topScores){
             {
                 //Update score of the player in topScores
                 topScores.splice(foundPlayerIndex,1,{name:playerName, score:playerScore, clicks:playerClicks});
+                window.$isTopScoresChanged = true;//Enable Update to Firebase Button
             }
         }
         //Re-sort topScores after relapcing 

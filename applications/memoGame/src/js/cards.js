@@ -26,6 +26,7 @@ export function createCards(cardTotal) {
 		}
 	}
 	return shuffleArray(cards);
+	//return cards; //don' shuffle for debug
 }
 
 export function removeCardFromDeck(){

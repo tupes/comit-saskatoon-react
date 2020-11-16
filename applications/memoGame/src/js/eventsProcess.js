@@ -24,13 +24,13 @@ export function eventsProcess() {
                         window.$isTimerStart = false;
                         window.$isGameFinish = true;
                         //update TopScores
-                        if (window.$cardTotal === 52) {
+                        if (window.$cardsTotal === 52) {
                             updateTopScores(window.$yourName, window.$yourCount, window.$yourClicks, window.$topScores);
                         } else {
                             updateTopScores(window.$yourName, window.$yourCount, window.$yourClicks, window.$topScoresEasy);
                         }
                         //Call function inside TopScoresMemo to force re-rendering
-                        window.$forceUpdateTopScores();
+                        if (window.$isTopScoresChanged){window.$forceUpdateTopScores()}
                     }
 
                 }

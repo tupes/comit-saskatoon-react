@@ -7,7 +7,7 @@ export default function LevelMemo() {
     const handleLevelChange = (event) => {
         let level = parseInt(event.target.value);
         setSelectedLevel(level);//every Change on Input Radio update the React state
-        window.$cardsTotal = level;
+        window.$cardsTotal = parseInt(level);
     }
 
     return (

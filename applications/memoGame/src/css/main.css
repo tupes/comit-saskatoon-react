@@ -129,8 +129,11 @@
 }
 
 .image-goodjob {
-  width: 80%;
+  width: 100%;
   height: auto;
+  padding: 0px 0px;
+  margin: 0px;
+  justify-self: center;
   cursor: default;
 }
 

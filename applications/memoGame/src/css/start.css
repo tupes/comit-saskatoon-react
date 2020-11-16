@@ -75,7 +75,7 @@
 
 #input_name{
     font-size: calc(10px + 1vmin);
-    height: calc(12px + 3vh);
+    height: calc(16px + 3vh);
     width: 16vw;
     margin: 0px;
     padding:0px 0px;
@@ -83,11 +83,11 @@
 .start-button{
     color:white;
     font-size: calc(10px + 1vmin);
-    height: calc(10px + 4.2vh);
+    height: calc(16px + 3vh);
     padding:0px 20px;
     background-color: #992604;
     cursor: pointer;
-  }
+}
   
 .start-button:hover{
     background-color: #fd530a;

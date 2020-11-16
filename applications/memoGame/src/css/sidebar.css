@@ -140,7 +140,7 @@
   display: block;
   color: white;
   font-size: calc(3px + 1.6vh);
-  background-color: #fb6c29;
+  background-color: #d64401;
   cursor: pointer;
   border-radius: 5px;
   border: none;
@@ -149,5 +149,14 @@
 }
 
 #button_update_firebase:hover {
-  background-color: #d64401;
+  background-color: #fb6c29;
+}
+
+#updated_firebase{
+  color:black;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-size: calc(2px + 1.6vh);
+  font-style: italic;
 }

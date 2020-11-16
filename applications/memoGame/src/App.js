@@ -11,6 +11,7 @@ function App() {
       if (name !==""){
           setPlayerName(name);
           window.$yourName=name;
+          window.$numberCardsOnDeck = window.$cardsTotal;
           window.$isOnEventDeckChange = true;//Disable mouse click when shuffle cards
       }else{
           //to setCustomValidity message of <input ... required> 
