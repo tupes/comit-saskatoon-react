@@ -1,0 +1,33 @@
+.div-level {
+   display: flex;
+   flex-flow: row;
+   justify-content: center;
+   padding:15px 5px;
+ }
+ 
+ .div-level > input[name='level'] {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   -o-appearance: none;
+   -ms-appearance: none;
+   appearance: none;
+   outline: none;
+   cursor: pointer;
+}
+
+.div-level > input[name='level']::after {
+   display: inline-block;
+   text-align: center;
+   font-size: 3vmin;
+   content: attr(data-icon);
+   padding:10px 15px;
+   border-radius: 10px;
+   color: rgba(0,0,0,.5);
+   transition: box-shadow 0.3s, color 0.5s;
+}
+    
+.div-level > input[name='level']:checked::after {
+   box-shadow: 2px 2px 14px rgba(0,0,0,.4);
+   color:rgb(255, 255, 255, 0.8);
+}
+   

@@ -1,0 +1,143 @@
+.main-container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+}
+
+.main-header {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 15%;
+  background-color: #282c34;
+  display: grid;
+  grid-template-columns: 8% 12% 60% 5% 15%;
+  align-items: center;
+}
+
+.main-header_logo {
+  height: 10vh;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .main-header_logo {
+    animation: main-header_logo_spin infinite 20s linear;
+  }
+}
+
+@keyframes main-header_logo_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-header h1 {
+  font-size: calc(5px + 2.8vmin);
+  margin: 0px;
+  padding-bottom: 5px;
+  color: #f89c33;
+}
+
+.guide-text {
+  font-size: calc(5px + 1.6vmin);
+  color: white;
+  padding-right: 3%;
+  margin: 0px;
+  font-style: italic;
+  text-align: right;
+}
+
+.guide-image {
+  width: auto;
+  height: 13vh;
+  padding: 5px 0px;
+  justify-self: flex-end;
+}
+
+.div-name-signout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.div-name-signout > p {
+  font-size: calc(5px + 1.8vmin);
+  color: #f89c33;
+  margin: 0px;
+  padding: 10px 0px;
+  font-weight: bold;
+}
+
+.div-name-signout > button {
+  color: white;
+  font-size: calc(6px + 1.5vmin);
+  border-radius: 5px;
+  padding: 3px 3vmin;
+  background-color:  #282c34;
+  cursor: pointer;
+}
+
+.div-name-signout button:hover {
+  background-color: #c83a02;
+}
+
+/* Styles for DeckMemo -------*/
+.div-deck {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  padding: 0px;
+  margin: 0px;
+  overflow-y: auto;
+}
+
+.divgrid-full-deck {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1%;
+  padding: 1% 1%;
+  margin: 0px;
+}
+
+.divgrid-easy-deck {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 3%;
+  padding: 5% 2%;
+  margin: 0px;
+}
+
+.image-card {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  padding: 0px 0px;
+  margin: 0px;
+  justify-self: center;
+}
+
+.image-goodjob {
+  width: 80%;
+  height: auto;
+  cursor: default;
+}
+
+.image-card:hover {
+  transform: scale3d(1.01, 1.01, 1.01);
+  transition: 0.5s;
+  border-radius: 5px;
+  box-shadow: 2px 2px #838282ce;
+  padding: 0px 0px;
+}

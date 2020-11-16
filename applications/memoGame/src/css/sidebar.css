@@ -1,0 +1,153 @@
+/*--- Styles for Sidebar ----------*/
+.div-sidebar {
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background-color: rgb(246, 252, 253);
+}
+
+/* Styling for Clock Memo -------------*/
+.div-clock,
+.div-gameover,
+.div-finish {
+  display: block;
+  width: 100%;
+  margin: 0px;
+  padding: 10px 0px;
+  font-size: 3.5vh;
+  text-align: center;
+}
+
+@font-face {
+  font-family: "LCDdigital7";
+  src: url("../fonts/LCD.ttf");
+}
+
+.digit-clock {
+  font-family: "LCDdigital7";
+  font-size: 5vmax;
+}
+
+.div-gameover > p {
+  color: #f50303;
+  margin: 0px;
+  padding: 10px 0px;
+}
+.div-gameove > label {
+  color: #f50303;
+  font-size: 2.5vh;
+}
+
+.div-finish > p {
+  margin: 0px;
+  padding: 10px 0px;
+  color: #d64401;
+}
+.div-finish > label {
+  color: #d64401;
+  font-size: 3vh;
+}
+
+.div-clock > p {
+  margin: 0px;
+  padding: 10px 0px;
+  color: black;
+}
+.div-clock > label {
+  color: black;
+  font-size: 3vh;
+}
+
+#clock_game {
+  color: rgb(0, 27, 36);
+}
+
+#clock_finish {
+  color: #d64401;
+}
+
+#clock_gameover {
+  color: #c50d00;
+}
+/* -- Restart ------------------*/
+#button-restart {
+  display: block;
+  color: white;
+  font-size: calc(5px + 1.5vh);
+  background-color: #00414d;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  margin: 0px auto 0px auto;
+}
+
+#button-restart:hover {
+  background-color: #007395;
+}
+
+/* Styling for TopScore -------------*/
+.div-topscores-container {
+  display: block;
+  margin: 0px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.div-topscores-container > h4 {
+  font-size: 3.5vh;
+  color: #d64401;
+  padding: 0px 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+.div-topscores-container > h5 {
+  font-size: 2.5vh;
+  color: #d64401;
+  padding-bottom: 10px;
+  margin: 0px;
+  text-align: center;
+}
+
+.div-scroll-topscores{
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  height: 30vh;
+}
+
+.top-name {
+  font-size: calc(6px + 1.8vh);
+  padding-bottom: 1vh;
+  margin: 0px;
+  text-align: center;
+}
+
+.top-score {
+  font-size: calc(5px + 1.8vh);
+  padding-bottom: 1.5vh;
+  margin: 0px;
+  color: #d64401;
+  text-align: center;
+}
+
+#button_update_firebase {
+  display: block;
+  color: white;
+  font-size: calc(3px + 1.6vh);
+  background-color: #fb6c29;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  padding: 1vh 2vmin;
+  margin: 0px auto 0px auto;
+}
+
+#button_update_firebase:hover {
+  background-color: #d64401;
+}

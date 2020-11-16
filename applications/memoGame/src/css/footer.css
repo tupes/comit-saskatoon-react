@@ -1,0 +1,23 @@
+.main-footer {
+    position: fixed;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    height: 5vh;
+    background-color: #282c34;
+    text-align: center;
+    font-size: 2.5vmin;
+  }
+  .main-footer > p {
+    color: white;
+    margin: 0px;
+    padding:5px 5px;
+    display: inline-block;
+  }
+  .main-footer > a {
+    color:#61DAFB;
+    margin: 0px;
+    padding:5px 5px;
+    display: inline-block;
+  }
+  

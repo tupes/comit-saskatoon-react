@@ -1,4 +1,5 @@
-const RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+const fullRANKS = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'];
+const easyRANKS = ['J', 'Q', 'K', 'A'];
 const SUITS = ['C', 'D', 'H', 'S'];
 
 
@@ -13,16 +14,18 @@ function shuffleArray(array){
 	return array; 
 }
 
-export function createCards() {
+export function createCards(cardTotal) {
 	const cards = [];
+	let RANKS =[];
+	cardTotal === 52 ? RANKS = fullRANKS 
+					 : RANKS = easyRANKS;
 	for (let rank of RANKS) {
 		for (let suit of SUITS) {
 			const card = rank+suit;
 			cards.push(card);
 		}
 	}
-	//return shuffleArray(cards);
-	return cards; //Using for debug 
+	return shuffleArray(cards);
 }
 
 export function removeCardFromDeck(){
