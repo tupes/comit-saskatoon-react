@@ -39,7 +39,10 @@ export default function TopScoresMemo() {
             <div className="div-scroll-topscores">
                 {topScoresArray.map((element) => (
                     <div>
-                        <p className="top-name">{element.name}</p>
+                        {element.name === window.$yourName  ? <p className="top-name">&#128525; {element.name}</p>
+                                                            : <p className="top-name">{element.name}</p>
+                        }
+                        
                         <p className="top-score">{scoreToClock(element.score)}~{element.clicks} clicks</p>
                     </div> 
                 ))} 
