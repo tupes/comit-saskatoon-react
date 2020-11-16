@@ -44,12 +44,12 @@
   ],
   "authors": [
     {
-      "isLoggedIn": false,
+      "isLoggedIn": true,
       "userName": "test",
       "id": 1
     },
     {
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "userName": "Surpreet",
       "id": 2
     }
