@@ -20,3 +20,7 @@
 .page-header a {
   color: var(--white);
 }
+
+.auth-form {
+  color: var(--white);
+}

@@ -7,7 +7,7 @@ export default function Login(props) {
   return (
     <>
       <div></div>
-      <div>
+      <div className="auth-form">
         <h2>Login to your account</h2>
         <form action="">
           <p>
@@ -39,14 +39,14 @@ export default function Login(props) {
 
           <p>
             <button
-              onClick={(event) =>
-                props.handleSubmit(event, { email, password })
-              }
+              onClick={(event) => props.handleSubmit(event, email, password)}
               type="submit"
             >
               Submit
             </button>
           </p>
+
+          {props.error && props.error.message}
         </form>
       </div>
     </>

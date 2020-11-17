@@ -8,7 +8,7 @@ export default function SignUp(props) {
   return (
     <>
       <div></div>
-      <div>
+      <div className="auth-form">
         <h2>Create an account</h2>
         <form action="">
           <p>
@@ -55,7 +55,7 @@ export default function SignUp(props) {
             <button
               onClick={(event) => props.handleSubmit(event, email, password1)}
               type="submit"
-              disabled={password1 !== password2}
+              disabled={!password1 || !password2 || password1 !== password2}
             >
               Submit
             </button>

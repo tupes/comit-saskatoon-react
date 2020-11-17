@@ -10,7 +10,10 @@ import Items from "./Items";
 import Footer from "./Footer";
 import { ItemsContext } from "./ItemsProvider";
 
-import { createUserWithEmailAndPassword } from "../firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "../firebase/auth";
 
 const SERVER_URL = "http://localhost:3001";
 
@@ -21,15 +24,13 @@ export default function App() {
   const [currentError, setCurrentError] = useState(null);
   const [user, setUser] = useState({
     isLoggedIn: false,
+    email: "",
+    uid: null,
     cart: [],
   });
   const [selectedSortField, setSelectedSortField] = useState("id");
 
   useEffect(() => {
-    const getItems = async () => {
-      const response = await axios.get(`${SERVER_URL}/items`);
-      setItems(response.data);
-    };
     const getItemFields = async () => {
       const response = await axios.get(`${SERVER_URL}/itemFields`);
       setItemFields(response.data);
@@ -39,7 +40,6 @@ export default function App() {
       setItemCategories(response.data);
     };
 
-    getItems();
     getItemFields();
     getItemCategories();
   }, []);
@@ -49,6 +49,7 @@ export default function App() {
     try {
       const authUser = await createUserWithEmailAndPassword(email, password);
       console.log(authUser);
+      setUser({ ...user, isLoggedIn: true, email, uid: authUser.user.uid });
       setCurrentError(null);
       history.push("/");
     } catch (error) {
@@ -56,17 +57,16 @@ export default function App() {
     }
   };
 
-  const handleSubmitLogin = async (event, data) => {
-    console.log(data.email);
-    console.log(data.password);
+  const handleSubmitLogin = async (event, email, password) => {
     event.preventDefault();
-    const updatedUser = { ...user, isLoggedIn: !user.isLoggedIn };
-    const response = await axios.put(`${SERVER_URL}/users/1`, updatedUser);
-    if (response.status < 400) {
-      setUser(updatedUser);
+    try {
+      const authUser = await signInWithEmailAndPassword(email, password);
+      console.log(authUser);
+      setUser({ ...user, isLoggedIn: true, email, uid: authUser.user.uid });
+      setCurrentError(null);
       history.push("/");
-    } else {
-      console.log(response);
+    } catch (error) {
+      setCurrentError(error);
     }
   };
 
@@ -104,7 +104,12 @@ export default function App() {
         ></Route>
         <Route
           path="/login"
-          render={() => <Login handleSubmit={handleSubmitLogin}></Login>}
+          render={() => (
+            <Login
+              error={currentError}
+              handleSubmit={handleSubmitLogin}
+            ></Login>
+          )}
         ></Route>
         <Redirect to="/items" />
       </Switch>
