@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 import {useLocation } from "react-router-dom";
+import { getNotes,getNavItems } from "../firebase/repository";
 import axios from "axios";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -9,6 +10,8 @@ import Note from "./Note";
 import Signup from "./Signup";
 import Login from "./Login";
 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, } from "../firebase/auth";
+
 const SERVER_URL = "http://localhost:4000";
 
 export default function App() {
@@ -16,7 +19,9 @@ export default function App() {
   const history=useHistory();
   // const [currentPage, setCurrentPage] = useState("signup");
     //console.log(navitems)
-    const [user, setUser] = useState({isLoggedIn :false, userName:''});
+
+    const [currentError, setCurrentError] = useState(null);
+    const [user, setUser] = useState({isLoggedIn :false, userName:'',uid: null,});
 
     const [notes, setNotes] = useState([]);
     const [navitems, setNavItems] = useState([]);
@@ -29,15 +34,27 @@ export default function App() {
       };
 
       useEffect(() => {
-        const getNotes = async () => {
-          const response = await axios.get(`${SERVER_URL}/notes`);
-          setNotes(response.data);
+        // const getNotes = async () => {
+        //   const response = await axios.get(`${SERVER_URL}/notes`);
+        //   setNotes(response.data);
+        // };
+        const fetchNotes = async () => {
+          const notes = await getNotes();
+          setNotes(notes);
+          console.log(notes)
         };
         
-        const getNavItems = async () => {
-          const response = await axios.get(`${SERVER_URL}/navitems`);
-          setNavItems(response.data);
-          //console.log(response.data.name);
+        // const getNavItems = async () => {
+        //   const response = await axios.get(`${SERVER_URL}/navitems`);
+        //   setNavItems(response.data);
+        //   //console.log(response.data.name);
+        // };
+
+
+        const fetchNavItems = async () => {
+          const navitems = await getNavItems();
+          setNavItems(navitems);
+          console.log(navitems)
         };
 
         const getAuthors = async () => {
@@ -46,23 +63,48 @@ export default function App() {
           //console.log(authors[0].userName);
         };
     
-        getNotes();
-        getNavItems();
+        //getNotes();
+        fetchNavItems();
         getAuthors();
+        fetchNotes();
       }, []);
 
-      const handleSubmitLogin = async (event, data) => {
+
+      const handleSubmitSignUp = async (event, email, password) => {
+        event.preventDefault();
+        try {
+          const authUser = await createUserWithEmailAndPassword(email, password);
+          console.log(authUser);
+          setUser({ ...user, isLoggedIn: true,userName:email, uid: authUser.user.uid });
+          setCurrentError(null);
+          history.push("/login");
+        } catch (error) {
+          setCurrentError(error);
+        }
+      };
+
+      const handleSubmitLogin = async (event, email, password) => {
         //document.write(data.username);
         event.preventDefault();
-        const response = await axios.put(`${SERVER_URL}/authors/1`, {isLoggedIn: true,userName:data.username});
-          if (response.status < 400) {
-              setUser({isLoggedIn: true,userName:data.username});
-              //setCurrentPage("note");
-              history.push("/notes");
+        // const response = await axios.put(`${SERVER_URL}/authors/1`, {isLoggedIn: true,userName:data.username});
+        //   if (response.status < 400) {
+        //       setUser({isLoggedIn: true,userName:data.username});
+        //       //setCurrentPage("note");
+        //       history.push("/notes");
               
-        } else {
-            console.log(response);
-          }
+        // } else {
+        //     console.log(response);
+        //   }
+
+        try {
+          const authUser = await signInWithEmailAndPassword(email, password);
+          console.log(authUser);
+          setUser({ isLoggedIn: true, userName:email, uid: authUser.user.uid });
+          setCurrentError(null);
+          history.push("/notes");
+        } catch (error) {
+          setCurrentError(error);
+        }
       };
 
     return (
@@ -72,27 +114,9 @@ export default function App() {
           <Nav  navitems={navitems} handleNavItemClick={handleNavItemClick}/>
 
           <Switch>
-          <Route path="/notes" render={() => <Note note={ {
-          "id": 1,
-          "name": "Books to Read",
-          "note_items": [
-            "There There by Tommy Orange",
-            "Let's Go(So We Can Get Back) by Jeff tweedy",
-            "Hello World: Being Human in the Age of Algorithms by Hannah Fry",
-            "Can't Stop Won't Stop by Jeff Chang",
-            "Less by Andrew Sean Greer",
-            "Educated by Tara Westover",
-            "Grit by Angela Duckworth",
-            "See you in the Cosmos by Jack Cheng",
-            "Just Kids by Patti Smith",
-            "Arbitrary Stupid Goal by Tamara Shopsin"
-          ],
-          "author_id": 1,
-          "date": "Nov 11th 2019"
-        }} author={  user.userName}/>}></Route>
-          <Route path="/signup" render={() => <Signup/>}></Route>
-          <Route path="/login" render={() => <Login handleSubmit={handleSubmitLogin}/>}
-          ></Route>
+          <Route path="/notes" render={() => <Note note={ notes[0]} author={  user.userName}/>}></Route>
+          <Route path="/signup" render={() => (<Signup error={currentError} handleSubmit={handleSubmitSignUp} ></Signup> )}></Route>
+          <Route path="/login" render={() => <Login  error={currentError} handleSubmit={handleSubmitLogin}/>}></Route>
           <Redirect to="/signup" />
           </Switch>
 

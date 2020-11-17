@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 
+
 export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,11 +30,9 @@ export default function Login(props) {
         placeholder="Password"
         onChange={(event) => setPassword(event.target.value)}
         />
-        <button onClick={(event) =>
-                props.handleSubmit(event, { username, password })
-              }
+        <button  onClick={(event) => props.handleSubmit(event, username, password)}
               type="submit">Log In</button>
-        
+         {props.error && props.error.message}
     </form>
 
 </div>
