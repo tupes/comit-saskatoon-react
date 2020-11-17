@@ -9,8 +9,7 @@ export default function Header(props) {
       <Link to="/">
         <h1>Sports Store</h1>
       </Link>
-      {location.pathname !== "/login" ? <Link to="/login">Log in</Link> : null}
-      {props.children}
+      {location.pathname !== "/login" && <Link to="/login">Log in</Link>}
     </header>
   );
 }

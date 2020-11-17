@@ -3,11 +3,14 @@ import { orderBy } from "lodash";
 import axios from "axios";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
+import SignUp from "./SignUp";
 import Login from "./Login";
 import Header from "./Header";
 import Items from "./Items";
 import Footer from "./Footer";
 import { ItemsContext } from "./ItemsProvider";
+
+import { createUserWithEmailAndPassword } from "../firebase/auth";
 
 const SERVER_URL = "http://localhost:3001";
 
@@ -15,7 +18,7 @@ export default function App() {
   const history = useHistory();
   const { setItems, setItemCategories } = useContext(ItemsContext);
   const [itemFields, setItemFields] = useState([]);
-
+  const [currentError, setCurrentError] = useState(null);
   const [user, setUser] = useState({
     isLoggedIn: false,
     cart: [],
@@ -40,6 +43,18 @@ export default function App() {
     getItemFields();
     getItemCategories();
   }, []);
+
+  const handleSubmitSignUp = async (event, email, password) => {
+    event.preventDefault();
+    try {
+      const authUser = await createUserWithEmailAndPassword(email, password);
+      console.log(authUser);
+      setCurrentError(null);
+      history.push("/");
+    } catch (error) {
+      setCurrentError(error);
+    }
+  };
 
   const handleSubmitLogin = async (event, data) => {
     console.log(data.email);
@@ -74,12 +89,19 @@ export default function App() {
 
   return (
     <div className="container">
-      <Header isLoggedIn={user.isLoggedIn}>
-        <h2>Showing children</h2>
-      </Header>
+      <Header isLoggedIn={user.isLoggedIn} />
 
       <Switch>
         <Route path="/items" render={() => <Items />}></Route>
+        <Route
+          path="/signup"
+          render={() => (
+            <SignUp
+              error={currentError}
+              handleSubmit={handleSubmitSignUp}
+            ></SignUp>
+          )}
+        ></Route>
         <Route
           path="/login"
           render={() => <Login handleSubmit={handleSubmitLogin}></Login>}
