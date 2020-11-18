@@ -52,12 +52,15 @@ export default function ItemsProvider({ children }) {
     setSelectedCategory(category);
   };
 
+  const getItemById = (id) => items.find((item) => item.id === id);
+
   return (
     <ItemsContext.Provider
       value={{
         items: itemsToDisplay,
         itemCategories,
         handleSelectCategory,
+        getItemById,
       }}
     >
       {children}
