@@ -7,24 +7,40 @@ export function scoreToClock (count){
     return minutes + ":" + seconds;
 }
 
-export function updateTopScores (playerName,playerScore,topScores){
+export function updateTopScores (playerName,playerScore,playerClicks,topScores){
     let last = topScores.length-1;
-    //Check playerScore is better than the last score in the topScores
-    if (playerScore < topScores[last].score){
+    //Comparing playerScore and playerClicks with the last player in the topScores
+    if  (playerScore < topScores[last].score || 
+        (playerScore === topScores[last].score && playerClicks < topScores[last].clicks))
+    {
         let foundPlayerIndex = topScores.findIndex(element => element.name === playerName);
         if (foundPlayerIndex===-1){
-            //New player will add to TopScores
-            //and replace the last player in TopScores
-            topScores.splice(last,1,{name:playerName, score:playerScore});
+            //New player will add to TopScores and replace the last player in TopScores
+            topScores.splice(last,1,{name:playerName, score:playerScore, clicks:playerClicks});
+            window.$isTopScoresChanged = true;//Enable Update to Firebase Button
         }else{
-            //Player is already in TopScores --> replace score only if it is better
-            if (playerScore < topScores[foundPlayerIndex].score){
+            //Player is already in TopScores --> replace score and clicks only if they are better
+            if  (playerScore < topScores[foundPlayerIndex].score ||
+                (playerScore === topScores[foundPlayerIndex].score && playerClicks < topScores[foundPlayerIndex].clicks))
+            {
                 //Update score of the player in topScores
-                topScores.splice(foundPlayerIndex,1,{name:playerName, score:playerScore});
+                topScores.splice(foundPlayerIndex,1,{name:playerName, score:playerScore, clicks:playerClicks});
+                window.$isTopScoresChanged = true;//Enable Update to Firebase Button
             }
         }
-        //re-sort topScores after relapcing 
-        topScores.sort ((a, b) => a.score - b.score);
+        //Re-sort topScores after relapcing 
+        //sort by score first, then by clicks
+        topScores.sort(function(a, b) {
+            if (a.score < b.score) {
+                return -1;//a with lower ID than b
+            }else{
+                if (a.score === b.score && a.clicks < b.clicks){
+                    return -1;//a with lower ID than b
+                }else
+                    {
+                        return 1;//a with lower ID than b
+                    }
+            }
+        });
     }    
-
 }

@@ -55,27 +55,33 @@ class ClockMemo extends Component {
     render() {//Conditional Rendering - Game Over - Game Finished - Clock Running
         if (window.$isGameOver){
             return (
-                <div className="divGameOver">
+                <div className="div-gameover">
                     <p>GAME OVER !</p>
-                    <span id="gameOver">{window.$timeLimit}</span>
+                    <span className="digit-clock" id="clock_gameover">{window.$timeLimit}</span>
+                    <br />
+                    <label>Your clicks: {window.$yourClicks} </label>
                 </div>     
             )
         }
         else{   if(window.$isGameFinish){ //When finished all cards on the deck
                     return (
-                        <div className="divFinish">
+                        <div className="div-finish">
                             <p>WELL DONE!</p>
-                            <span id="gameFinish">
+                            <span className="digit-clock" id="clock_finish">
                                 {scoreToClock(window.$yourCount)}
                             </span>
+                            <br />
+                            <label>Your clicks: {window.$yourClicks} </label>
                         </div> 
                     );
                  
                 }else{ //When the player is playing --> the clock runs
                     return (
-                        <div className="divClock">
-                            <p>Your time</p>
-                            <span id="clockGame">{this.displayClock()}</span>
+                        <div className="div-clock">
+                            <p>YOUR TIME</p>
+                            <span className="digit-clock" id="clock_game">{this.displayClock()}</span>
+                            <br />
+                            <label>Your clicks: {window.$yourClicks} </label>
                         </div> 
                     );
                 }

@@ -1,17 +1,14 @@
+import '../css/sidebar.css';
 import ClockMemo from "../components/ClockMemo.jsx"
 import TopScoresMemo from "../components/TopScoresMemo.jsx"
 
-function SidebarMemo(props) {
+export default function SidebarMemo(props) {
     return(
-        <div className="divSidebar">
+        <div className="div-sidebar">
            <ClockMemo /> 
-           <div>
-               <button id="buttonRestartGame" onClick={props.function} type="button">Restart Game</button>
-            </div> 
+            <button id="button-restart" onClick={props.function} type="button">Restart Game</button>
             <TopScoresMemo />
         </div>
-    )
-    
+    ) 
 } 
 
-export default SidebarMemo;

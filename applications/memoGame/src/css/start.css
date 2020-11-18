@@ -1,0 +1,97 @@
+.start-container{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #282c34;
+    display: block;
+}
+
+.start-header{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding-top:6%;
+    width: 100%;
+    align-items: center;
+}
+
+.start-logo {
+    height: 30vh;
+    pointer-events: none;
+}
+
+  
+@media (prefers-reduced-motion: no-preference) {
+    .start-logo {
+      animation: start-logo-spin infinite 20s linear;
+    }
+}
+  
+@keyframes start-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.start-header > h1 {
+    font-size: calc(16px + 4vmin);
+    margin:0px;
+    padding:0px 0px 1vmin 0px;
+    cursor:default;
+    color: white;
+  }
+
+.start-header > p {
+    color: white;
+    font-size: calc(10px + 1vmin);
+    text-align: center;
+    margin:0px;
+    padding: 0px 0px;
+    cursor:default;
+}
+
+.start-header > p:hover{
+    transition: 2s;
+    letter-spacing: 0.5vmin;
+}
+
+.login-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1.5%;
+}
+  
+.login-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px 0px;
+}
+
+#input_name{
+    font-size: calc(10px + 1vmin);
+    height: calc(16px + 3vh);
+    width: 16vw;
+    margin: 0px;
+    padding:0px 0px;
+}
+.start-button{
+    color:white;
+    font-size: calc(10px + 1vmin);
+    height: calc(16px + 3vh);
+    padding:0px 20px;
+    background-color: #992604;
+    cursor: pointer;
+}
+  
+.start-button:hover{
+    background-color: #fd530a;
+}
+  
+
+  

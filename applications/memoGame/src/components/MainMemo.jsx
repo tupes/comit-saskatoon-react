@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import '../css/main.css';
+import HeaderMemo from "../components/HeaderMemo.jsx";
 import DeckMemo from "../components/DeckMemo.jsx";
 import SidebarMemo from "../components/SidebarMemo.jsx";
+import FooterMemo from "../components/FooterMemo.jsx";
+
 import {eventsProcess} from "../js/eventsProcess.js";
 
 class MainMemo extends Component {
@@ -31,20 +35,25 @@ class MainMemo extends Component {
         window.$isGameFinish = false;//When all cards on the deck are flipperd
         window.$isGameOver = false;//Over limit time
         window.$flippedCards = [];
-        window.$numberCardsOnDeck = 52;//52 but can assign 6 in the debug process
+        window.$numberCardsOnDeck = window.$cardsTotal;
         window.$isCorrectCards = false;
         window.$isFlipBackPairCards = false;
         window.$thisSetStates=[];
         window.$yourCount = 0;
+        window.$yourClicks=0;
         window.$isOnEventDeckChange = true;//Disable mouse click on the cards
         //------------------------------
     }
 
     render() { 
         return(
-            <div className="divDeck">
-                <DeckMemo />
-                <SidebarMemo function={this.restartGame}/>
+           <div className="main-container"> 
+                <HeaderMemo logo={this.props.logo} playerName={this.props.playerName}/>
+                <div className="div-deck">
+                    <DeckMemo />
+                    <SidebarMemo function={this.restartGame}/>
+                </div>
+                <FooterMemo />
             </div>
         )
     }

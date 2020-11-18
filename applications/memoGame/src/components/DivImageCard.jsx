@@ -35,6 +35,7 @@ class DivImageCard extends Component {
                 window.$isOnEventDeckChange = true;//Disable mouse clik on card when Deck changing 
                 window.$flippedCards.push(this.props.cardName);
                 window.$thisSetStates.push(this);
+                window.$yourClicks +=1;//counting your clicks to flip a card
                 soundGame("Flip a card");
                 if (window.$flippedCards.length===2){
                     //Check the pair of flipped cards 
@@ -72,15 +73,15 @@ class DivImageCard extends Component {
                  )
             );
             
-            if (this.props.cardNumber>=51){
+            if (this.props.cardNumber>=(window.$cardsTotal-1)){
                 //the last card on the deck has been re-shuffled 
                 window.$isNewShuffle=false; 
             }
             //-----------------------------------------------------
             return(
-                <div>
-                    <img    key={this.props.cardName} 
-                            className="imageCard"
+                <div key={this.props.cardName}>
+                    <img     
+                            className="image-card"
                             src="../images/back.png"
                             alt="back"
                             onClick={this.flipCard}
@@ -91,9 +92,9 @@ class DivImageCard extends Component {
         else{                
             if (!this.state.isOnDeck) {
                     return(
-                    <div>
-                        <img    key={this.props.cardName}
-                                className="imageGoodJob"
+                    <div key={this.props.cardName}>
+                        <img   
+                                className="image-goodjob"
                                 src="../images/goodjob.png"
                                 alt="goodjob"
                         /> 
@@ -103,9 +104,9 @@ class DivImageCard extends Component {
                 else{
                     if (!this.state.isShowed) {
                         return(
-                        <div>
-                            <img    key={this.props.cardName}
-                                    className="imageCard"
+                        <div key={this.props.cardName}>
+                            <img    
+                                    className="image-card"
                                     src="../images/back.png"
                                     alt="back"
                                     onClick={this.flipCard}
@@ -116,9 +117,9 @@ class DivImageCard extends Component {
                     else{
                         let scr = '../images/'+this.props.cardName+'.png';
                         return(
-                            <div>
-                                <img    key={this.props.cardName}
-                                        className="imageCard" 
+                            <div key={this.props.cardName}>
+                                <img    
+                                        className="image-card" 
                                         src={scr}
                                         alt={this.props.cardName}
                                 /> 
