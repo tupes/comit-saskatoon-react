@@ -9,12 +9,12 @@ import ItemsProvider from "./components/ItemsProvider";
 import UserProvider from "./components/UserProvider";
 
 ReactDOM.render(
-  <UserProvider>
-    <ItemsProvider>
-      <Router>
+  <Router>
+    <UserProvider>
+      <ItemsProvider>
         <App />
-      </Router>
-    </ItemsProvider>
-  </UserProvider>,
+      </ItemsProvider>
+    </UserProvider>
+  </Router>,
   document.getElementById("root")
 );

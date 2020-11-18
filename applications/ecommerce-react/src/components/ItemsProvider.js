@@ -49,9 +49,7 @@ export default function ItemsProvider({ children }) {
     <ItemsContext.Provider
       value={{
         items: itemsToDisplay,
-        setItems,
         itemCategories,
-        setItemCategories,
         handleSelectCategory,
       }}
     >

@@ -14,10 +14,10 @@ export default function App() {
       <Header />
 
       <Switch>
-        <Route path="/items" render={() => <Items />}></Route>
-        <Route path="/signup" render={() => <SignUp />}></Route>
-        <Route path="/login" render={() => <Login />}></Route>
-        <Route path="/cart" render={() => <UserCartItemsList />}></Route>
+        <Route path="/items" component={Items}></Route>
+        <Route path="/signup" component={SignUp}></Route>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/cart" component={UserCartItemsList}></Route>
         <Redirect to="/items" />
       </Switch>
 
