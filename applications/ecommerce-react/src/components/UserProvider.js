@@ -11,6 +11,7 @@ import {
   addUser,
   addItemToCart,
   getCartItems,
+  getUser,
 } from "../firebase/userRepository";
 
 const UserContext = createContext();
@@ -23,10 +24,7 @@ export default function UserProvider(props) {
   const [currentError, setCurrentError] = useState(null);
 
   const updateState = async (userData) => {
-    const cart = await getCartItems(userData.uid);
-    console.log(cart);
     setUser({
-      ...user,
       ...userData,
     });
     setCurrentError(null);
@@ -36,9 +34,10 @@ export default function UserProvider(props) {
   const handleSubmitSignUp = async (event, email, password) => {
     event.preventDefault();
     try {
-      const newUser = await createUserWithEmailAndPassword(email, password);
-      await addUser(newUser);
-      updateState(newUser);
+      const authUser = await createUserWithEmailAndPassword(email, password);
+      const userData = { email, uid: authUser.user.uid, cart: [] };
+      await addUser(userData);
+      updateState(userData);
     } catch (error) {
       setCurrentError(error);
     }
@@ -47,8 +46,10 @@ export default function UserProvider(props) {
   const handleSubmitLogin = async (event, email, password) => {
     event.preventDefault();
     try {
-      const existingUser = await signInWithEmailAndPassword(email, password);
-      updateState(existingUser);
+      const authUser = await signInWithEmailAndPassword(email, password);
+      const userData = await getUser(authUser.user.uid);
+      userData.cart = await getCartItems(userData.uid);
+      updateState(userData);
     } catch (error) {
       setCurrentError(error);
     }

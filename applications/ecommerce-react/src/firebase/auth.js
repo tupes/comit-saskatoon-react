@@ -5,13 +5,11 @@ function getUserData(authUser, email) {
 }
 
 export async function createUserWithEmailAndPassword(email, password) {
-  const authUser = await auth.createUserWithEmailAndPassword(email, password);
-  return getUserData(authUser, email);
+  return auth.createUserWithEmailAndPassword(email, password);
 }
 
 export async function signInWithEmailAndPassword(email, password) {
-  const authUser = await auth.signInWithEmailAndPassword(email, password);
-  return getUserData(authUser, email);
+  return auth.signInWithEmailAndPassword(email, password);
 }
 
 export function signOut() {
