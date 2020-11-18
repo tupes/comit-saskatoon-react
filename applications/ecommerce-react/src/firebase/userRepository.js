@@ -1,10 +1,8 @@
 import { db } from "./firebase";
 
 export function addUser(user) {
-  const usersRef = db.ref("/users");
-  const userRef = usersRef.push();
-  userRef.set(user);
-  return userRef;
+  const userRef = db.ref(`users/${user.uid}`);
+  return userRef.set(user);
 }
 
 export function addItemToCart(userId, itemId) {

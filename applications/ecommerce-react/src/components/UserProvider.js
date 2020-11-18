@@ -19,23 +19,15 @@ export const useUser = () => useContext(UserContext);
 export default function UserProvider(props) {
   const history = useHistory();
 
-  const [user, setUser] = useState({
-    isLoggedIn: false,
-    email: "",
-    uid: null,
-    cart: [],
-  });
+  const [user, setUser] = useState(null);
   const [currentError, setCurrentError] = useState(null);
 
-  const updateState = async (uid, email) => {
-    const cart = await getCartItems(uid);
+  const updateState = async (userData) => {
+    const cart = await getCartItems(userData.uid);
     console.log(cart);
     setUser({
       ...user,
-      isLoggedIn: true,
-      email,
-      uid,
-      cart,
+      ...userData,
     });
     setCurrentError(null);
     history.push("/");
@@ -44,11 +36,9 @@ export default function UserProvider(props) {
   const handleSubmitSignUp = async (event, email, password) => {
     event.preventDefault();
     try {
-      const authUser = await createUserWithEmailAndPassword(email, password);
-      console.log(authUser);
-      const userRef = addUser({ email, uid: authUser.user.uid });
-      console.log(userRef);
-      updateState(authUser.user.uid);
+      const newUser = await createUserWithEmailAndPassword(email, password);
+      await addUser(newUser);
+      updateState(newUser);
     } catch (error) {
       setCurrentError(error);
     }
@@ -57,9 +47,8 @@ export default function UserProvider(props) {
   const handleSubmitLogin = async (event, email, password) => {
     event.preventDefault();
     try {
-      const authUser = await signInWithEmailAndPassword(email, password);
-      console.log(authUser);
-      updateState(authUser.user.uid);
+      const existingUser = await signInWithEmailAndPassword(email, password);
+      updateState(existingUser);
     } catch (error) {
       setCurrentError(error);
     }
@@ -68,14 +57,8 @@ export default function UserProvider(props) {
   const handleSignOut = async () => {
     try {
       console.log("Calling signOut");
-      const result = await signOut();
-      console.log(result);
-      setUser({
-        isLoggedIn: false,
-        email: "",
-        uid: null,
-        cart: [],
-      });
+      await signOut();
+      setUser(null);
     } catch (error) {
       console.log(error);
     }

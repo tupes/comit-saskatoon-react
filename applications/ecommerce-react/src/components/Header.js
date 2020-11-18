@@ -14,7 +14,7 @@ export default function Header(props) {
       </header>
 
       <ul className="user">
-        {!user.isLoggedIn ? (
+        {!user ? (
           <>
             <li>
               <Link to="/login">Log in</Link>

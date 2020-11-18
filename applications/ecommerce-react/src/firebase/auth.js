@@ -1,11 +1,17 @@
 import { auth } from "./firebase";
 
-export function createUserWithEmailAndPassword(email, password) {
-  return auth.createUserWithEmailAndPassword(email, password);
+function getUserData(authUser, email) {
+  return { email, uid: authUser.user.uid, cart: [] };
 }
 
-export function signInWithEmailAndPassword(email, password) {
-  return auth.signInWithEmailAndPassword(email, password);
+export async function createUserWithEmailAndPassword(email, password) {
+  const authUser = await auth.createUserWithEmailAndPassword(email, password);
+  return getUserData(authUser, email);
+}
+
+export async function signInWithEmailAndPassword(email, password) {
+  const authUser = await auth.signInWithEmailAndPassword(email, password);
+  return getUserData(authUser, email);
 }
 
 export function signOut() {
