@@ -18,7 +18,7 @@ export default function SignUp(props) {
                 value={email}
                 type="email"
                 name="email"
-                autofocus
+                autoFocus
                 required
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -31,7 +31,6 @@ export default function SignUp(props) {
                 value={password1}
                 type="password"
                 name="password"
-                autofocus
                 required
                 onChange={(event) => setPassword1(event.target.value)}
               />
@@ -44,7 +43,6 @@ export default function SignUp(props) {
                 value={password2}
                 type="password"
                 name="password"
-                autofocus
                 required
                 onChange={(event) => setPassword2(event.target.value)}
               />

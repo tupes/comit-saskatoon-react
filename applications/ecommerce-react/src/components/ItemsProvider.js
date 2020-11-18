@@ -1,25 +1,39 @@
 import React, { useState, useEffect, useMemo, createContext } from "react";
-import { getItems } from "../firebase/repository";
+import {
+  getItemCategories,
+  getItemFields,
+  getItems,
+} from "../firebase/itemRepository";
 
 export const ItemsContext = createContext();
 
 export default function ItemsProvider({ children }) {
   const [items, setItems] = useState([]);
   const [itemCategories, setItemCategories] = useState([]);
+  const [itemFields, setItemFields] = useState([]);
+
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
     const fetchItems = async () => {
-      //const response = await axios.get(`${SERVER_URL}/items`);
-      const items = await getItems();
-      setItems(items);
+      const data = await getItems();
+      setItems(data);
+    };
+    const fetchItemCategories = async () => {
+      const data = await getItemCategories();
+      setItemCategories(data);
+    };
+    const fetchItemFields = async () => {
+      const data = await getItemFields();
+      setItemFields(data);
     };
 
     fetchItems();
+    fetchItemCategories();
+    fetchItemFields();
   }, []);
 
   const itemsToDisplay = useMemo(() => {
-    console.log("Getting items to display");
     const filteredItems = items.filter(
       (item) => selectedCategory === "all" || item.category === selectedCategory
     );

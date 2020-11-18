@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { ItemsContext } from "./ItemsProvider";
 
-export default function ItemsList() {
-  const { items, handleAddToCartClick } = useContext(ItemsContext);
+export default function ItemsList(props) {
+  const { items } = useContext(ItemsContext);
 
   return (
     <section className="items">
@@ -13,7 +13,10 @@ export default function ItemsList() {
             <h3>{item.name}</h3>
             <div>${item.price}</div>
             <p>{item.description}</p>
-            <button className="item" onClick={() => handleAddToCartClick(item)}>
+            <button
+              className="item"
+              onClick={() => props.handleAddToCartClick(item)}
+            >
               Add to Cart
             </button>
           </li>

@@ -3,11 +3,11 @@ import React from "react";
 import ItemCategories from "./ItemCategories";
 import ItemsList from "./ItemsList";
 
-export default function Items() {
+export default function Items(props) {
   return (
     <>
       <ItemCategories />
-      <ItemsList />
+      <ItemsList handleAddToCartClick={props.handleAddToCartClick} />
     </>
   );
 }
