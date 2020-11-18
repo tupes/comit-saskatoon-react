@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "./UserProvider";
 
 export default function Login(props) {
+  const { handleSubmitLogin, error } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +20,7 @@ export default function Login(props) {
                 value={email}
                 type="email"
                 name="email"
-                autofocus
+                autoFocus
                 required
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -30,7 +33,6 @@ export default function Login(props) {
                 value={password}
                 type="password"
                 name="password"
-                autofocus
                 required
                 onChange={(event) => setPassword(event.target.value)}
               />
@@ -39,14 +41,14 @@ export default function Login(props) {
 
           <p>
             <button
-              onClick={(event) => props.handleSubmit(event, email, password)}
+              onClick={(event) => handleSubmitLogin(event, email, password)}
               type="submit"
             >
               Submit
             </button>
           </p>
 
-          {props.error && props.error.message}
+          {error && error.message}
         </form>
       </div>
     </>

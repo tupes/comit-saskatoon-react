@@ -6,12 +6,15 @@ import "./styles/app.css";
 
 import App from "./components/App";
 import ItemsProvider from "./components/ItemsProvider";
+import UserProvider from "./components/UserProvider";
 
 ReactDOM.render(
-  <ItemsProvider>
-    <Router>
-      <App />
-    </Router>
-  </ItemsProvider>,
+  <UserProvider>
+    <ItemsProvider>
+      <Router>
+        <App />
+      </Router>
+    </ItemsProvider>
+  </UserProvider>,
   document.getElementById("root")
 );

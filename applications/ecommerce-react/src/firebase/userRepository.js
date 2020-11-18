@@ -13,3 +13,16 @@ export function addItemToCart(userId, itemId) {
   itemRef.set({ userId, itemId });
   return itemRef;
 }
+
+export async function getCartItems(userId) {
+  const data = [];
+  const cartRef = db.ref("/cartItems");
+  const dataSnapshot = await cartRef.once("value");
+  dataSnapshot.forEach((itemSnapshot) => {
+    const item = itemSnapshot.val();
+    if (item.userId === userId) {
+      data.push(item);
+    }
+  });
+  return data;
+}

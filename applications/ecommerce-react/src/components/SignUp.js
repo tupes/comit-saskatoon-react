@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "./UserProvider";
 
 export default function SignUp(props) {
+  const { handleSubmitSignUp, error } = useContext(UserContext);
+
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -51,7 +54,7 @@ export default function SignUp(props) {
 
           <p>
             <button
-              onClick={(event) => props.handleSubmit(event, email, password1)}
+              onClick={(event) => handleSubmitSignUp(event, email, password1)}
               type="submit"
               disabled={!password1 || !password2 || password1 !== password2}
             >
@@ -59,7 +62,7 @@ export default function SignUp(props) {
             </button>
           </p>
 
-          {props.error && props.error.message}
+          {error && error.message}
         </form>
       </div>
     </>
