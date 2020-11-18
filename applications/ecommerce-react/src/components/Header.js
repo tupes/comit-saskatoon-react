@@ -1,17 +1,39 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "./UserProvider";
 
 export default function Header(props) {
-  const location = useLocation();
+  const { user, handleSignOut } = useContext(UserContext);
 
   return (
-    <header className="page-header">
-      <Link to="/">
-        <h1>Sports Store</h1>
-      </Link>
-      {location.pathname !== "/login" && <Link to="/login">Log in</Link>}
-      {location.pathname !== "/signup" && <Link to="/signup">Sign up</Link>}
-      {location.pathname !== "/cart" && <Link to="/cart">Cart</Link>}
-    </header>
+    <>
+      <header className="page-header">
+        <Link to="/">
+          <h1>Sports Store</h1>
+        </Link>
+      </header>
+
+      <ul className="user">
+        {!user.isLoggedIn ? (
+          <>
+            <li>
+              <Link to="/login">Log in</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign up</Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
+            <li>
+              <button onClick={handleSignOut}>Sign out</button>
+            </li>
+          </>
+        )}
+      </ul>
+    </>
   );
 }

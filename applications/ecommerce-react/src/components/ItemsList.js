@@ -7,20 +7,18 @@ export default function ItemsList(props) {
   const { handleAddToCartClick } = useContext(UserContext);
 
   return (
-    <section className="items">
-      <ul className="items-list">
-        {items.map((item) => (
-          <li key={item.name}>
-            <img src={item.image} alt="" />
-            <h3>{item.name}</h3>
-            <div>${item.price}</div>
-            <p>{item.description}</p>
-            <button className="item" onClick={() => handleAddToCartClick(item)}>
-              Add to Cart
-            </button>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <ul className="items-list">
+      {items.map((item) => (
+        <li key={item.name}>
+          <img src={item.image} alt="" />
+          <h3>{item.name}</h3>
+          <div>${item.price}</div>
+          <p>{item.description}</p>
+          <button className="item" onClick={() => handleAddToCartClick(item)}>
+            Add to Cart
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }

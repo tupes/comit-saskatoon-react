@@ -5,7 +5,7 @@ export default function ItemCategories() {
   const { itemCategories, handleSelectCategory } = useContext(ItemsContext);
 
   return (
-    <ul className="nav-links">
+    <ul className="item-categories">
       {itemCategories.map((category, i) => {
         return (
           <li key={i}>

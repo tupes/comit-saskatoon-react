@@ -4,7 +4,9 @@ import { useHistory } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "../firebase/auth";
+import { auth } from "../firebase/firebase";
 
 import {
   addUser,
@@ -69,6 +71,22 @@ export default function UserProvider(props) {
     }
   };
 
+  const handleSignOut = async () => {
+    try {
+      console.log("Calling signOut");
+      const result = await signOut();
+      console.log(result);
+      setUser({
+        isLoggedIn: false,
+        email: "",
+        uid: null,
+        cart: [],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleAddToCartClick = async (item) => {
     try {
       await addItemToCart(user.uid, item.id);
@@ -84,6 +102,7 @@ export default function UserProvider(props) {
         error: currentError,
         handleSubmitSignUp,
         handleSubmitLogin,
+        handleSignOut,
         handleAddToCartClick,
       }}
     >
