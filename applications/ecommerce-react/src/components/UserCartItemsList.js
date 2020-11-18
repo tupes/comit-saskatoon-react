@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { UserContext } from "./UserProvider";
+import React from "react";
+import { useUser } from "./UserProvider";
 
 export default function UserCartItemsList(props) {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   return (
     <section className="items">
       <ul className="items-list">

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserProvider";
+import { useUser } from "./UserProvider";
 
 export default function Header(props) {
-  const { user, handleSignOut } = useContext(UserContext);
+  const { user, handleSignOut } = useUser();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function Header(props) {
         ) : (
           <>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart">Cart {user.cart.length}</Link>
             </li>
             <li>
               <button onClick={handleSignOut}>Sign out</button>

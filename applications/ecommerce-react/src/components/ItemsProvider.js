@@ -1,11 +1,18 @@
-import React, { useState, useEffect, useMemo, createContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useContext,
+  createContext,
+} from "react";
 import {
   getItemCategories,
   getItemFields,
   getItems,
 } from "../firebase/itemRepository";
 
-export const ItemsContext = createContext();
+const ItemsContext = createContext();
+export const useItems = () => useContext(ItemsContext);
 
 export default function ItemsProvider({ children }) {
   const [items, setItems] = useState([]);

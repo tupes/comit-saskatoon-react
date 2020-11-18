@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "../firebase/auth";
-import { auth } from "../firebase/firebase";
 
 import {
   addUser,
@@ -14,7 +13,8 @@ import {
   getCartItems,
 } from "../firebase/userRepository";
 
-export const UserContext = createContext();
+const UserContext = createContext();
+export const useUser = () => useContext(UserContext);
 
 export default function UserProvider(props) {
   const history = useHistory();
@@ -27,6 +27,20 @@ export default function UserProvider(props) {
   });
   const [currentError, setCurrentError] = useState(null);
 
+  const updateState = async (uid, email) => {
+    const cart = await getCartItems(uid);
+    console.log(cart);
+    setUser({
+      ...user,
+      isLoggedIn: true,
+      email,
+      uid,
+      cart,
+    });
+    setCurrentError(null);
+    history.push("/");
+  };
+
   const handleSubmitSignUp = async (event, email, password) => {
     event.preventDefault();
     try {
@@ -34,17 +48,7 @@ export default function UserProvider(props) {
       console.log(authUser);
       const userRef = addUser({ email, uid: authUser.user.uid });
       console.log(userRef);
-      const cart = await getCartItems(authUser.user.uid);
-      console.log(cart);
-      setUser({
-        ...user,
-        isLoggedIn: true,
-        email,
-        uid: authUser.user.uid,
-        cart,
-      });
-      setCurrentError(null);
-      history.push("/");
+      updateState(authUser.user.uid);
     } catch (error) {
       setCurrentError(error);
     }
@@ -55,17 +59,7 @@ export default function UserProvider(props) {
     try {
       const authUser = await signInWithEmailAndPassword(email, password);
       console.log(authUser);
-      const cartData = await getCartItems(authUser.user.uid);
-      console.log(cartData);
-      setUser({
-        ...user,
-        isLoggedIn: true,
-        email,
-        uid: authUser.user.uid,
-        cart: cartData,
-      });
-      setCurrentError(null);
-      history.push("/");
+      updateState(authUser.user.uid);
     } catch (error) {
       setCurrentError(error);
     }
@@ -90,6 +84,7 @@ export default function UserProvider(props) {
   const handleAddToCartClick = async (item) => {
     try {
       await addItemToCart(user.uid, item.id);
+      setUser({ ...user, cart: [...user.cart, item] });
     } catch (error) {
       console.log(error);
     }
