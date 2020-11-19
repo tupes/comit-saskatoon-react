@@ -63,12 +63,14 @@ export default function UserProvider(props) {
         cart: cartData,
       });
       setCurrentError(null);
+      console.log(cartData);
+      //console.log(user);
       history.push("/");
     } catch (error) {
       setCurrentError(error);
     }
   };
-
+  console.log(user);
   const handleAddToCartClick = async (item) => {
     try {
       await addItemToCart(user.uid, item.id);
