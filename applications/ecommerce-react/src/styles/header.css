@@ -1,24 +1,33 @@
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+.page-header,
+.user {
   background-color: var(--black);
-  color: var(--white);
 
   padding: var(--med-size);
   border-bottom: var(--tiny-size) solid var(--white);
 }
 
-.page-header button {
+.page-header *,
+.user * {
+  color: var(--white);
+}
+
+.user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--med-size);
+}
+
+.user li {
   background-color: var(--primary-button);
 
   padding: var(--small-size) var(--med-size);
   border-radius: var(--med-border-radius);
 }
 
-.page-header a {
-  color: var(--white);
+.user li button {
+  background-color: var(--primary-button);
+  border: none;
 }
 
 .auth-form {

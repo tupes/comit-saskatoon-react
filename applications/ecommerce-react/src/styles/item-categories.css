@@ -1,4 +1,6 @@
-.nav-links {
+.item-categories {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,22 +11,19 @@
   padding-left: var(--med-size);
 }
 
-.nav-links li {
+.item-categories li {
   width: 100%;
 }
 
-.nav-links button {
+.item-categories button {
   background-color: var(--primary-button);
 
   width: 100%;
   min-height: var(--huge-size);
   border-radius: var(--med-border-radius);
-}
-
-.nav-links a {
   color: var(--white);
 }
 
-.nav-links a:hover {
+.item-categories button:hover {
   font-weight: bold;
 }
