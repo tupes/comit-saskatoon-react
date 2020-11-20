@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { ItemsContext } from "./ItemsProvider";
-import { UserContext } from "./UserProvider";
+import React from "react";
+import { useItems } from "./ItemsProvider";
+import { useUser } from "./UserProvider";
 
 export default function ItemsList(props) {
-  const { items } = useContext(ItemsContext);
-  const { handleAddToCartClick } = useContext(UserContext);
+  const { items } = useItems();
+  const { handleAddToCartClick } = useUser();
 
   return (
     <ul className="items-list">

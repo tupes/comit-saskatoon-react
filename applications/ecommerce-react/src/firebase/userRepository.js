@@ -1,28 +1,30 @@
 import { db } from "./firebase";
 
+export async function getUser(uid) {
+  const userRef = db.ref(`users/${uid}`);
+  const userSnapshot = await userRef.once("value");
+  return userSnapshot.val();
+}
+
 export function addUser(user) {
-  const usersRef = db.ref("/users");
-  const userRef = usersRef.push();
-  userRef.set(user);
-  return userRef;
+  const userRef = db.ref(`users/${user.uid}`);
+  return userRef.set(user);
 }
 
 export function addItemToCart(userId, itemId) {
-  const cartRef = db.ref("/cartItems");
+  const cartRef = db.ref(`users/${userId}/cart`);
   const itemRef = cartRef.push();
-  itemRef.set({ userId, itemId });
+  itemRef.set({ itemId, quantity: 1 });
   return itemRef;
 }
 
 export async function getCartItems(userId) {
   const data = [];
-  const cartRef = db.ref("/cartItems");
+  const cartRef = db.ref(`users/${userId}/cart`);
   const dataSnapshot = await cartRef.once("value");
   dataSnapshot.forEach((itemSnapshot) => {
     const item = itemSnapshot.val();
-    if (item.userId === userId) {
-      data.push(item);
-    }
+    data.push(item);
   });
   return data;
 }

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserProvider";
+import { useUser } from "./UserProvider";
 
 export default function Header(props) {
-  const { user, handleSignOut } = useContext(UserContext);
+  const { user, handleSignOut } = useUser();
 
   return (
     <>
@@ -14,7 +14,7 @@ export default function Header(props) {
       </header>
 
       <ul className="user">
-        {!user.isLoggedIn ? (
+        {!user ? (
           <>
             <li>
               <Link to="/login">Log in</Link>
@@ -25,6 +25,7 @@ export default function Header(props) {
           </>
         ) : (
           <>
+            <li>{user.email}</li>
             <li>
               <Link to="/cart">Cart</Link>
             </li>

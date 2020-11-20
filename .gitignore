@@ -1,3 +1,4 @@
 .DS_Store
 applications/*/node_modules
 .ipynb_checkpoints
+.env

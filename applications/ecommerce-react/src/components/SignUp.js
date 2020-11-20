@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "./UserProvider";
+import React, { useState } from "react";
+import { useUser } from "./UserProvider";
 
 export default function SignUp(props) {
-  const { handleSubmitSignUp, error } = useContext(UserContext);
+  const { handleSubmitSignUp, error } = useUser();
 
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");

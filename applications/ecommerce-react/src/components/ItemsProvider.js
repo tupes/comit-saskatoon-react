@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useMemo, createContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useContext,
+  createContext,
+} from "react";
 import {
   getItemCategories,
   getItemFields,
@@ -6,6 +12,7 @@ import {
 } from "../firebase/itemRepository";
 
 export const ItemsContext = createContext();
+export const useItems = () => useContext(ItemsContext);
 
 export default function ItemsProvider({ children }) {
   const [items, setItems] = useState([]);
@@ -45,12 +52,15 @@ export default function ItemsProvider({ children }) {
     setSelectedCategory(category);
   };
 
+  const getItemById = (id) => items.find((item) => item.id === id);
+
   return (
     <ItemsContext.Provider
       value={{
         items: itemsToDisplay,
         itemCategories,
         handleSelectCategory,
+        getItemById,
       }}
     >
       {children}
