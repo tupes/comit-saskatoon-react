@@ -26,5 +26,12 @@
 For every external state in our application, we'll need to implement:
 - backend
 - client (communication, interface)
-- Context components with useState
-- functions for getting and updating state
+- Context components with useState and functions for getting and updating state
+
+# Pages
+- Login
+- SignUp
+- NotesFeed
+- Favorites
+- CreateNote
+- Profile
