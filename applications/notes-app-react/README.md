@@ -22,3 +22,16 @@
 - user profile information
 - users's notes
 - users' favorites
+
+For every external state in our application, we'll need to implement:
+- backend
+- client (communication, interface)
+- Context components with useState and functions for getting and updating state
+
+# Pages
+- Login
+- SignUp
+- NotesFeed
+- Favorites
+- CreateNote
+- Profile
