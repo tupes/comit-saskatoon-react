@@ -1,4 +1,4 @@
-import { db } from "./firebase";
+import { db } from "./";
 
 export async function getUser(uid) {
   const userRef = db.ref(`users/${uid}`);
