@@ -17,3 +17,8 @@
 - favorites
   - users can 'favorite' the notes of others
   - users can view a list of the notes they've favorited
+
+# External State (Stored, Persisted)
+- user profile information
+- users's notes
+- users' favorites
