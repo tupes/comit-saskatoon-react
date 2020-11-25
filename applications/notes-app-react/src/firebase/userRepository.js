@@ -17,14 +17,3 @@ export function addNoteToUser(userId, content) {
   itemRef.set({ content });
   return itemRef;
 }
-
-export async function getCartItems(userId) {
-  const data = [];
-  const cartRef = db.ref(`users/${userId}/cart`);
-  const dataSnapshot = await cartRef.once("value");
-  dataSnapshot.forEach((itemSnapshot) => {
-    const item = itemSnapshot.val();
-    data.push(item);
-  });
-  return data;
-}

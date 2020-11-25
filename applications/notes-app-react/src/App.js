@@ -1,4 +1,5 @@
 import React from "react";
+import AccountProvider from "./contexts/AccountProvider";
 import NotesProvider from "./contexts/NotesProvider";
 
 import Pages from "./pages";
@@ -6,9 +7,11 @@ import Pages from "./pages";
 export default function App() {
   return (
     <div>
-      <NotesProvider>
-        <Pages />
-      </NotesProvider>
+      <AccountProvider>
+        <NotesProvider>
+          <Pages />
+        </NotesProvider>
+      </AccountProvider>
     </div>
   );
 }
