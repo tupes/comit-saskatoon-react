@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function CreateNote() {
-  return <div></div>;
+  return <div>Create Note</div>;
 }

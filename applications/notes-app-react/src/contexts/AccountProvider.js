@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, createContext } from "react";
 
 import {
   createUserWithEmailAndPassword,
@@ -6,39 +6,37 @@ import {
   signOut,
 } from "../firebase/auth";
 
-import { getUser, addUser } from "../firebase/userRepository";
+import { getUser, saveUser } from "../firebase/userRepository";
 
-const AccountContext = createContext();
-export const useAccount = () => useContext(AccountContext);
+export const AccountContext = createContext();
 
 export default function AccountProvider(props) {
   const [user, setUser] = useState(null);
   const [currentError, setCurrentError] = useState(null);
 
   const updateState = (userData) => {
+    console.log(userData);
     setUser({
       ...userData,
     });
     setCurrentError(null);
   };
 
-  const handleSubmitSignUp = async (event, values) => {
-    event.preventDefault();
+  const handleSubmitSignUp = async (values) => {
     try {
       const authUser = await createUserWithEmailAndPassword(
         values.email,
         values.password
       );
       delete values.password;
-      const userData = addUser({ ...values, uid: authUser.user.uid });
+      const userData = saveUser({ ...values, uid: authUser.user.uid });
       updateState(userData);
     } catch (error) {
       setCurrentError(error);
     }
   };
 
-  const handleSubmitLogin = async (event, values) => {
-    event.preventDefault();
+  const handleSubmitLogin = async (values) => {
     try {
       const authUser = await signInWithEmailAndPassword(
         values.email,
@@ -60,6 +58,15 @@ export default function AccountProvider(props) {
     }
   };
 
+  const handleUpdateUser = async (values) => {
+    try {
+      const userData = await saveUser({ ...user, ...values });
+      updateState(userData);
+    } catch (error) {
+      setCurrentError(error);
+    }
+  };
+
   return (
     <AccountContext.Provider
       value={{
@@ -68,6 +75,7 @@ export default function AccountProvider(props) {
         handleSubmitSignUp,
         handleSubmitLogin,
         handleSignOut,
+        handleUpdateUser,
       }}
     >
       {props.children}

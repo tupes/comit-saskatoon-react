@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "../components/Button";
-import { useAccount } from "../contexts/AccountProvider";
+import { AccountContext } from "../contexts/AccountProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -27,7 +27,7 @@ export default function SignUp() {
     document.title = "Sign Up";
   }, []);
 
-  const { handleSubmitSignUp, error } = useAccount();
+  const { handleSubmitSignUp, error } = useContext(AccountContext);
 
   const [values, setValues] = useState({});
 
@@ -41,7 +41,12 @@ export default function SignUp() {
   return (
     <Wrapper>
       <h2>Sign Up</h2>
-      <Form onSubmit={(event) => handleSubmitSignUp(event, values)}>
+      <Form
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSubmitSignUp(values);
+        }}
+      >
         <label htmlFor="username">Username:</label>
         <input
           autoFocus

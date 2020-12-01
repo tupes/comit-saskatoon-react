@@ -6,7 +6,7 @@ export async function getUser(uid) {
   return userSnapshot.val();
 }
 
-export function addUser(user) {
+export function saveUser(user) {
   const userRef = db.ref(`users/${user.uid}`);
   return userRef.set(user);
 }

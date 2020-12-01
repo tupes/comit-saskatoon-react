@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Button } from "../components/Button";
-import { useAccount } from "../contexts/AccountProvider";
+import { AccountContext } from "../contexts/AccountProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -27,9 +27,9 @@ export default function Profile() {
     document.title = "User Profile";
   }, []);
 
-  const { handleUpdateUser, user, error } = useAccount();
+  const { handleUpdateUser, user, error } = useContext(AccountContext);
 
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState(user);
 
   const handleChange = (event) => {
     setValues({
@@ -41,7 +41,12 @@ export default function Profile() {
   return (
     <Wrapper>
       <h2>Profile</h2>
-      <Form onSubmit={(event) => handleUpdateUser(event, values)}>
+      <Form
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleUpdateUser(values);
+        }}
+      >
         <label htmlFor="username">Username:</label>
         <input
           autoFocus
@@ -50,7 +55,7 @@ export default function Profile() {
           id="username"
           name="username"
           placeholder="username"
-          value={user.username}
+          value={values.username}
           onChange={handleChange}
         />
         <label htmlFor="email">Email:</label>
@@ -59,7 +64,7 @@ export default function Profile() {
           type="email"
           id="email"
           name="email"
-          value={user.email}
+          value={values.email}
         />
         <label htmlFor="age">Age:</label>
         <input
@@ -68,7 +73,7 @@ export default function Profile() {
           id="age"
           name="age"
           placeholder="Age"
-          value={user.age}
+          value={values.age}
           onChange={handleChange}
         />
         <label htmlFor="location">Location:</label>
@@ -78,7 +83,7 @@ export default function Profile() {
           id="location"
           name="location"
           placeholder="Location"
-          value={user.location}
+          value={values.location}
           onChange={handleChange}
         />
         <Button type="submit">Submit</Button>

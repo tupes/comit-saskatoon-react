@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import { Button } from "../components/Button";
-import { useAccount } from "../contexts/AccountProvider";
+import { AccountContext } from "../contexts/AccountProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -27,7 +28,8 @@ export default function Login() {
     document.title = "Login";
   }, []);
 
-  const { handleSubmitLogin, error } = useAccount();
+  const history = useHistory();
+  const { handleSubmitLogin, error } = useContext(AccountContext);
 
   const [values, setValues] = useState({});
 
@@ -41,7 +43,13 @@ export default function Login() {
   return (
     <Wrapper>
       <h2>Login</h2>
-      <Form onSubmit={(event) => handleSubmitLogin(event, values)}>
+      <Form
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await handleSubmitLogin(values);
+          history.push("/");
+        }}
+      >
         <label htmlFor="email">Email:</label>
         <input
           required

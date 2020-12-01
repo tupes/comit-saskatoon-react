@@ -15,3 +15,9 @@ async function getData(tableName, uid) {
 export function getNotes(uid) {
   return getData("notes", uid);
 }
+
+export function createNote(note) {
+  const ref = db.ref(`notes`);
+  note.key = ref.push().key;
+  return ref.set(note);
+}
