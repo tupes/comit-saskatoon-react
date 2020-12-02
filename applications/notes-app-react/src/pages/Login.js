@@ -47,7 +47,7 @@ export default function Login() {
         onSubmit={async (event) => {
           event.preventDefault();
           await handleSubmitLogin(values);
-          history.push("/");
+          if (error) history.push("/");
         }}
       >
         <label htmlFor="email">Email:</label>

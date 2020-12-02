@@ -6,6 +6,7 @@ import Login from "./Login";
 import Profile from "./Profile";
 import SignUp from "./SignUp";
 import CreateNote from "./CreateNote";
+import NotesFeed from "./NotesFeed";
 import { AccountContext } from "../contexts/AccountProvider";
 
 const PrivateRoute = (props) => {
@@ -34,6 +35,7 @@ export default function Pages() {
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/new" component={CreateNote} />
+        <PrivateRoute path="/notes" component={NotesFeed} />
       </Layout>
     </Router>
   );

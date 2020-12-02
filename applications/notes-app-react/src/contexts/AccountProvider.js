@@ -16,9 +16,7 @@ export default function AccountProvider(props) {
 
   const updateState = (userData) => {
     console.log(userData);
-    setUser({
-      ...userData,
-    });
+    setUser(userData);
     setCurrentError(null);
   };
 

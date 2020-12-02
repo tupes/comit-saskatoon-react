@@ -57,7 +57,9 @@ export default function Navigation() {
             <li>
               <Link to="/new">Create Note</Link>
             </li>
-            <li>Notes</li>
+            <li>
+              <Link to="/notes">Notes</Link>
+            </li>
           </>
         )}
       </NavList>
