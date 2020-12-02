@@ -18,6 +18,5 @@ export function getNotes(uid) {
 
 export function createNote(note) {
   const ref = db.ref(`notes`);
-  note.key = ref.push().key;
-  return ref.set(note);
+  return ref.push(note);
 }
