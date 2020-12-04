@@ -1,4 +1,4 @@
-import { db } from "./";
+import { db } from "../";
 
 async function getData(tableName, uid) {
   const data = [];

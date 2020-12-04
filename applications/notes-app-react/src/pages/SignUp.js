@@ -55,6 +55,7 @@ export default function SignUp() {
           id="username"
           name="username"
           placeholder="username"
+          value={values.username}
           onChange={handleChange}
         />
         <label htmlFor="email">Email:</label>
@@ -64,6 +65,7 @@ export default function SignUp() {
           id="email"
           name="email"
           placeholder="Email"
+          value={values.email}
           onChange={handleChange}
         />
         <label htmlFor="age">Age:</label>
@@ -73,6 +75,7 @@ export default function SignUp() {
           id="age"
           name="age"
           placeholder="Age"
+          value={values.age}
           onChange={handleChange}
         />
         <label htmlFor="location">Location:</label>
@@ -82,6 +85,7 @@ export default function SignUp() {
           id="location"
           name="location"
           placeholder="Location"
+          value={values.location}
           onChange={handleChange}
         />
         <label htmlFor="password">Password:</label>
@@ -91,6 +95,7 @@ export default function SignUp() {
           id="password"
           name="password"
           placeholder="Password"
+          value={values.password}
           onChange={handleChange}
         />
         <Button type="submit">Submit</Button>

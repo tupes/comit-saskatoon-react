@@ -6,7 +6,7 @@ import {
   signOut,
 } from "../firebase/auth";
 
-import { getUser, saveUser } from "../firebase/userRepository";
+import { getUser, saveUser } from "../firebase/firestore/userRepository";
 
 export const AccountContext = createContext();
 
@@ -27,7 +27,8 @@ export default function AccountProvider(props) {
         values.password
       );
       delete values.password;
-      const userData = saveUser({ ...values, uid: authUser.user.uid });
+      const userData = { ...values, uid: authUser.user.uid };
+      await saveUser(userData);
       updateState(userData);
     } catch (error) {
       setCurrentError(error);

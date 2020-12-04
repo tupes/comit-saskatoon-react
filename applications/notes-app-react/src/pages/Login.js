@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { AccountContext } from "../contexts/AccountProvider";
+import { NotesContext } from "../contexts/NotesProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -30,7 +31,6 @@ export default function Login() {
 
   const history = useHistory();
   const { handleSubmitLogin, error } = useContext(AccountContext);
-
   const [values, setValues] = useState({});
 
   const handleChange = (event) => {
@@ -47,7 +47,9 @@ export default function Login() {
         onSubmit={async (event) => {
           event.preventDefault();
           await handleSubmitLogin(values);
-          if (error) history.push("/");
+          if (!error) {
+            history.push("/notes");
+          }
         }}
       >
         <label htmlFor="email">Email:</label>
