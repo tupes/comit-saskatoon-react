@@ -50,7 +50,7 @@ For every external state in our application, we'll need to implement:
   - Functionality Components
     - Routing Component
     - Authentication and Authorization Components (PrivateRoute)
--  Non-React Code
+- Non-React Code
   - backend integration
   - Auth
   - storage
