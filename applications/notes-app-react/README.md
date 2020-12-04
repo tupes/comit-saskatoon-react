@@ -28,10 +28,30 @@ For every external state in our application, we'll need to implement:
 - client (communication, interface)
 - Context components with useState and functions for getting and updating state
 
-# Pages
-- Login
-- SignUp
-- NotesFeed
-- Favorites
-- CreateNote
-- Profile
+# Implementation
+- React Components
+  - User Interface
+    - Pages
+    - Layout Components
+      - Headers, Navs, Footers, Profile
+    - Domain Components
+      - NotesFeed
+      - Note
+      - Favorites Button
+    - Generic UI Components
+      - Button
+      - ButtonAsLink
+      - Lists
+      - Dropdowns
+      - Spinners/Loaders
+      - Alert Messages / Popups
+  - State Components
+    - Contexts (NotesProvider)
+  - Functionality Components
+    - Routing Component
+    - Authentication and Authorization Components (PrivateRoute)
+-  Non-React Code
+  - backend integration
+  - Auth
+  - storage
+  - domain models
