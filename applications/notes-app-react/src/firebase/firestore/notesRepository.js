@@ -7,11 +7,13 @@ export async function getNotes(uid) {
     .get();
   const notes = [];
   notesDocs.forEach((noteDoc) => {
-    notes.push(noteDoc.data());
+    const note = noteDoc.data();
+    note.id = noteDoc.id;
+    notes.push(note);
   });
   return notes;
 }
 
 export function createNote(note) {
-  db.collection("notes").add(note);
+  return db.collection("notes").add(note);
 }

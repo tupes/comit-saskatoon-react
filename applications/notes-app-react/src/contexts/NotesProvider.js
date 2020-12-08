@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { getNotes, createNote } from "../firebase/firestore/notesRepository";
+import * as notesRepository from "../firebase/firestore/notesRepository";
 import { AccountContext } from "./AccountProvider";
 
 export const NotesContext = createContext();
@@ -11,7 +11,7 @@ export default function NotesProvider(props) {
 
   useEffect(() => {
     const loadNotes = async (uid) => {
-      const loadedNotes = await getNotes(uid);
+      const loadedNotes = await notesRepository.getNotes(uid);
       console.log(loadedNotes);
       setNotes(loadedNotes);
     };
@@ -27,8 +27,8 @@ export default function NotesProvider(props) {
         userId: user.uid,
         createdDate: new Date().toISOString(),
       };
-      const savedNote = await createNote(note);
-      note.id = savedNote.key;
+      const savedNote = await notesRepository.createNote(note);
+      note.id = savedNote.id;
       console.log(savedNote);
       setNotes([...notes, note]);
       setCurrentError(null);
@@ -37,11 +37,20 @@ export default function NotesProvider(props) {
     }
   };
 
+  const handleUpdateNote = () => {};
+  const getNotes = () => {
+    return notes.map((note) => ({ ...note, author: user.username }));
+  };
+
+  const getNote = (id) => notes.find((note) => note.id === id);
+
   return (
     <NotesContext.Provider
       value={{
-        notes,
+        getNotes,
+        getNote,
         handleCreateNote,
+        handleUpdateNote,
         error: currentError,
       }}
     >

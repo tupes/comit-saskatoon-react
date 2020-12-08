@@ -6,6 +6,7 @@ import Login from "./Login";
 import Profile from "./Profile";
 import SignUp from "./SignUp";
 import CreateNote from "./CreateNote";
+import EditNote from "./EditNote";
 import NotesFeed from "./NotesFeed";
 import { AccountContext } from "../contexts/AccountProvider";
 
@@ -36,6 +37,7 @@ export default function Pages() {
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/new" component={CreateNote} />
         <PrivateRoute path="/notes" component={NotesFeed} />
+        <PrivateRoute path="/notes/:id" component={EditNote} />
       </Layout>
     </Router>
   );
