@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { NotesContext } from "../contexts/NotesProvider";
@@ -16,24 +15,21 @@ const TextArea = styled.textarea`
 `;
 
 export default function EditNote(props) {
+  const [content, setContent] = useState("");
+  const { getNote, handleUpdateNote, error } = useContext(NotesContext);
+
   useEffect(() => {
     const id = props.match.params.id;
     const note = getNote(id);
-    setNote(note);
+    setContent(note.content);
   }, [props.match.params.id]);
-
-  const [note, setNote] = useState(null);
-  const [content, setContent] = useState((note && note.content) || "");
-  const { getNote, handleUpdateNote, error } = useContext(NotesContext);
-  const history = useHistory();
 
   return (
     <Wrapper>
       <Form
-        onSubmit={async (event) => {
+        onSubmit={(event) => {
           event.preventDefault();
-          await handleUpdateNote(content);
-          if (!error) history.push("/");
+          handleUpdateNote(content);
         }}
       >
         <TextArea

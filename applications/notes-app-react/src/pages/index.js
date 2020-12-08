@@ -37,7 +37,7 @@ export default function Pages() {
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/new" component={CreateNote} />
         <PrivateRoute path="/notes" component={NotesFeed} />
-        <PrivateRoute path="/notes/:id" component={EditNote} />
+        <PrivateRoute path="/note/:id" component={EditNote} />
       </Layout>
     </Router>
   );
