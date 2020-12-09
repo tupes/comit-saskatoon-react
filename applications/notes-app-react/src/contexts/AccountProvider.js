@@ -1,4 +1,5 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
+import { StatusContext } from "./StatusProvider";
 
 import {
   createUserWithEmailAndPassword,
@@ -12,12 +13,12 @@ export const AccountContext = createContext();
 
 export default function AccountProvider(props) {
   const [user, setUser] = useState(null);
-  const [currentError, setCurrentError] = useState(null);
+  const { error, updateError, clearError } = useContext(StatusContext);
 
   const updateState = (userData) => {
     console.log(userData);
     setUser(userData);
-    setCurrentError(null);
+    clearError();
   };
 
   const handleSubmitSignUp = async (values) => {
@@ -31,7 +32,7 @@ export default function AccountProvider(props) {
       await saveUser(userData);
       updateState(userData);
     } catch (error) {
-      setCurrentError(error);
+      updateError(error);
     }
   };
 
@@ -44,7 +45,7 @@ export default function AccountProvider(props) {
       const userData = await getUser(authUser.user.uid);
       updateState(userData);
     } catch (error) {
-      setCurrentError(error);
+      updateError(error);
     }
   };
 
@@ -62,7 +63,7 @@ export default function AccountProvider(props) {
       const userData = await saveUser({ ...user, ...values });
       updateState(userData);
     } catch (error) {
-      setCurrentError(error);
+      updateError(error);
     }
   };
 
@@ -70,7 +71,7 @@ export default function AccountProvider(props) {
     <AccountContext.Provider
       value={{
         user,
-        error: currentError,
+        error,
         handleSubmitSignUp,
         handleSubmitLogin,
         handleSignOut,

@@ -17,3 +17,7 @@ export async function getNotes(uid) {
 export function createNote(note) {
   return db.collection("notes").add(note);
 }
+
+export function updateNote(note) {
+  return db.collection("notes").doc(note.id).set(note);
+}

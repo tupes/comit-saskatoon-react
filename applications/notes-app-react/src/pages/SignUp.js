@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 import { Button } from "../components/Button";
 import { AccountContext } from "../contexts/AccountProvider";
+import { StatusContext } from "../contexts/StatusProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -28,7 +30,8 @@ export default function SignUp() {
   }, []);
 
   const { handleSubmitSignUp, error } = useContext(AccountContext);
-
+  const { isLoading, updateLoadingStatus } = useContext(StatusContext);
+  const history = useHistory();
   const [values, setValues] = useState({});
 
   const handleChange = (event) => {
@@ -38,13 +41,22 @@ export default function SignUp() {
     });
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Wrapper>
       <h2>Sign Up</h2>
       <Form
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
+          updateLoadingStatus(true);
           event.preventDefault();
-          handleSubmitSignUp(values);
+          await handleSubmitSignUp(values);
+          updateLoadingStatus(false);
+          if (!error) {
+            history.push("/notes");
+          }
         }}
       >
         <label htmlFor="username">Username:</label>

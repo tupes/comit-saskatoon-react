@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, createContext } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Layout from "../components/Layout";
 import Home from "./Home";
@@ -32,8 +32,8 @@ export default function Pages() {
     <Router>
       <Layout>
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/login" render={() => <Login />} />
+        <Route path="/signup" render={() => <SignUp />} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/new" component={CreateNote} />
         <PrivateRoute path="/notes" component={NotesFeed} />

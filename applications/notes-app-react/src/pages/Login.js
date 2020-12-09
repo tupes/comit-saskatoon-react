@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Button } from "../components/Button";
 import { AccountContext } from "../contexts/AccountProvider";
 import { NotesContext } from "../contexts/NotesProvider";
+import { StatusContext } from "../contexts/StatusProvider";
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
@@ -30,7 +31,8 @@ export default function Login() {
   }, []);
 
   const history = useHistory();
-  const { handleSubmitLogin, error } = useContext(AccountContext);
+  const { handleSubmitLogin } = useContext(AccountContext);
+  const { isLoading, updateLoadingStatus, error } = useContext(StatusContext);
   const [values, setValues] = useState({});
 
   const handleChange = (event) => {
@@ -40,13 +42,19 @@ export default function Login() {
     });
   };
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Wrapper>
       <h2>Login</h2>
       <Form
         onSubmit={async (event) => {
+          updateLoadingStatus(true);
           event.preventDefault();
           await handleSubmitLogin(values);
+          updateLoadingStatus(false);
           if (!error) {
             history.push("/notes");
           }

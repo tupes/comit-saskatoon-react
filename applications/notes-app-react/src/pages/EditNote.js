@@ -15,12 +15,14 @@ const TextArea = styled.textarea`
 `;
 
 export default function EditNote(props) {
+  const [existingNote, setExistingNote] = useState(null);
   const [content, setContent] = useState("");
   const { getNote, handleUpdateNote, error } = useContext(NotesContext);
 
   useEffect(() => {
     const id = props.match.params.id;
     const note = getNote(id);
+    setExistingNote(note);
     setContent(note.content);
   }, [props.match.params.id]);
 
@@ -29,7 +31,7 @@ export default function EditNote(props) {
       <Form
         onSubmit={(event) => {
           event.preventDefault();
-          handleUpdateNote(content);
+          handleUpdateNote(existingNote, content);
         }}
       >
         <TextArea
