@@ -2,7 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 
-const StyledNote = styled.article`
+export const StyledNote = styled.article`
   max-width: 800px;
   margin: 0 auto;
 `;
