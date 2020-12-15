@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { ItemsContext } from "./ItemsProvider";
 
 export default function ItemCategories() {
-  const { itemCategories, handleSelectCategory } = useContext(ItemsContext);
+  const { itemCategories, handleSelectCategory } = React.useContext(
+    ItemsContext
+  );
 
   return (
     <ul className="item-categories">
