@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import * as notesRepository from "../firebase/firestore/notesRepository";
+import * as apiNotesRepository from "../api/notesRepository";
 import { AccountContext } from "./AccountProvider";
 import { StatusContext } from "./StatusProvider";
 
@@ -12,7 +13,7 @@ export default function NotesProvider(props) {
 
   useEffect(() => {
     const loadNotes = async (uid) => {
-      const loadedNotes = await notesRepository.getNotes(uid);
+      const loadedNotes = await apiNotesRepository.getNotes(uid);
       console.log(loadedNotes);
       setNotes(loadedNotes);
     };

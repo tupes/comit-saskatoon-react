@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Soccer ball",
+      "price": 44,
+      "description": "The best soccer ball ever!",
+      "image": "imgs/soccer/ball.png",
+      "category": "soccer"
+    },
+    {
+      "id": 2,
+      "name": "Tubing raft",
+      "price": 624,
+      "description": "Have some extreme fun being pulled in this raft!",
+      "image": "imgs/watersports/tube.png",
+      "category": "watersports"
+    },
+    {
+      "id": 3,
+      "name": "Chess board and pieces",
+      "price": 499,
+      "description": "finest wood",
+      "image": "imgs/boardgames/woodenSet.png",
+      "category": "boardgames"
+    },
+    {
+      "id": 4,
+      "name": "Team Canada soccer jersey",
+      "price": 591,
+      "description": "Display your national pride with this authentic Team Canada soccer jersey!",
+      "image": "imgs/soccer/shirtCanada.png",
+      "category": "soccer"
+    },
+    {
+      "id": 5,
+      "name": "Goggles",
+      "price": 396,
+      "description": "Top-of-the-line goggles for the most extreme of watersports!",
+      "image": "imgs/watersports/sunglass.png",
+      "category": "watersports"
+    }
+  ],
+  "itemFields": [
+    "name",
+    "price",
+    "category"
+  ],
+  "itemCategories": [
+    "all",
+    "watersports",
+    "soccer",
+    "basketball",
+    "hockey",
+    "boardgames"
+  ],
+  "users": [
+    {
+      "isLoggedIn": true,
+      "cart": [],
+      "id": 1
+    },
+    {
+      "id": 2,
+      "username": "Josh",
+      "isLoggedIn": false,
+      "cart": []
+    }
+  ]
+}
