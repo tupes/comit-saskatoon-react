@@ -22,10 +22,6 @@ app.get("/itemCategories", (req, res) => {
   const content = data.itemCategories;
   res.json(content);
 });
-app.get("/notes", (req, res) => {
-  const content = [{ id: 1, content: "Some content", author: "Mark" }];
-  res.json(content);
-});
 app.get("/", (req, res) => {
   const content = { message: "Resource not found" };
   res.status(404).json(content);
