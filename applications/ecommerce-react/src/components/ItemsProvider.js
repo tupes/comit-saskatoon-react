@@ -5,11 +5,7 @@ import React, {
   useContext,
   createContext,
 } from "react";
-import {
-  getItemCategories,
-  getItemFields,
-  getItems,
-} from "../firebase/itemRepository";
+import { getItems, getItemCategories } from "../api/itemRepository";
 
 export const ItemsContext = createContext();
 export const useItems = () => useContext(ItemsContext);
@@ -17,7 +13,6 @@ export const useItems = () => useContext(ItemsContext);
 export default function ItemsProvider({ children }) {
   const [items, setItems] = useState([]);
   const [itemCategories, setItemCategories] = useState([]);
-  const [itemFields, setItemFields] = useState([]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -30,14 +25,9 @@ export default function ItemsProvider({ children }) {
       const data = await getItemCategories();
       setItemCategories(data);
     };
-    const fetchItemFields = async () => {
-      const data = await getItemFields();
-      setItemFields(data);
-    };
 
     fetchItems();
     fetchItemCategories();
-    fetchItemFields();
   }, []);
 
   const itemsToDisplay = useMemo(() => {

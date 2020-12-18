@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const { verifyToken, getUserByUid } = require("./firebase.js");
+
 const data = require("./data.json");
 
 const app = express();
@@ -9,6 +11,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.post("/user", async (req, res) => {
+  console.log("Verifying user token");
+  const { token } = req.body;
+  const uid = await verifyToken(token);
+  res.json(uid);
+});
+app.get("/user", async (req, res) => {
+  const content = await getUserByUid("KbY5HCC1pdSvnY5sEBBBUBbiqrm1");
+  res.json(content);
+});
 app.get("/items", (req, res) => {
   const content = data.items;
   res.json(content);

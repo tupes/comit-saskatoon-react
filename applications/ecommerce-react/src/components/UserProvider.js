@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  getToken,
 } from "../firebase/auth";
 
 import {
@@ -13,6 +14,8 @@ import {
   addItemToCart,
   getCartItems,
 } from "../firebase/userRepository";
+
+import { verifyToken } from "../api/userRepository";
 
 const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
@@ -47,6 +50,9 @@ export default function UserProvider(props) {
     event.preventDefault();
     try {
       const authUser = await signInWithEmailAndPassword(email, password);
+      const token = await getToken();
+      const isVerified = await verifyToken(token);
+      console.log(isVerified);
       const userData = await getUser(authUser.user.uid);
       userData.cart = await getCartItems(authUser.user.uid);
       updateState(userData);

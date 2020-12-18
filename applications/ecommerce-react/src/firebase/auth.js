@@ -11,3 +11,7 @@ export function signInWithEmailAndPassword(email, password) {
 export function signOut() {
   return auth.signOut();
 }
+
+export function getToken() {
+  return auth.currentUser.getIdToken(true);
+}
