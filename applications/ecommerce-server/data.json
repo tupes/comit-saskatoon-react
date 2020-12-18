@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Soccer ball",
-      "price": 44,
+      "price": 84,
       "description": "The best soccer ball ever!",
       "image": "imgs/soccer/ball.png",
       "category": "soccer"
@@ -41,11 +41,7 @@
       "category": "watersports"
     }
   ],
-  "itemFields": [
-    "name",
-    "price",
-    "category"
-  ],
+  "itemFields": ["name", "price", "category"],
   "itemCategories": [
     "all",
     "watersports",

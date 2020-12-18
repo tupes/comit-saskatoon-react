@@ -5,14 +5,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  getToken,
 } from "../firebase/auth";
 
-import {
-  getUser,
-  addUser,
-  addItemToCart,
-  getCartItems,
-} from "../firebase/userRepository";
+import { getUser, addUser, getCartItems } from "../firebase/userRepository";
+
+import { addItemToCart } from "../api/itemRepository";
 
 const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
@@ -47,7 +45,9 @@ export default function UserProvider(props) {
     event.preventDefault();
     try {
       const authUser = await signInWithEmailAndPassword(email, password);
+      const token = await getToken();
       const userData = await getUser(authUser.user.uid);
+      userData.token = token;
       userData.cart = await getCartItems(authUser.user.uid);
       updateState(userData);
     } catch (error) {
@@ -68,7 +68,7 @@ export default function UserProvider(props) {
 
   const handleAddToCartClick = async (item) => {
     try {
-      await addItemToCart(user.uid, item.id);
+      await addItemToCart(user.uid, item.id, user.token);
     } catch (error) {
       console.log(error);
     }

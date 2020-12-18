@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const { verifyToken } = require("./firebase.js");
+
 const data = require("./data.json");
 
 const app = express();
@@ -21,6 +23,16 @@ app.post("/items", (req, res) => {
 app.get("/itemCategories", (req, res) => {
   const content = data.itemCategories;
   res.json(content);
+});
+app.post("/cart", async (req, res) => {
+  const { userId, itemId, token } = req.body;
+  const uid = await verifyToken(token);
+  console.log(uid);
+  if (uid === userId) {
+    res.json({ message: "Success", uid });
+  } else {
+    res.status(413).json({ message: "Invalid user token" });
+  }
 });
 app.get("/", (req, res) => {
   const content = { message: "Resource not found" };
