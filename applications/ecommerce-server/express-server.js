@@ -24,7 +24,17 @@ app.get("/itemCategories", (req, res) => {
   const content = data.itemCategories;
   res.json(content);
 });
+app.post("/verify", async (req, res) => {
+  const { token } = req.body;
+  const uid = await verifyToken(token);
+  if (uid) {
+    res.json({ uid });
+  } else {
+    res.status(413).json({ message: "Invalid user token" });
+  }
+});
 app.post("/cart", async (req, res) => {
+  console.log("Adding item to cart");
   const { userId, itemId, token } = req.body;
   const uid = await verifyToken(token);
   console.log(uid);
